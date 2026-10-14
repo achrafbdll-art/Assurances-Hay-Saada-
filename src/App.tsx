@@ -11,23 +11,34 @@ import {
   MapPin, 
   ChevronRight, 
   Menu, 
-  X,
-  CheckCircle2,
-  ShieldCheck,
-  Clock,
-  Award,
-  Building2,
-  ArrowRight,
-  Quote,
-  Star,
-  Navigation,
-  Calendar,
-  Sparkles,
-  MessageSquare,
-  PhoneCall
+  X, 
+  CheckCircle2, 
+  ShieldCheck, 
+  Clock, 
+  Award, 
+  Building2, 
+  ArrowRight, 
+  Quote, 
+  Star, 
+  Navigation, 
+  Calendar, 
+  Sparkles, 
+  MessageSquare, 
+  PhoneCall,
+  Truck,
+  HardHat,
+  Laptop,
+  Plane,
+  Shield,
+  Calculator,
+  MessageCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SERVICES, PRO_SERVICES, TESTIMONIALS } from './constants';
+import { PRODUCTS_DATA, ProductData } from './data/products';
+import { ProductDetailPage } from './components/ProductDetailPage';
+import { CatalogPage } from './components/CatalogPage';
+import { QuoteModal } from './components/QuoteModal';
 
 const SaadaMonogram = ({ 
   isScrolled = false, 
@@ -117,7 +128,15 @@ const SaadaMonogram = ({
   );
 };
 
-const Navbar = () => {
+const Navbar = ({
+  currentView = 'home',
+  onNavigate,
+  onOpenQuoteModal
+}: {
+  currentView?: string;
+  onNavigate?: (view: 'home' | 'particuliers' | 'entreprises', targetHash?: string) => void;
+  onOpenQuoteModal?: () => void;
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -127,32 +146,48 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Accueil', href: '#' },
-    { name: 'Hay Mohammadi', href: '#hay-mohammadi' },
-    { name: 'Particuliers', href: '#services' },
-    { name: 'Entreprises', href: '#professionnels' },
-    { name: 'Contact', href: '#contact' },
+  const navItems = [
+    { name: 'Accueil', view: 'home' as const, hash: '#' },
+    { name: 'Particuliers', view: 'particuliers' as const, hash: '#particuliers' },
+    { name: 'Entreprises', view: 'entreprises' as const, hash: '#entreprises' },
+    { name: 'Contact', view: 'home' as const, hash: '#contact' },
   ];
+
+  const handleNavClick = (e: React.MouseEvent, item: typeof navItems[0]) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (onNavigate) {
+      onNavigate(item.view, item.hash);
+    } else {
+      window.location.hash = item.hash;
+    }
+  };
+
+  const isDarkNav = !isScrolled && currentView === 'home';
 
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
+        isScrolled || currentView !== 'home'
           ? 'bg-white/95 backdrop-blur-md shadow-md py-2.5 border-b border-gray-100' 
           : 'bg-gradient-to-b from-black/75 via-black/35 to-transparent py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <a href="#" className="flex items-center gap-3 group shrink-0" aria-label="Accueil Assurances Hay Saada">
+          <a 
+            href="#" 
+            onClick={(e) => { e.preventDefault(); onNavigate?.('home'); }}
+            className="flex items-center gap-3 group shrink-0 cursor-pointer" 
+            aria-label="Accueil Assurances Hay Saada"
+          >
             {/* Monogramme AH officiel sans cadran */}
-            <SaadaMonogram isScrolled={isScrolled} />
+            <SaadaMonogram isScrolled={isScrolled || currentView !== 'home'} />
             <div className="flex flex-col justify-center">
-              <span className={`text-base sm:text-lg lg:text-xl font-black tracking-tight whitespace-nowrap leading-none ${isScrolled ? 'text-[#001f5c]' : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]'}`}>
+              <span className={`text-base sm:text-lg lg:text-xl font-black tracking-tight whitespace-nowrap leading-none ${isDarkNav ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]' : 'text-[#001f5c]'}`}>
                 ASSURANCES <span className="text-[#ff0000]">HAY SAADA</span>
               </span>
-              <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider block mt-1.5 whitespace-nowrap ${isScrolled ? 'text-gray-600' : 'text-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]'}`}>
+              <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider block mt-1.5 whitespace-nowrap ${isDarkNav ? 'text-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]' : 'text-gray-600'}`}>
                 Agent Général AXA Assurance Maroc
               </span>
             </div>
@@ -160,28 +195,35 @@ const Navbar = () => {
           
           <div className="hidden md:flex items-center space-x-6">
             <div className="flex items-baseline space-x-7">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`text-sm font-bold transition-colors hover:text-[#ff0000] ${
-                    isScrolled 
-                      ? 'text-gray-700 hover:text-[#ff0000]' 
-                      : 'text-white hover:text-[#ff2a2a] drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navItems.map((item) => {
+                const isActive = (item.view === currentView && currentView !== 'home') || 
+                  (currentView === 'home' && item.name === 'Accueil');
+                return (
+                  <a
+                    key={item.name}
+                    href={item.hash}
+                    onClick={(e) => handleNavClick(e, item)}
+                    className={`text-sm font-bold transition-colors ${
+                      isActive 
+                        ? 'text-[#ff0000]' 
+                        : isDarkNav 
+                          ? 'text-white hover:text-[#ff2a2a] drop-shadow-[0_1px_3px_rgba(0,0,0,0.7)]' 
+                          : 'text-gray-700 hover:text-[#ff0000]'
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                );
+              })}
             </div>
 
             <div className="flex items-center gap-3 pl-3 border-l border-gray-200/40">
               <a
                 href="tel:+212522000000"
                 className={`flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-lg transition-all ${
-                  isScrolled
-                    ? 'text-[#001f5c] hover:bg-blue-50'
-                    : 'text-white hover:bg-white/10 drop-shadow-sm'
+                  isDarkNav
+                    ? 'text-white hover:bg-white/10 drop-shadow-sm'
+                    : 'text-[#001f5c] hover:bg-blue-50'
                 }`}
                 title="Appel direct agence"
               >
@@ -189,13 +231,14 @@ const Navbar = () => {
                 <span className="hidden xl:inline">05 22 00 00 00</span>
               </a>
 
-              <a
-                href="#contact"
-                className="bg-gradient-to-r from-[#002b80] to-[#001f5c] hover:from-[#0038a8] hover:to-[#002b80] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold tracking-wide uppercase transition-all shadow-md hover:shadow-lg border border-white/10 flex items-center gap-2"
+              <button
+                type="button"
+                onClick={() => onOpenQuoteModal?.()}
+                className="bg-gradient-to-r from-[#002b80] to-[#001f5c] hover:from-[#0038a8] hover:to-[#002b80] text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold tracking-wide uppercase transition-all shadow-md hover:shadow-lg border border-white/10 flex items-center gap-2 cursor-pointer"
               >
                 <span>Devis Gratuit</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ff0000] inline-block animate-pulse" />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -209,7 +252,7 @@ const Navbar = () => {
             </a>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg ${isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
+              className={`p-2 rounded-lg ${isDarkNav ? 'text-white hover:bg-white/10' : 'text-gray-700 hover:bg-gray-100'}`}
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -244,14 +287,14 @@ const Navbar = () => {
             </div>
 
             <div className="px-4 py-3 space-y-1">
-              {navLinks.map((link) => (
+              {navItems.map((item) => (
                 <a
-                  key={link.name}
-                  href={link.href}
+                  key={item.name}
+                  href={item.hash}
                   className="block px-3 py-3 rounded-lg text-sm font-bold text-gray-800 hover:bg-blue-50 hover:text-[#002b80] transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, item)}
                 >
-                  {link.name}
+                  {item.name}
                 </a>
               ))}
             </div>
@@ -274,13 +317,16 @@ const Navbar = () => {
                   <span>WhatsApp</span>
                 </a>
               </div>
-              <a
-                href="#contact"
-                className="block w-full text-center bg-gradient-to-r from-[#ff0000] to-[#d60000] text-white py-3 rounded-xl text-sm font-black uppercase tracking-wider shadow-md"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                type="button"
+                className="block w-full text-center bg-gradient-to-r from-[#ff0000] to-[#d60000] text-white py-3 rounded-xl text-sm font-black uppercase tracking-wider shadow-md cursor-pointer"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  onOpenQuoteModal?.();
+                }}
               >
                 Obtenir un Devis Gratuit
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
@@ -611,41 +657,48 @@ const ServiceIcon = ({ name, className }: { name: string; className?: string }) 
     case 'Briefcase': return <Briefcase className={className} />;
     case 'TrendingUp': return <TrendingUp className={className} />;
     case 'Users': return <Users className={className} />;
+    case 'Plane': return <Plane className={className} />;
+    case 'ShieldCheck': return <ShieldCheck className={className} />;
+    case 'Building2': return <Building2 className={className} />;
+    case 'Truck': return <Truck className={className} />;
+    case 'HardHat': return <HardHat className={className} />;
+    case 'Laptop': return <Laptop className={className} />;
     default: return <ShieldCheck className={className} />;
   }
 };
 
-const Services = () => {
+const Services = ({
+  onSelectProduct,
+  onExploreCategory
+}: {
+  onSelectProduct?: (product: ProductData) => void;
+  onExploreCategory?: (category: 'particulier' | 'entreprise') => void;
+}) => {
+  const particulierProducts = PRODUCTS_DATA.filter(p => p.category === 'particulier' && p.id !== 'emprunteur');
+
   return (
     <section id="services" className="py-24 axa-blue-bg-pattern text-white relative overflow-hidden">
       {/* Dynamic 3D AXA Brand Motifs in Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Giant Watermark AXA Slanted Slash */}
         <div 
           className="absolute -right-20 -top-32 w-96 h-[600px] bg-white/[0.03] border-l-8 border-[#ff0000]/30 transform -skew-x-[14deg] pointer-events-none blur-[0.5px]" 
         />
         <div 
           className="absolute -left-24 bottom-10 w-72 h-[450px] bg-blue-400/[0.04] border-r-8 border-white/10 transform -skew-x-[14deg] pointer-events-none" 
         />
-
-        {/* 3D Floating Geometric Glass Panels */}
         <div className="absolute top-16 right-12 w-64 h-64 border border-white/15 rounded-3xl rotate-12 bg-white/[0.03] backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.3)]" />
         <div className="absolute bottom-20 left-10 w-52 h-52 border border-[#ff0000]/40 rounded-2xl -rotate-12 bg-[#ff0000]/10 backdrop-blur-md shadow-[0_20px_50px_rgba(255,0,0,0.15)]" />
-        
-        {/* Luminous Ambient Lights */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-400/20 rounded-full blur-[120px]" />
         <div className="absolute -bottom-10 right-1/4 w-[500px] h-[250px] bg-red-600/15 rounded-full blur-[100px]" />
-
-        {/* Diagonal AXA Ribbon Accent */}
         <div className="absolute top-0 right-1/3 w-2.5 h-48 bg-gradient-to-b from-[#ff0000] to-transparent transform -skew-x-[14deg] opacity-80" />
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-4 shadow-sm">
             <div className="w-2.5 h-2.5 bg-[#ff0000] rotate-45" />
             <span className="text-xs font-black tracking-[0.25em] text-blue-200 uppercase">
-              Gamme AXA Particuliers
+              Gamme AXA Particuliers • Solutions Clés
             </span>
           </div>
 
@@ -661,38 +714,94 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {SERVICES.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {particulierProducts.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white p-10 rounded-2xl shadow-[0_25px_50px_rgba(0,15,50,0.35)] border-t-4 border-[#ff0000] axa-card-3d group text-gray-900"
+              transition={{ delay: index * 0.08 }}
+              onClick={() => onSelectProduct?.(service)}
+              className="bg-white p-8 rounded-2xl shadow-[0_20px_45px_rgba(0,15,50,0.25)] border-t-4 border-[#ff0000] axa-card-3d group text-gray-900 cursor-pointer flex flex-col justify-between"
             >
-              <div className="w-16 h-16 bg-blue-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-[#001f5c] transition-all duration-500 shadow-sm">
-                <ServiceIcon name={service.icon} className="text-[#001f5c] group-hover:text-white transition-colors w-8 h-8" />
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-[#001f5c] transition-all duration-300 shadow-xs">
+                    <ServiceIcon name={service.iconName} className="text-[#001f5c] group-hover:text-white transition-colors w-7 h-7" />
+                  </div>
+                  <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider bg-slate-100 px-2.5 py-1 rounded-md">
+                    {service.subcategory}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-black text-gray-900 group-hover:text-[#001f5c] transition-colors mb-2 tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed font-medium text-xs sm:text-sm line-clamp-3">
+                  {service.shortDescription}
+                </p>
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4 tracking-tight">{service.title}</h3>
-              <p className="text-gray-600 mb-8 leading-relaxed font-medium">
-                {service.description}
-              </p>
-              <a href="#contact" className="inline-flex items-center text-[#ff0000] font-black uppercase text-sm tracking-widest hover:gap-3 transition-all">
-                VOIR L'OFFRE <ArrowRight size={18} className="ml-2" />
-              </a>
+
+              <div className="pt-4 border-t border-gray-100 flex items-center justify-between gap-2">
+                <a
+                  href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour : ${service.title}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
+                >
+                  <MessageCircle size={14} className="text-[#25D366]" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <span className="inline-flex items-center text-[#ff0000] font-black uppercase text-xs tracking-wider group-hover:gap-2 transition-all">
+                  PAGE DÉDIÉE <ArrowRight size={15} className="ml-1" />
+                </span>
+              </div>
             </motion.div>
           ))}
+        </div>
+
+        {/* Explore all CTA */}
+        <div className="mt-14 text-center">
+          <button
+            onClick={() => onExploreCategory?.('particulier')}
+            className="inline-flex items-center gap-3 bg-white/10 hover:bg-white text-white hover:text-[#001f5c] border border-white/25 px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-lg backdrop-blur-md cursor-pointer"
+          >
+            <span>Consulter l'Espace Particuliers complet</span>
+            <ArrowRight size={16} />
+          </button>
         </div>
       </div>
     </section>
   );
 };
 
-const ProfessionalSection = () => {
+const ProfessionalSection = ({
+  onSelectProduct,
+  onExploreCategory,
+  onOpenQuoteModal
+}: {
+  onSelectProduct?: (product: ProductData) => void;
+  onExploreCategory?: (category: 'particulier' | 'entreprise') => void;
+  onOpenQuoteModal?: (title?: string) => void;
+}) => {
+  const proProducts = PRODUCTS_DATA.filter(p => p.category === 'entreprise');
+  const [proCompany, setProCompany] = useState('');
+  const [proSector, setProSector] = useState('Services / Commerce');
+  const [proPhone, setProPhone] = useState('');
+  const [isSent, setIsSent] = useState(false);
+
+  const handleProSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!proCompany || !proPhone) return;
+    setIsSent(true);
+  };
+
   return (
     <section id="professionnels" className="py-24 bg-[#fcfdfe] relative overflow-hidden border-b border-gray-100">
-      {/* Moroccan Geometric Diamond Grid Pattern with subtle red intersection dots matching uploaded visual */}
+      {/* Moroccan Geometric Diamond Grid Pattern */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
@@ -701,105 +810,195 @@ const ProfessionalSection = () => {
         }}
       />
 
-      {/* Subtle 3D Depth Accents */}
-      <div className="absolute top-0 right-0 w-full h-full opacity-35 pointer-events-none overflow-hidden">
-        <div className="absolute top-10 right-10 w-64 h-64 border border-blue-200/60 rounded-3xl rotate-45 bg-blue-50/20" />
-        <div className="absolute bottom-20 left-10 w-40 h-40 bg-[#ff0000]/5 rounded-2xl rotate-12" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-100/20 rounded-full blur-3xl" />
-      </div>
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-center">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-start mb-16">
           <div className="lg:w-7/12">
-            <div className="mb-14">
+            <div className="mb-10">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-1 bg-[#ff0000]" />
-                <h2 className="text-sm font-black text-[#002b80] uppercase tracking-[0.3em]">Espace Entreprises</h2>
+                <h2 className="text-sm font-black text-[#002b80] uppercase tracking-[0.3em]">Espace Entreprises & Professionnels</h2>
               </div>
               <h3 className="text-4xl sm:text-5xl font-black text-[#001f5c] mb-6 tracking-tighter leading-tight">
                 L'EXPERTISE PRO <br /><span className="text-[#001f5c]">SANS COMPROMIS.</span>
               </h3>
-              <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                Sécurisez votre avenir professionnel avec les solutions AXA. Nous protégeons vos actifs, vos salariés et votre responsabilité.
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-medium">
+                Sécurisez votre avenir professionnel avec les solutions d'assurance AXA. Nous protégeons vos actifs, votre responsabilité juridique, vos salariés et votre flotte de transport.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {PRO_SERVICES.map((pro, idx) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {proProducts.slice(0, 4).map((pro) => (
                 <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="bg-white p-8 rounded-2xl shadow-[0_15px_35px_rgba(0,31,92,0.06)] border border-gray-200/90 hover:border-[#ff0000] transition-all group axa-card-3d"
+                  key={pro.id}
+                  onClick={() => onSelectProduct?.(pro)}
+                  className="bg-white p-7 rounded-2xl shadow-[0_15px_35px_rgba(0,31,92,0.06)] border border-gray-200/90 hover:border-[#ff0000] transition-all group axa-card-3d cursor-pointer flex flex-col justify-between"
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 bg-[#001f5c] group-hover:bg-[#ff0000] rounded-xl flex items-center justify-center text-white shadow-md transition-all duration-300 transform -rotate-3 group-hover:rotate-0">
-                      {pro.icon === 'ShieldCheck' && <ShieldCheck size={28} />}
-                      {pro.icon === 'Car' && <Car size={28} />}
-                      {pro.icon === 'Building2' && <Building2 size={28} />}
-                      {pro.icon === 'HeartPulse' && <HeartPulse size={28} />}
+                  <div>
+                    <div className="flex items-center gap-3.5 mb-4">
+                      <div className="w-12 h-12 bg-[#001f5c] group-hover:bg-[#ff0000] rounded-xl flex items-center justify-center text-white shadow-md transition-colors">
+                        <ServiceIcon name={pro.iconName} className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">{pro.subcategory}</span>
+                        <h4 className="font-black text-[#001f5c] text-base leading-tight tracking-tight">{pro.title}</h4>
+                      </div>
                     </div>
-                    <h4 className="font-black text-[#001f5c] text-lg leading-tight uppercase tracking-tight">{pro.title}</h4>
+                    <p className="text-xs text-gray-600 mb-4 leading-relaxed font-medium line-clamp-2">
+                      {pro.shortDescription}
+                    </p>
+                    <ul className="space-y-2 mb-4">
+                      {pro.keyGuarantees.slice(0, 2).map((g, fIdx) => (
+                        <li key={fIdx} className="flex items-center gap-2 text-[11px] font-bold text-gray-700">
+                          <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                          <span className="truncate">{g.title}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-sm text-gray-600 mb-6 leading-relaxed font-medium">
-                    {pro.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {pro.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-center gap-3 text-xs font-bold text-gray-800 uppercase tracking-wider">
-                        <div className="w-2 h-2 bg-[#ff0000] shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+
+                  <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs gap-2">
+                    <a
+                      href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour l'offre Entreprise : ${pro.title}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
+                    >
+                      <MessageCircle size={12} className="text-[#25D366]" />
+                      <span>WhatsApp</span>
+                    </a>
+                    <span className="font-bold text-[#ff0000] group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                      Page dédiée <ArrowRight size={13} />
+                    </span>
+                  </div>
                 </motion.div>
               ))}
             </div>
+
+            <div className="mt-8">
+              <button
+                onClick={() => onExploreCategory?.('entreprise')}
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#001f5c] hover:text-[#ff0000] transition-colors"
+              >
+                <span>Voir les 8 solutions Entreprises & BTP</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
           </div>
 
-          <div className="lg:w-5/12 w-full">
-            <div className="bg-white p-8 sm:p-10 lg:p-12 shadow-[0_25px_60px_rgba(0,31,92,0.1)] border border-gray-200/90 rounded-2xl relative">
+          <div className="lg:w-5/12 w-full sticky top-28">
+            <div className="bg-white p-8 sm:p-10 shadow-[0_25px_60px_rgba(0,31,92,0.1)] border border-gray-200/90 rounded-3xl relative">
               <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#ff0000] rounded-lg shadow-md flex items-center justify-center text-white font-black text-xs z-20">
                 PRO
               </div>
-              <h4 className="text-3xl font-black text-[#001f5c] mb-2 tracking-tighter">CONTACT PRO</h4>
-              <p className="text-[#ff0000] text-xs mb-8 font-black uppercase tracking-widest">Audit gratuit de vos risques d'entreprise</p>
+              <h4 className="text-2xl font-black text-[#001f5c] mb-1 tracking-tight">CONTACT PRO CASABLANCA</h4>
+              <p className="text-[#ff0000] text-xs mb-6 font-black uppercase tracking-widest">Audit gratuit de vos risques d'entreprise</p>
               
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-xs font-black text-gray-500 uppercase mb-2 tracking-widest">Entreprise</label>
-                  <input 
-                    type="text" 
-                    className="w-full bg-gray-50 border-b-2 border-gray-300 px-3 py-3 text-gray-900 focus:outline-none focus:border-[#ff0000] focus:bg-white transition-all font-bold rounded-t-sm"
-                    placeholder="Raison sociale"
-                  />
+              {isSent ? (
+                <div className="py-8 text-center bg-emerald-50 rounded-2xl border border-emerald-200 p-6">
+                  <CheckCircle2 size={36} className="text-emerald-600 mx-auto mb-3" />
+                  <h5 className="font-bold text-emerald-900 text-sm">Demande d'audit reçue !</h5>
+                  <p className="text-xs text-emerald-700 mt-1">
+                    Notre chargé de clientèle Entreprises va contacter <strong>{proCompany}</strong> au {proPhone}.
+                  </p>
                 </div>
-                <div>
-                  <label className="block text-xs font-black text-gray-500 uppercase mb-2 tracking-widest">Secteur</label>
-                  <select className="w-full bg-gray-50 border-b-2 border-gray-300 px-3 py-3 text-gray-900 focus:outline-none focus:border-[#ff0000] focus:bg-white transition-all font-bold appearance-none rounded-t-sm">
-                    <option>Services / Commerce</option>
-                    <option>Industrie</option>
-                    <option>BTP / Construction</option>
-                    <option>Transport / Logistique</option>
-                    <option>Professions Libérales & Médical</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-xs font-black text-gray-500 uppercase mb-2 tracking-widest">Téléphone</label>
-                  <input 
-                    type="tel" 
-                    className="w-full bg-gray-50 border-b-2 border-gray-300 px-3 py-3 text-gray-900 focus:outline-none focus:border-[#ff0000] focus:bg-white transition-all font-bold rounded-t-sm"
-                    placeholder="06 XX XX XX XX"
-                  />
-                </div>
-                <button className="w-full bg-[#001f5c] hover:bg-[#ff0000] text-white font-black py-4.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 group uppercase tracking-widest text-sm shadow-lg shadow-[#001f5c]/15 hover:shadow-[#ff0000]/25">
-                  ÊTRE RAPPELLÉ
-                  <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                </button>
-              </form>
+              ) : (
+                <form onSubmit={handleProSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-[11px] font-black text-gray-500 uppercase mb-1 tracking-wider">Entreprise *</label>
+                    <input 
+                      type="text" 
+                      required
+                      value={proCompany}
+                      onChange={(e) => setProCompany(e.target.value)}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
+                      placeholder="Raison sociale (SARL, SA, Auto-entrepreneur...)"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-black text-gray-500 uppercase mb-1 tracking-wider">Secteur d'activité</label>
+                    <select 
+                      value={proSector}
+                      onChange={(e) => setProSector(e.target.value)}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
+                    >
+                      <option>Services / Conseil / IT</option>
+                      <option>Industrie & Production</option>
+                      <option>BTP / Construction / Promotion</option>
+                      <option>Transport & Logistique</option>
+                      <option>Commerce de détail / Franchise</option>
+                      <option>Professions Libérales & Santé</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[11px] font-black text-gray-500 uppercase mb-1 tracking-wider">Téléphone Professionnel *</label>
+                    <input 
+                      type="tel" 
+                      required
+                      value={proPhone}
+                      onChange={(e) => setProPhone(e.target.value)}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
+                      placeholder="05 XX XX XX XX ou 06 XX XX XX XX"
+                    />
+                  </div>
+                  <button 
+                    type="submit"
+                    className="w-full bg-[#001f5c] hover:bg-[#ff0000] text-white font-black py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-widest text-xs shadow-md mt-2 cursor-pointer"
+                  >
+                    <span>ÊTRE RAPPELLÉ PAR UN EXPERT</span>
+                    <ArrowRight size={16} />
+                  </button>
+                </form>
+              )}
             </div>
+          </div>
+        </div>
+
+        {/* Second row showing remaining 4 Entreprises products */}
+        <div>
+          <div className="flex items-center justify-between mb-6">
+            <h4 className="text-xl font-black text-[#001f5c] tracking-tight">
+              Autres solutions spécialisées pour entreprises
+            </h4>
+            <button
+              onClick={() => onExploreCategory?.('entreprise')}
+              className="text-xs font-bold text-[#ff0000] hover:underline"
+            >
+              Voir le catalogue Pro complet →
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {proProducts.slice(4).map((pro) => (
+              <div
+                key={pro.id}
+                onClick={() => onSelectProduct?.(pro)}
+                className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-[#001f5c] hover:shadow-lg transition-all group cursor-pointer flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-lg bg-blue-50 group-hover:bg-[#001f5c] flex items-center justify-center mb-3 transition-colors">
+                    <ServiceIcon name={pro.iconName} className="w-5 h-5 text-[#001f5c] group-hover:text-white transition-colors" />
+                  </div>
+                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider block mb-1">{pro.subcategory}</span>
+                  <h5 className="font-black text-gray-900 text-sm mb-2 group-hover:text-[#001f5c] transition-colors leading-tight">{pro.title}</h5>
+                  <p className="text-xs text-gray-500 line-clamp-2 font-medium mb-4">{pro.shortDescription}</p>
+                </div>
+
+                <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs gap-2">
+                  <a
+                    href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour l'offre Entreprise : ${pro.title}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors"
+                  >
+                    <MessageCircle size={12} className="text-[#25D366]" />
+                    <span>WhatsApp</span>
+                  </a>
+                  <span className="text-[#ff0000] font-bold text-[11px] group-hover:translate-x-0.5 transition-transform">Page dédiée →</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -807,54 +1006,94 @@ const ProfessionalSection = () => {
   );
 };
 
-const Testimonials = () => {
+const Testimonials = ({
+  onOpenQuoteModal
+}: {
+  onOpenQuoteModal?: (productTitle?: string) => void;
+}) => {
   return (
-    <section className="py-24 bg-gray-50 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="temoignages" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#000638] via-[#000a4a] to-[#00105c] text-white">
+      {/* Arrière-plan bleu avec motif répété AXA & Zellij géométrique marocain */}
+      <div 
+        className="absolute inset-0 pointer-events-none select-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='180' height='100' viewBox='0 0 180 100' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Entrelacs Zellij géométriques marocains --%3E%3Cpath d='M90 0 L180 50 L90 100 L0 50 Z' fill='none' stroke='%23193599' stroke-width='0.75' stroke-opacity='0.45'/%3E%3Cpath d='M0 0 L180 100 M180 0 L0 100' fill='none' stroke='%23132c85' stroke-width='0.5' stroke-opacity='0.35'/%3E%3Cpolygon points='90,14 96,28 110,34 96,40 90,54 84,40 70,34 84,28' fill='none' stroke='%232850cc' stroke-width='0.75' stroke-opacity='0.4'/%3E%3Ccircle cx='90' cy='34' r='2.2' fill='%23ff0000' fill-opacity='0.55'/%3E%3C!-- Répétition typographique AXA du motif --%3E%3Ctext x='90' y='66' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-weight='900' font-size='34' fill='%23122c8c' letter-spacing='2.5'%3EAXA%3C/text%3E%3C/svg%3E")`,
+          backgroundSize: '180px 100px'
+        }}
+      />
+
+      {/* Lueur d'ambiance et accents de marque */}
+      <div className="absolute top-0 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-52 h-52 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">Témoignages</h2>
-          <p className="text-4xl font-bold text-gray-900 mb-4">Ce que disent nos clients</p>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-4 shadow-sm">
+            <div className="w-2.5 h-2.5 bg-[#ff0000] rotate-45" />
+            <span className="text-xs font-black tracking-[0.25em] text-blue-200 uppercase">
+              Témoignages & Avis Clients
+            </span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+            Ce que disent nos clients
+          </h2>
+
+          <div className="flex justify-center items-center gap-3 mb-4">
+            <div className="w-12 h-1 bg-[#ff0000]" />
+            <p className="text-xs font-black text-blue-300 uppercase tracking-[0.25em]">
+              Assurances Hay Saada • Agence AXA Casablanca
+            </p>
+            <div className="w-12 h-1 bg-[#ff0000]" />
+          </div>
+
+          <p className="text-sm sm:text-base text-blue-100/90 max-w-2xl mx-auto font-normal leading-relaxed">
+            Particuliers, chefs d'entreprise et professions libérales partagent leur expérience avec notre équipe à Hay Mohammadi.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((testimonial, idx) => (
             <motion.div
               key={testimonial.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative"
+              className="bg-white p-8 rounded-3xl shadow-2xl border-t-4 border-[#ff0000] relative flex flex-col justify-between text-gray-900 group hover:-translate-y-1.5 transition-all duration-300"
             >
-              <div className="absolute top-6 right-8 text-blue-100">
-                <Quote size={48} />
+              <div className="absolute top-6 right-8 text-blue-100 group-hover:text-blue-200 transition-colors">
+                <Quote size={44} />
               </div>
               
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star 
-                    key={i} 
-                    size={16} 
-                    className={i < testimonial.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-200"} 
-                  />
-                ))}
+              <div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star 
+                      key={i} 
+                      size={17} 
+                      className={i < testimonial.rating ? "fill-amber-400 text-amber-400" : "text-gray-200"} 
+                    />
+                  ))}
+                </div>
+
+                <p className="text-gray-700 mb-8 italic relative z-10 text-sm leading-relaxed font-medium">
+                  "{testimonial.content}"
+                </p>
               </div>
 
-              <p className="text-gray-600 mb-8 italic relative z-10">
-                "{testimonial.content}"
-              </p>
-
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
                 <img 
                   src={testimonial.avatar} 
                   alt={testimonial.name} 
-                  className="w-12 h-12 rounded-full object-cover border-2 border-blue-50"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-blue-50 shadow-xs"
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h4 className="font-bold text-gray-900 text-sm">{testimonial.name}</h4>
-                  <p className="text-xs text-gray-500">
+                  <h4 className="font-black text-gray-900 text-sm">{testimonial.name}</h4>
+                  <p className="text-xs text-gray-500 font-semibold">
                     {testimonial.role} {testimonial.company && `• ${testimonial.company}`}
                   </p>
                 </div>
@@ -863,17 +1102,33 @@ const Testimonials = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-blue-600 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl shadow-blue-600/20">
-          <div className="text-white">
-            <h4 className="text-2xl font-bold mb-2">Rejoignez nos clients satisfaits</h4>
-            <p className="text-blue-100">Plus de 2000 clients nous font déjà confiance à Casablanca.</p>
+        {/* Action Banner */}
+        <div className="mt-16 bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+          <div className="text-center md:text-left">
+            <h4 className="text-2xl font-black text-white mb-2">Rejoignez nos clients satisfaits</h4>
+            <p className="text-blue-100 text-xs sm:text-sm font-medium">
+              Plus de 2 000 assurés nous font confiance à Hay Mohammadi et Casablanca pour leurs contrats d'assurance.
+            </p>
           </div>
-          <a 
-            href="#contact" 
-            className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all whitespace-nowrap"
-          >
-            Obtenir mon devis
-          </a>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+            <a
+              href="https://wa.me/212600000000?text=Bonjour%20Assurances%20Hay%20Saada,%20je%20souhaite%20un%20devis%20personnalis%C3%A9%20d%27assurance."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2"
+            >
+              <MessageCircle size={16} />
+              <span>WhatsApp Direct</span>
+            </a>
+
+            <button
+              onClick={() => onOpenQuoteModal ? onOpenQuoteModal() : window.location.hash = '#contact'}
+              className="bg-[#ff0000] hover:bg-[#d60000] text-white px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
+            >
+              Demander un devis
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -1218,13 +1473,22 @@ const MapSection = () => {
   );
 };
 
-const Footer = () => {
+const Footer = ({
+  onNavigate,
+  onSelectProduct
+}: {
+  onNavigate?: (view: 'home' | 'particuliers' | 'entreprises', targetHash?: string) => void;
+  onSelectProduct?: (product: ProductData) => void;
+}) => {
+  const particulierTop = PRODUCTS_DATA.filter(p => p.category === 'particulier').slice(0, 5);
+  const entrepriseTop = PRODUCTS_DATA.filter(p => p.category === 'entreprise').slice(0, 5);
+
   return (
     <footer className="bg-gray-900 text-gray-400 py-20 border-t border-gray-800 relative overflow-hidden">
       <div className="axa-pattern-3d absolute inset-0 opacity-5" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+          <div className="lg:col-span-2">
             <div className="flex items-center gap-3.5 mb-6">
               <SaadaMonogram variant="light" className="h-11 w-auto shrink-0" />
               <div>
@@ -1236,37 +1500,94 @@ const Footer = () => {
                 </span>
               </div>
             </div>
-            <p className="max-w-sm text-gray-400 font-medium leading-relaxed text-sm">
+            <p className="max-w-sm text-gray-400 font-medium leading-relaxed text-xs sm:text-sm mb-6">
               Votre partenaire d'assurance de référence au Maroc. Protection des particuliers, familles, professionnels et entreprises avec la solidité du groupe AXA.
             </p>
+            <div className="text-xs text-gray-400 space-y-1">
+              <p>📍 271, Certificat Bloc 17, Hay Mohammadi, Casablanca</p>
+              <p>📞 05 22 00 00 00 • contact@assuranceshaysaada.ma</p>
+            </div>
           </div>
+
           <div>
-            <h4 className="text-white font-black mb-6 uppercase tracking-widest text-sm">Navigation</h4>
-            <ul className="space-y-4 text-sm font-bold">
-              <li><a href="#" className="hover:text-[#ff0000] transition-colors">Accueil</a></li>
-              <li><a href="#services" className="hover:text-[#ff0000] transition-colors">Particuliers</a></li>
-              <li><a href="#professionnels" className="hover:text-[#ff0000] transition-colors">Entreprises</a></li>
-              <li><a href="#contact" className="hover:text-[#ff0000] transition-colors">Contact</a></li>
+            <h4 className="text-white font-black mb-5 uppercase tracking-widest text-xs">Navigation</h4>
+            <ul className="space-y-3 text-xs font-bold">
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('home')} 
+                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                >
+                  Accueil
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('particuliers')} 
+                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                >
+                  Espace Particuliers
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('entreprises')} 
+                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                >
+                  Espace Entreprises
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => onNavigate?.('home', '#contact')} 
+                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                >
+                  Contact & Agence
+                </button>
+              </li>
             </ul>
           </div>
+
           <div>
-            <h4 className="text-white font-black mb-6 uppercase tracking-widest text-sm">Légal</h4>
-            <ul className="space-y-4 text-sm font-bold">
-              <li><a href="#" className="hover:text-[#ff0000] transition-colors">Mentions Légales</a></li>
-              <li><a href="#" className="hover:text-[#ff0000] transition-colors">Confidentialité</a></li>
-              <li><a href="#" className="hover:text-[#ff0000] transition-colors">Cookies</a></li>
+            <h4 className="text-white font-black mb-5 uppercase tracking-widest text-xs">Particuliers</h4>
+            <ul className="space-y-3 text-xs font-semibold">
+              {particulierTop.map((p) => (
+                <li key={p.id}>
+                  <button
+                    onClick={() => onSelectProduct?.(p)}
+                    className="hover:text-white transition-colors cursor-pointer text-left truncate max-w-full block"
+                  >
+                    {p.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-black mb-5 uppercase tracking-widest text-xs">Entreprises</h4>
+            <ul className="space-y-3 text-xs font-semibold">
+              {entrepriseTop.map((p) => (
+                <li key={p.id}>
+                  <button
+                    onClick={() => onSelectProduct?.(p)}
+                    className="hover:text-white transition-colors cursor-pointer text-left truncate max-w-full block"
+                  >
+                    {p.title}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-gray-800">
-          <p className="text-xs font-bold uppercase tracking-widest text-gray-600">
-            © {new Date().getFullYear()} Assurances Hay Saada - Agent Général Agréé AXA Assurance Maroc. Tous droits réservés.
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-gray-800 text-xs">
+          <p className="text-gray-500 font-medium text-center md:text-left">
+            © {new Date().getFullYear()} Assurances Hay Saada - Intermédiaire Agréé AXA Assurance Maroc. Conforme ACAPS.
           </p>
-          <div className="flex gap-6">
-            <div className="w-8 h-8 bg-white/5 rounded-full flex items-center justify-center hover:bg-[#ff0000] transition-all cursor-pointer">
-              <ShieldCheck size={16} className="text-white" />
-            </div>
+          <div className="flex items-center gap-6 text-gray-500">
+            <span className="hover:text-gray-400">Mentions Légales</span>
+            <span className="hover:text-gray-400">Protection Données CNDP</span>
+            <span className="hover:text-gray-400">Code des Assurances Maroc</span>
           </div>
         </div>
       </div>
@@ -1330,23 +1651,150 @@ const TrustFeaturesBar = () => {
 };
 
 export default function App() {
+  type ViewMode = 'home' | 'particuliers' | 'entreprises' | 'product-detail';
+
+  const [currentView, setCurrentView] = useState<ViewMode>('home');
+  const [selectedProduct, setSelectedProduct] = useState<ProductData | null>(null);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [quoteModalProduct, setQuoteModalProduct] = useState('Assurance Auto & Moto');
+
+  // Handle URL Hash deep linking
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#produit-')) {
+        const slug = hash.replace('#produit-', '');
+        const found = PRODUCTS_DATA.find(p => p.slug === slug || p.id === slug);
+        if (found) {
+          setSelectedProduct(found);
+          setCurrentView('product-detail');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+      }
+      if (hash === '#particuliers') {
+        setCurrentView('particuliers');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      if (hash === '#entreprises') {
+        setCurrentView('entreprises');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      if (hash === '#services' || hash === '#professionnels' || hash === '#contact') {
+        setCurrentView('home');
+        setTimeout(() => {
+          const el = document.getElementById(hash.replace('#', ''));
+          el?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+        return;
+      }
+      if (!hash || hash === '#' || hash === '#accueil') {
+        setCurrentView('home');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleNavigate = (view: ViewMode, targetHash?: string) => {
+    setCurrentView(view);
+    if (view === 'particuliers') {
+      window.location.hash = '#particuliers';
+    } else if (view === 'entreprises') {
+      window.location.hash = '#entreprises';
+    } else if (targetHash) {
+      window.location.hash = targetHash;
+    } else {
+      window.location.hash = '';
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSelectProduct = (product: ProductData) => {
+    setSelectedProduct(product);
+    setCurrentView('product-detail');
+    window.location.hash = `#produit-${product.slug}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenQuoteModal = (productTitle?: string) => {
+    if (productTitle) {
+      setQuoteModalProduct(productTitle);
+    }
+    setQuoteModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900">
-      <Navbar />
-      <main>
-        <Hero />
-        
-        {/* Trust Features Card matching uploaded visual */}
-        <TrustFeaturesBar />
+      <Navbar 
+        currentView={currentView}
+        onNavigate={handleNavigate}
+        onOpenQuoteModal={() => handleOpenQuoteModal()}
+      />
 
-        <About />
-        <Services />
-        <ProfessionalSection />
-        <Testimonials />
-        <MapSection />
-        <Contact />
-      </main>
-      <Footer />
+      {currentView === 'product-detail' && selectedProduct ? (
+        <ProductDetailPage
+          product={selectedProduct}
+          onBack={() => handleNavigate(selectedProduct.category === 'particulier' ? 'particuliers' : 'entreprises')}
+          onNavigateCategory={(cat) => handleNavigate(cat === 'particulier' ? 'particuliers' : 'entreprises')}
+          onOpenQuoteModal={handleOpenQuoteModal}
+        />
+      ) : currentView === 'particuliers' ? (
+        <CatalogPage
+          category="particulier"
+          onBack={() => handleNavigate('home')}
+          onSelectProduct={handleSelectProduct}
+          onSwitchCategory={(cat) => handleNavigate(cat === 'particulier' ? 'particuliers' : 'entreprises')}
+          onOpenQuoteModal={handleOpenQuoteModal}
+        />
+      ) : currentView === 'entreprises' ? (
+        <CatalogPage
+          category="entreprise"
+          onBack={() => handleNavigate('home')}
+          onSelectProduct={handleSelectProduct}
+          onSwitchCategory={(cat) => handleNavigate(cat === 'particulier' ? 'particuliers' : 'entreprises')}
+          onOpenQuoteModal={handleOpenQuoteModal}
+        />
+      ) : (
+        <main>
+          <Hero />
+          
+          {/* Trust Features Card */}
+          <TrustFeaturesBar />
+
+          <About />
+          
+          <Services 
+            onSelectProduct={handleSelectProduct}
+            onExploreCategory={(cat) => handleNavigate(cat === 'particulier' ? 'particuliers' : 'entreprises')}
+          />
+          
+          <ProfessionalSection 
+            onSelectProduct={handleSelectProduct}
+            onExploreCategory={(cat) => handleNavigate(cat === 'particulier' ? 'particuliers' : 'entreprises')}
+            onOpenQuoteModal={handleOpenQuoteModal}
+          />
+          
+          <Testimonials onOpenQuoteModal={handleOpenQuoteModal} />
+          <MapSection />
+          <Contact />
+        </main>
+      )}
+
+      <Footer 
+        onNavigate={handleNavigate}
+        onSelectProduct={handleSelectProduct}
+      />
+
+      <QuoteModal
+        isOpen={quoteModalOpen}
+        onClose={() => setQuoteModalOpen(false)}
+        initialProductTitle={quoteModalProduct}
+      />
     </div>
   );
 }
