@@ -22,7 +22,9 @@ import {
   Star,
   Navigation,
   Calendar,
-  Sparkles
+  Sparkles,
+  MessageSquare,
+  PhoneCall
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SERVICES, PRO_SERVICES, TESTIMONIALS } from './constants';
@@ -127,6 +129,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Accueil', href: '#' },
+    { name: 'Hay Mohammadi', href: '#hay-mohammadi' },
     { name: 'Particuliers', href: '#services' },
     { name: 'Entreprises', href: '#professionnels' },
     { name: 'Contact', href: '#contact' },
@@ -877,8 +880,159 @@ const Testimonials = () => {
   );
 };
 
+const About = () => {
+  const [showCallWidget, setShowCallWidget] = useState(true);
 
+  return (
+    <section id="hay-mohammadi" className="py-24 relative bg-[#fcfdfe] overflow-hidden border-b border-gray-100">
+      <div id="about" className="absolute -top-24" />
 
+      {/* Moroccan Geometric Zellij Pattern Background with subtle red center dots */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-25"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%2394a3b8' stroke-width='0.75'%3E%3Cpath d='M36 0l36 36-36 36L0 36z'/%3E%3Cpath d='M0 0l72 72M72 0L0 72'/%3E%3Ccircle cx='36' cy='36' r='2.2' fill='%23ef4444' stroke='none'/%3E%3Ccircle cx='0' cy='0' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='72' cy='0' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='0' cy='72' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='72' cy='72' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '72px 72px'
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Framed Image with Navy Border + Bottom Red Ribbon + Floating Call Widget */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              
+              {/* Outer Blue Frame matching image */}
+              <div className="border-[6px] border-[#001f5c] p-1.5 bg-white shadow-2xl relative">
+                <div className="relative overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
+                  <img
+                    src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=1000"
+                    alt="Deux collaborateurs célébrant avec un high five chez Assurances Hay Saada AXA"
+                    className="w-full h-full object-cover object-center"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+
+                {/* Bottom Red Banner */}
+                <div className="bg-[#ff0000] text-white py-3 text-center shadow-md">
+                  <span className="font-black text-sm tracking-wider uppercase">
+                    AGENCE AGRÉÉE AXA MAROC
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating "Besoin d'un conseil ?" Widget on bottom-left */}
+              {showCallWidget && (
+                <div className="absolute -bottom-8 -left-3 sm:-left-8 bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,31,92,0.18)] border border-gray-100 p-4 max-w-[275px] z-20">
+                  <button 
+                    onClick={() => setShowCallWidget(false)}
+                    className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors p-1"
+                    aria-label="Fermer"
+                  >
+                    <X size={14} />
+                  </button>
+
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="w-10 h-10 bg-[#001f5c] rounded-xl flex items-center justify-center text-white shrink-0 shadow-md">
+                      <Phone size={18} />
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-black text-gray-900 leading-tight">
+                        Besoin d'un conseil ?
+                      </h4>
+                      <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
+                        Nos experts vous rappellent gratuitement.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="tel:+212522000000"
+                      className="flex-1 bg-[#001f5c] hover:bg-[#001540] text-white text-center py-2 px-3 rounded-lg text-xs font-bold transition-all shadow-sm"
+                    >
+                      Appeler
+                    </a>
+                    <a
+                      href="https://wa.me/212600000000"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-[#25D366] hover:bg-[#1ebe5b] text-white text-center py-2 px-3 rounded-lg text-xs font-bold transition-all shadow-sm"
+                    >
+                      WhatsApp
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right Column: Title + Paragraphs + 2 Cards + Address Pill */}
+          <div className="lg:col-span-7">
+            {/* Main Heading in bold uppercase navy */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#001f5c] leading-[1.05] tracking-tight mb-6 uppercase">
+              VOTRE PARTENAIRE ASSURANCE DE CONFIANCE À HAY MOHAMMADI
+            </h2>
+
+            {/* Paragraph 1 */}
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
+              Implantée au cœur de Hay Mohammadi, l'agence <strong className="font-extrabold text-[#001f5c]">Assurances Hay Saada</strong> vous accompagne avec rigueur et écoute en tant qu'agent général agréé <strong className="font-extrabold text-[#001f5c]">AXA Assurance Maroc</strong>.
+            </p>
+
+            {/* Paragraph 2 */}
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
+              Nous allions la proximité humaine d'un cabinet de confiance et l'envergure internationale d'AXA pour protéger vos biens, votre santé, votre famille et votre patrimoine professionnel avec une réactivité irréprochable.
+            </p>
+
+            {/* Two Side-by-Side Highlight Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
+              
+              {/* Card 1: CONSEIL SUR MESURE */}
+              <div className="bg-slate-50/70 border-l-4 border-[#ff0000] border-y border-r border-gray-100 p-4 rounded-r-xl shadow-sm">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <MessageSquare size={16} className="text-[#001f5c]" />
+                  <h3 className="text-xs font-black text-[#001f5c] uppercase tracking-wider">
+                    CONSEIL SUR MESURE
+                  </h3>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Étude personnalisée gratuite selon votre budget.
+                </p>
+              </div>
+
+              {/* Card 2: GESTION SINISTRES LOCALE */}
+              <div className="bg-slate-50/70 border-l-4 border-[#001f5c] border-y border-r border-gray-100 p-4 rounded-r-xl shadow-sm">
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <PhoneCall size={16} className="text-[#001f5c]" />
+                  <h3 className="text-xs font-black text-[#001f5c] uppercase tracking-wider">
+                    GESTION SINISTRES LOCALE
+                  </h3>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Suivi direct à Hay Mohammadi pour indemnisation rapide.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Bottom Address Bar */}
+            <div className="bg-white border border-gray-200/90 rounded-xl p-3.5 flex items-center gap-3 shadow-sm">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-[#001f5c] shrink-0">
+                <MapPin size={18} className="text-[#001f5c]" />
+              </div>
+              <p className="text-xs sm:text-sm font-bold text-[#001f5c] leading-snug">
+                271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Contact = () => {
   return (
@@ -1185,6 +1339,7 @@ export default function App() {
         {/* Trust Features Card matching uploaded visual */}
         <TrustFeaturesBar />
 
+        <About />
         <Services />
         <ProfessionalSection />
         <Testimonials />
