@@ -426,7 +426,7 @@ const HERO_SLIDES: SlideData[] = [
     secondaryCtaText: "DEVIS GRATUIT",
     secondaryCtaHref: "#contact",
     floatingBadgeTitle: "Conseil & Souscription",
-    floatingBadgeSubtitle: "Boulevard Zerktouni, Casablanca"
+    floatingBadgeSubtitle: "Hay Mohammadi, Casablanca"
   },
   {
     id: 2,
