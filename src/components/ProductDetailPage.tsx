@@ -188,11 +188,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-8">
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="text-[10px] sm:text-xs font-black text-white uppercase tracking-wider bg-[#ff0000] px-3 py-1 rounded-md shadow-sm">
+                  Assurances Hay Saada • Agent Général AXA Casablanca
+                </span>
                 <span className="text-xs font-bold text-blue-200 uppercase tracking-widest bg-white/10 px-3 py-1 rounded-md border border-white/15">
                   {product.subcategory}
                 </span>
-                <span className="text-xs font-bold text-red-300 uppercase tracking-wider bg-red-500/20 px-3 py-1 rounded-md border border-red-500/30">
+                <span className="text-xs font-bold text-red-200 uppercase tracking-wider bg-red-500/20 px-3 py-1 rounded-md border border-red-500/30">
                   {product.badge}
                 </span>
               </div>

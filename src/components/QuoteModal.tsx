@@ -78,7 +78,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
             <div className="flex items-center gap-2 mb-2">
               <div className="w-2.5 h-2.5 bg-[#ff0000] rotate-45" />
               <span className="text-xs font-black uppercase tracking-wider text-[#001f5c]">
-                Assurances Hay Saada • AXA Maroc
+                Assurances Hay Saada • Agent Général AXA Casablanca
               </span>
             </div>
 

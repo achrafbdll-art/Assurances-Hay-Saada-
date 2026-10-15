@@ -180,18 +180,31 @@ const Navbar = ({
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); onNavigate?.('home'); }}
-            className="flex items-center gap-3 group shrink-0 cursor-pointer" 
-            aria-label="Accueil Assurances Hay Saada"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0 cursor-pointer" 
+            aria-label="Accueil Assurances Hay Saada - Agent Général AXA Casablanca"
           >
-            {/* Logo officiel Assurances Hay Saada (photo attachée) */}
-            <SaadaMonogram isScrolled={isScrolled || currentView !== 'home'} className="h-10 sm:h-12 w-auto shrink-0" />
+            {/* Logo officiel Assurances Hay Saada */}
+            <SaadaMonogram isScrolled={isScrolled || currentView !== 'home'} className="h-9 sm:h-11 md:h-12 w-auto shrink-0" />
             <div className="flex flex-col justify-center pl-2 sm:pl-3 border-l border-gray-300/40 min-w-0">
-              <span className={`text-[10px] sm:text-[11px] font-black uppercase tracking-wider block whitespace-nowrap leading-tight ${isDarkNav ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]' : 'text-[#001f5c]'}`}>
-                Agent Général Agréé
+              <span className={`text-[11px] sm:text-[14px] lg:text-[16px] font-black uppercase tracking-tight block whitespace-nowrap leading-tight ${
+                isDarkNav 
+                  ? 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)]' 
+                  : 'text-[#001f5c]'
+              }`}>
+                ASSURANCES HAY SAADA
               </span>
-              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-[#ff0000] block mt-0.5 whitespace-nowrap">
-                AXA Assurance Maroc
-              </span>
+              <div className="flex items-center gap-1 sm:gap-1.5 mt-0.5 text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider whitespace-nowrap leading-none">
+                <span className={isDarkNav ? 'text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' : 'text-gray-600'}>
+                  Agent Général
+                </span>
+                <span className="text-[#ff0000] font-black">
+                  AXA
+                </span>
+                <span className={isDarkNav ? 'text-white/60' : 'text-gray-300'}>•</span>
+                <span className={isDarkNav ? 'text-white/95 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]' : 'text-[#001f5c]'}>
+                  Casablanca
+                </span>
+              </div>
             </div>
           </a>
           
@@ -306,14 +319,17 @@ const Navbar = ({
             className="md:hidden bg-white absolute top-full left-0 w-full shadow-2xl border-t border-gray-100 divide-y divide-gray-100 max-h-[calc(100vh-4.5rem)] overflow-y-auto"
           >
             <div className="p-4 bg-slate-50 flex items-center justify-between">
-              <div className="flex items-center gap-3 min-w-0">
+              <div className="flex items-center gap-2.5 min-w-0">
                 <SaadaMonogram isScrolled={true} className="h-10 w-auto shrink-0" />
                 <div className="min-w-0 pl-2.5 border-l border-gray-200">
-                  <div className="text-[11px] font-black uppercase text-[#001f5c] tracking-wider whitespace-nowrap">
-                    Agent Général Agréé
+                  <div className="text-xs sm:text-sm font-black uppercase text-[#001f5c] tracking-tight whitespace-nowrap">
+                    ASSURANCES HAY SAADA
                   </div>
-                  <div className="text-[10px] text-[#ff0000] font-black uppercase tracking-widest whitespace-nowrap mt-0.5">
-                    AXA Assurance Maroc
+                  <div className="text-[10px] font-black uppercase tracking-wider whitespace-nowrap mt-0.5 flex items-center gap-1">
+                    <span className="text-gray-600">Agent Général</span>
+                    <span className="text-[#ff0000] font-black">AXA</span>
+                    <span className="text-gray-300">•</span>
+                    <span className="text-[#001f5c] font-black">Casablanca</span>
                   </div>
                 </div>
               </div>
@@ -422,7 +438,7 @@ interface SlideData {
 const HERO_SLIDES: SlideData[] = [
   {
     id: 1,
-    badge: "CONSEIL & SOUSCRIPTION EN AGENCE",
+    badge: "ASSURANCES HAY SAADA • AGENT GÉNÉRAL AXA CASABLANCA",
     titleLine1: "VOTRE PROTECTION,",
     titleLine2: "NOTRE EXPERTISE.",
     highlightText: "CONTRAT SUR-MESURE",
@@ -433,8 +449,8 @@ const HERO_SLIDES: SlideData[] = [
     primaryCtaHref: "#services",
     secondaryCtaText: "DEVIS GRATUIT",
     secondaryCtaHref: "#contact",
-    floatingBadgeTitle: "Conseil & Souscription",
-    floatingBadgeSubtitle: "Hay Mohammadi, Casablanca"
+    floatingBadgeTitle: "Agent Général AXA",
+    floatingBadgeSubtitle: "Hay Saada • Casablanca"
   },
   {
     id: 2,
@@ -1295,6 +1311,12 @@ const About = () => {
 
           {/* Right Column: Title + Paragraphs + 2 Cards + Address Pill */}
           <div className="lg:col-span-7">
+            {/* Eyebrow Badge officiel */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 border border-red-100 rounded-full text-[#ff0000] text-[10px] sm:text-[11px] font-black uppercase tracking-wider mb-3 sm:mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff0000]" />
+              <span>ASSURANCES HAY SAADA • AGENT GÉNÉRAL AXA CASABLANCA</span>
+            </div>
+
             {/* Main Heading in bold uppercase navy */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#001f5c] leading-[1.1] tracking-tight mb-4 sm:mb-6 uppercase">
               VOTRE PARTENAIRE ASSURANCE DE CONFIANCE À HAY MOHAMMADI
@@ -1695,19 +1717,23 @@ const Footer = ({
               <SaadaMonogram variant="light" className="h-14 w-auto shrink-0 drop-shadow-md" />
               <div>
                 <span className="text-white font-black text-base sm:text-lg tracking-wider block leading-tight">
-                  HAY SAADA
+                  ASSURANCES HAY SAADA
                 </span>
-                <span className="text-blue-300 font-extrabold text-[11px] tracking-widest block uppercase mt-0.5">
-                  ASSURANCES
-                </span>
-                <div className="mt-2 pt-1.5 border-t border-white/15">
-                  <span className="text-white/85 font-bold text-[10px] uppercase tracking-wider block">
-                    Agent Général Agréé
+                <div className="flex items-center gap-1.5 mt-1 text-xs">
+                  <span className="text-white/90 font-bold uppercase tracking-wider">
+                    Agent Général
                   </span>
-                  <span className="text-[#ff3b30] text-xs font-black uppercase tracking-widest block mt-0.5">
-                    AXA Assurance Maroc
+                  <span className="text-[#ff3b30] font-black uppercase tracking-widest">
+                    AXA
+                  </span>
+                  <span className="text-white/40">•</span>
+                  <span className="text-white font-bold uppercase tracking-wider">
+                    Casablanca
                   </span>
                 </div>
+                <span className="text-blue-200/80 font-semibold text-[11px] tracking-wide block mt-1">
+                  Intermédiaire Agréé AXA Assurance Maroc
+                </span>
               </div>
             </div>
 

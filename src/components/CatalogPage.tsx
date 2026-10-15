@@ -154,7 +154,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-widest text-blue-200 mb-4">
               <Sparkles size={13} className="text-[#ff0000]" />
-              <span>Gamme Officielle AXA Assurance Maroc</span>
+              <span>Assurances Hay Saada • Agent Général AXA Casablanca</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
