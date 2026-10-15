@@ -184,12 +184,12 @@ const Navbar = ({
             aria-label="Accueil Assurances Hay Saada"
           >
             {/* Logo officiel Assurances Hay Saada (photo attachée) */}
-            <SaadaMonogram isScrolled={isScrolled || currentView !== 'home'} className="h-11 sm:h-12 w-auto shrink-0" />
-            <div className="hidden sm:flex flex-col justify-center pl-3 border-l border-gray-300/40">
-              <span className={`text-[11px] font-black uppercase tracking-wider block whitespace-nowrap leading-tight ${isDarkNav ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]' : 'text-[#001f5c]'}`}>
+            <SaadaMonogram isScrolled={isScrolled || currentView !== 'home'} className="h-10 sm:h-12 w-auto shrink-0" />
+            <div className="flex flex-col justify-center pl-2 sm:pl-3 border-l border-gray-300/40 min-w-0">
+              <span className={`text-[10px] sm:text-[11px] font-black uppercase tracking-wider block whitespace-nowrap leading-tight ${isDarkNav ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]' : 'text-[#001f5c]'}`}>
                 Agent Général Agréé
               </span>
-              <span className="text-[10px] font-black uppercase tracking-widest text-[#ff0000] block mt-0.5 whitespace-nowrap">
+              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest text-[#ff0000] block mt-0.5 whitespace-nowrap">
                 AXA Assurance Maroc
               </span>
             </div>
@@ -277,10 +277,18 @@ const Navbar = ({
             </div>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onOpenQuoteModal?.()}
+              className="bg-[#ff0000] hover:bg-red-700 active:scale-95 text-white px-3 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider shadow-sm flex items-center gap-1 cursor-pointer transition-all"
+              aria-label="Demander un devis gratuit"
+            >
+              <span>Devis</span>
+            </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg ${isDarkNav ? 'text-white hover:bg-white/10' : 'text-gray-700 hover:bg-gray-100'}`}
+              className={`p-2 rounded-lg transition-colors ${isDarkNav ? 'text-white hover:bg-white/10' : 'text-gray-700 hover:bg-gray-100'}`}
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -509,7 +517,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative min-h-[580px] sm:min-h-[640px] md:min-h-[680px] lg:h-screen lg:max-h-[950px] flex items-center overflow-hidden bg-gray-950"
+      className="relative min-h-[620px] sm:min-h-[660px] md:min-h-[680px] lg:h-screen lg:max-h-[950px] flex items-center overflow-hidden bg-gray-950"
       aria-label="Carrousel principal des offres AXA Casablanca"
     >
       {/* Background Sliding Images with Ken-Burns and smooth cross-fade */}
@@ -561,7 +569,7 @@ const Hero = () => {
       </div>
 
       {/* Main Slide Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-20 lg:pb-20">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-28 sm:pt-28 sm:pb-36 lg:pt-20 lg:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
@@ -574,15 +582,15 @@ const Hero = () => {
                 className="max-w-3xl lg:max-w-4xl"
               >
                 {/* Category Badge with AXA Red Switch indicator */}
-                <div className="inline-flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-4 sm:mb-6">
+                <div className="inline-flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-3 sm:mb-6">
                   <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-[#ff0000] rounded-full animate-ping" />
-                  <span className="text-white text-[11px] sm:text-xs font-black tracking-widest uppercase">
+                  <span className="text-white text-[10px] sm:text-xs font-black tracking-widest uppercase">
                     {activeSlide.badge}
                   </span>
                 </div>
 
                 {/* Main Heading sur la même ligne */}
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-black text-white leading-[1.15] sm:leading-tight mb-4 sm:mb-6 tracking-tight drop-shadow-lg break-words">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-black text-white leading-[1.2] mb-3 sm:mb-6 tracking-tight drop-shadow-lg break-words">
                   <span className="inline">{activeSlide.titleLine1}</span>{' '}
                   <span className="inline text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#ff4d4d]">
                     {activeSlide.titleLine2}
@@ -590,15 +598,15 @@ const Hero = () => {
                 </h1>
 
                 {/* Description */}
-                <p className="text-base sm:text-lg lg:text-xl text-blue-50/95 mb-6 sm:mb-8 md:mb-10 leading-relaxed font-medium drop-shadow-md">
+                <p className="text-sm sm:text-lg lg:text-xl text-blue-50/95 mb-5 sm:mb-8 md:mb-10 leading-relaxed font-medium drop-shadow-md">
                   {activeSlide.description}
                 </p>
 
                 {/* Action Button (un seul bouton principal) */}
-                <div className="flex w-full sm:w-auto">
+                <div className="flex w-full sm:w-auto relative z-10">
                   <a
                     href={activeSlide.primaryCtaHref}
-                    className="w-full sm:w-auto bg-[#ff0000] hover:bg-red-700 text-white px-6 sm:px-9 py-3.5 sm:py-4 font-black text-sm sm:text-base transition-all text-center shadow-xl shadow-red-600/40 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2 group cursor-pointer"
+                    className="w-full sm:w-auto bg-[#ff0000] hover:bg-red-700 active:bg-red-800 text-white px-6 sm:px-9 py-3.5 sm:py-4 font-black text-sm sm:text-base transition-all text-center shadow-xl shadow-red-600/40 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2 group cursor-pointer"
                   >
                     <span>{activeSlide.primaryCtaText}</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -657,9 +665,31 @@ const Hero = () => {
       </div>
 
       {/* Navigation Indicators: Clean Automated Slide Tabs with Progress Animation */}
-      <div className="absolute bottom-6 left-0 w-full z-30 px-4 sm:px-6 lg:px-8">
+      <div className="absolute bottom-4 sm:bottom-6 left-0 w-full z-30 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex items-center justify-center sm:justify-start">
-          <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 max-w-full">
+          {/* Version Mobile: Pills tactiles compacts avec numéros */}
+          <div className="flex sm:hidden items-center gap-1.5 bg-black/50 backdrop-blur-md p-1.5 rounded-full border border-white/20">
+            {HERO_SLIDES.map((slide, idx) => {
+              const isActive = idx === currentSlide;
+              return (
+                <button
+                  key={slide.id}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`px-3 py-1 rounded-full text-xs font-black transition-all ${
+                    isActive 
+                      ? "bg-[#ff0000] text-white shadow-sm" 
+                      : "text-gray-300 hover:text-white"
+                  }`}
+                  aria-label={`Slide ${idx + 1}`}
+                >
+                  0{idx + 1}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Version Desktop: Onglets complets */}
+          <div className="hidden sm:flex items-center gap-2 sm:gap-3 overflow-x-auto pb-1 max-w-full">
             {HERO_SLIDES.map((slide, idx) => {
               const isActive = idx === currentSlide;
               return (
@@ -676,7 +706,7 @@ const Hero = () => {
                   <span className={`text-xs font-black transition-colors ${isActive ? "text-[#ff4d4d]" : "text-gray-400 group-hover:text-white"}`}>
                     0{idx + 1}
                   </span>
-                  <div className="hidden sm:block">
+                  <div>
                     <p className={`text-xs font-bold leading-tight ${isActive ? "text-white" : "text-gray-300"}`}>
                       {slide.badge.split(" ")[0]} {slide.badge.split(" ")[1] || ""}
                     </p>
@@ -1219,7 +1249,7 @@ const About = () => {
 
               {/* Floating "Besoin d'un conseil ?" Widget on bottom-left */}
               {showCallWidget && (
-                <div className="absolute -bottom-6 left-2 sm:-bottom-8 sm:-left-6 bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,31,92,0.18)] border border-gray-100 p-3.5 sm:p-4 max-w-[calc(100%-1rem)] sm:max-w-[275px] z-20">
+                <div className="mt-4 sm:mt-0 sm:absolute sm:-bottom-8 sm:-left-6 bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,31,92,0.18)] border border-gray-100 p-3.5 sm:p-4 w-full sm:max-w-[275px] z-20">
                   <button 
                     onClick={() => setShowCallWidget(false)}
                     className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors p-1"
@@ -1889,9 +1919,9 @@ const TrustFeaturesBar = () => {
         }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 items-center">
           {features.map((item, index) => (
-            <div key={index} className="flex items-center gap-3.5">
+            <div key={index} className="flex items-center gap-3.5 p-3 sm:p-0 rounded-xl bg-white/[0.03] sm:bg-transparent border border-white/5 sm:border-0">
               {item.icon}
               <div>
                 <h4 className="text-xs sm:text-[13px] font-black text-white uppercase tracking-wider leading-tight mb-0.5">

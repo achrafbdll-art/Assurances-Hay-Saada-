@@ -85,29 +85,29 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
     <div className="bg-[#f8fafc] min-h-screen pt-24 pb-20">
       {/* Sticky Subnav Bar */}
       <div className="bg-white border-b border-gray-200 sticky top-16 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-600">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-3 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-600 min-w-0">
             <button 
               onClick={onBack}
-              className="hover:text-[#001f5c] transition-colors flex items-center gap-1.5 font-bold text-gray-800"
+              className="hover:text-[#001f5c] transition-colors flex items-center gap-1 font-bold text-gray-800 shrink-0"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={15} />
               <span>Accueil</span>
             </button>
             <span>/</span>
-            <span className="text-[#001f5c] font-black">
-              {category === 'particulier' ? 'Catalogue Particuliers' : 'Catalogue Entreprises & Pro'}
+            <span className="text-[#001f5c] font-black truncate max-w-[120px] sm:max-w-none">
+              {category === 'particulier' ? 'Particuliers' : 'Entreprises'}
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <div className="flex p-0.5 bg-gray-100 rounded-lg text-xs font-bold">
               <button
                 onClick={() => {
                   onSwitchCategory('particulier');
                   setSelectedSubcategory('all');
                 }}
-                className={`px-3 py-1.5 rounded-md transition-colors ${
+                className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md transition-colors text-[11px] sm:text-xs ${
                   category === 'particulier' 
                     ? 'bg-white text-[#001f5c] shadow-xs' 
                     : 'text-gray-500 hover:text-gray-900'
@@ -120,7 +120,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
                   onSwitchCategory('entreprise');
                   setSelectedSubcategory('all');
                 }}
-                className={`px-3 py-1.5 rounded-md transition-colors ${
+                className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-md transition-colors text-[11px] sm:text-xs ${
                   category === 'entreprise' 
                     ? 'bg-white text-[#001f5c] shadow-xs' 
                     : 'text-gray-500 hover:text-gray-900'

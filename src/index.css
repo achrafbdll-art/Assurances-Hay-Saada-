@@ -10,6 +10,7 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -18,6 +19,18 @@
     min-height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Empêche le zoom automatique indésirable sur iOS Safari lors du focus des inputs */
+  @media screen and (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  button, a {
+    touch-action: manipulation;
   }
 }
 

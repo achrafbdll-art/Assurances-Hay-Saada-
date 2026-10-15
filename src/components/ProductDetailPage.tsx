@@ -130,43 +130,44 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     <div className="bg-[#f8fafc] min-h-screen pt-24 pb-20">
       {/* Top Breadcrumb & Action bar */}
       <div className="bg-white border-b border-gray-200 sticky top-16 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-500 overflow-x-auto whitespace-nowrap">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-gray-500 overflow-x-auto whitespace-nowrap min-w-0">
             <button 
               onClick={onBack}
-              className="hover:text-[#001f5c] transition-colors flex items-center gap-1.5 font-bold text-gray-700"
+              className="hover:text-[#001f5c] transition-colors flex items-center gap-1 font-bold text-gray-700 shrink-0"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={15} />
               <span>Accueil</span>
             </button>
             <span>/</span>
             <button 
               onClick={() => onNavigateCategory(product.category)}
-              className="hover:text-[#001f5c] transition-colors font-semibold"
+              className="hover:text-[#001f5c] transition-colors font-semibold shrink-0"
             >
-              {product.category === 'particulier' ? 'Particuliers' : 'Entreprises & Pro'}
+              {product.category === 'particulier' ? 'Particuliers' : 'Entreprises'}
             </button>
             <span>/</span>
-            <span className="text-[#001f5c] font-extrabold truncate max-w-[200px] sm:max-w-none">
+            <span className="text-[#001f5c] font-extrabold truncate max-w-[120px] sm:max-w-none">
               {product.title}
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <a
               href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors border border-emerald-200"
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors border border-emerald-200"
+              aria-label="WhatsApp Devis"
             >
               <MessageCircle size={14} className="text-[#25D366]" />
-              <span className="hidden sm:inline">WhatsApp Devis</span>
+              <span className="hidden sm:inline">WhatsApp</span>
             </a>
             <button
               onClick={() => onOpenQuoteModal(product.title)}
-              className="bg-[#ff0000] hover:bg-[#d60000] text-white px-4 py-1.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition-colors shadow-sm"
+              className="bg-[#ff0000] hover:bg-[#d60000] text-white px-3 sm:px-4 py-1.5 rounded-lg text-xs font-extrabold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
             >
-              Formulaire de Contact
+              <span>Devis</span>
             </button>
           </div>
         </div>
