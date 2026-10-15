@@ -209,7 +209,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
 
       {/* Product Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
           <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">
             {filteredProducts.length} {filteredProducts.length > 1 ? 'produits disponibles' : 'produit disponible'}
           </p>

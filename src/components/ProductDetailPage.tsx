@@ -215,28 +215,28 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               </p>
 
               {/* Main Action CTAs : WhatsApp & Contact Form */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
                 <a
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#20ba5a] text-white px-7 py-4 rounded-xl font-black text-sm uppercase tracking-wider transition-all shadow-lg flex items-center gap-2.5"
+                  className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba5a] text-white px-7 py-3.5 sm:py-4 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg flex items-center justify-center gap-2.5 text-center"
                 >
-                  <MessageCircle size={20} />
+                  <MessageCircle size={18} />
                   <span>Demander un devis sur WhatsApp</span>
                 </a>
                 
                 <a
                   href="#contact-form"
-                  className="bg-[#ff0000] hover:bg-[#d60000] text-white px-6 py-4 rounded-xl font-black text-sm uppercase tracking-wider transition-all shadow-md flex items-center gap-2"
+                  className="w-full sm:w-auto bg-[#ff0000] hover:bg-[#d60000] text-white px-6 py-3.5 sm:py-4 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 text-center"
                 >
-                  <Mail size={18} />
+                  <Mail size={16} />
                   <span>Formulaire de contact</span>
                 </a>
 
                 <a
                   href="tel:+212522000000"
-                  className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-4 rounded-xl font-bold text-sm transition-all flex items-center gap-2"
+                  className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 text-center"
                 >
                   <Phone size={16} />
                   <span>05 22 00 00 00</span>

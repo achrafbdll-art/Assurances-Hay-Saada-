@@ -31,7 +31,10 @@ import {
   Plane,
   Shield,
   Calculator,
-  MessageCircle
+  MessageCircle,
+  Facebook,
+  Linkedin,
+  Instagram
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { SERVICES, PRO_SERVICES, TESTIMONIALS } from './constants';
@@ -172,8 +175,8 @@ const Navbar = ({
           : 'bg-gradient-to-b from-black/75 via-black/35 to-transparent py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="flex justify-between items-center w-full">
           <a 
             href="#" 
             onClick={(e) => { e.preventDefault(); onNavigate?.('home'); }}
@@ -192,7 +195,7 @@ const Navbar = ({
             </div>
           </a>
           
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8 ml-auto">
             <div className="flex items-baseline space-x-7">
               {navItems.map((item) => {
                 const isActive = (item.view === currentView && currentView !== 'home') || 
@@ -217,18 +220,51 @@ const Navbar = ({
             </div>
 
             <div className="flex items-center gap-3 pl-3 border-l border-gray-200/40">
-              <a
-                href="tel:+212522000000"
-                className={`flex items-center gap-2 px-3 py-2 text-xs font-bold rounded-lg transition-all ${
-                  isDarkNav
-                    ? 'text-white hover:bg-white/10 drop-shadow-sm'
-                    : 'text-[#001f5c] hover:bg-blue-50'
-                }`}
-                title="Appel direct agence"
-              >
-                <Phone size={14} className="text-[#ff0000]" />
-                <span className="hidden xl:inline">05 22 00 00 00</span>
-              </a>
+              {/* Réseaux Sociaux : Facebook, LinkedIn, Instagram */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-1.5 rounded-lg transition-colors ${
+                    isDarkNav
+                      ? 'text-white/80 hover:text-white hover:bg-white/10'
+                      : 'text-gray-500 hover:text-[#002b80] hover:bg-blue-50'
+                  }`}
+                  aria-label="Facebook"
+                  title="Facebook"
+                >
+                  <Facebook size={16} />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-1.5 rounded-lg transition-colors ${
+                    isDarkNav
+                      ? 'text-white/80 hover:text-white hover:bg-white/10'
+                      : 'text-gray-500 hover:text-[#002b80] hover:bg-blue-50'
+                  }`}
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                >
+                  <Linkedin size={16} />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-1.5 rounded-lg transition-colors ${
+                    isDarkNav
+                      ? 'text-white/80 hover:text-white hover:bg-white/10'
+                      : 'text-gray-500 hover:text-[#002b80] hover:bg-blue-50'
+                  }`}
+                  aria-label="Instagram"
+                  title="Instagram"
+                >
+                  <Instagram size={16} />
+                </a>
+              </div>
 
               <button
                 type="button"
@@ -241,14 +277,7 @@ const Navbar = ({
             </div>
           </div>
 
-          <div className="md:hidden flex items-center gap-2">
-            <a
-              href="tel:+212522000000"
-              className="p-2 rounded-lg bg-red-600 text-white shadow-sm"
-              aria-label="Appeler l'agence"
-            >
-              <Phone size={18} />
-            </a>
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`p-2 rounded-lg ${isDarkNav ? 'text-white hover:bg-white/10' : 'text-gray-700 hover:bg-gray-100'}`}
@@ -266,7 +295,7 @@ const Navbar = ({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white absolute top-full left-0 w-full shadow-2xl border-t border-gray-100 divide-y divide-gray-100"
+            className="md:hidden bg-white absolute top-full left-0 w-full shadow-2xl border-t border-gray-100 divide-y divide-gray-100 max-h-[calc(100vh-4.5rem)] overflow-y-auto"
           >
             <div className="p-4 bg-slate-50 flex items-center justify-between">
               <div className="flex items-center gap-3 min-w-0">
@@ -326,6 +355,37 @@ const Navbar = ({
               >
                 Obtenir un Devis Gratuit
               </button>
+
+              {/* Réseaux Sociaux Mobile */}
+              <div className="flex items-center justify-center gap-6 pt-2 pb-1 border-t border-gray-200/50">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-[#002b80] transition-colors p-1.5"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={18} />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-[#002b80] transition-colors p-1.5"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-[#002b80] transition-colors p-1.5"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={18} />
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
@@ -449,7 +509,7 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative h-screen min-h-[680px] max-h-[950px] flex items-center overflow-hidden bg-gray-950"
+      className="relative min-h-[580px] sm:min-h-[640px] md:min-h-[680px] lg:h-screen lg:max-h-[950px] flex items-center overflow-hidden bg-gray-950"
       aria-label="Carrousel principal des offres AXA Casablanca"
     >
       {/* Background Sliding Images with Ken-Burns and smooth cross-fade */}
@@ -501,8 +561,8 @@ const Hero = () => {
       </div>
 
       {/* Main Slide Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-20 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-20 sm:pt-28 sm:pb-24 lg:pt-20 lg:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               <motion.div
@@ -511,43 +571,37 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="max-w-2xl"
+                className="max-w-3xl lg:max-w-4xl"
               >
                 {/* Category Badge with AXA Red Switch indicator */}
-                <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
-                  <span className="w-2.5 h-2.5 bg-[#ff0000] rounded-full animate-ping" />
-                  <span className="text-white text-xs font-black tracking-widest uppercase">
+                <div className="inline-flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-4 py-1.5 sm:py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-4 sm:mb-6">
+                  <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 bg-[#ff0000] rounded-full animate-ping" />
+                  <span className="text-white text-[11px] sm:text-xs font-black tracking-widest uppercase">
                     {activeSlide.badge}
                   </span>
                 </div>
 
-                {/* Main Heading */}
-                <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[0.95] mb-6 tracking-tighter drop-shadow-lg">
-                  {activeSlide.titleLine1} <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#ff4d4d]">
+                {/* Main Heading sur la même ligne */}
+                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] font-black text-white leading-[1.15] sm:leading-tight mb-4 sm:mb-6 tracking-tight drop-shadow-lg break-words">
+                  <span className="inline">{activeSlide.titleLine1}</span>{' '}
+                  <span className="inline text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#ff4d4d]">
                     {activeSlide.titleLine2}
                   </span>
                 </h1>
 
                 {/* Description */}
-                <p className="text-lg sm:text-xl text-blue-50/95 mb-10 leading-relaxed font-medium drop-shadow-md">
+                <p className="text-base sm:text-lg lg:text-xl text-blue-50/95 mb-6 sm:mb-8 md:mb-10 leading-relaxed font-medium drop-shadow-md">
                   {activeSlide.description}
                 </p>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                {/* Action Button (un seul bouton principal) */}
+                <div className="flex w-full sm:w-auto">
                   <a
                     href={activeSlide.primaryCtaHref}
-                    className="bg-[#ff0000] hover:bg-red-700 text-white px-8 py-4 font-black text-base transition-all text-center shadow-xl shadow-red-600/40 transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
+                    className="w-full sm:w-auto bg-[#ff0000] hover:bg-red-700 text-white px-6 sm:px-9 py-3.5 sm:py-4 font-black text-sm sm:text-base transition-all text-center shadow-xl shadow-red-600/40 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2 group cursor-pointer"
                   >
                     <span>{activeSlide.primaryCtaText}</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a
-                    href={activeSlide.secondaryCtaHref}
-                    className="bg-white/10 hover:bg-white text-white hover:text-[#003399] border border-white/30 px-8 py-4 font-black text-base transition-all text-center backdrop-blur-md shadow-lg transform hover:-translate-y-1"
-                  >
-                    {activeSlide.secondaryCtaText}
                   </a>
                 </div>
               </motion.div>
@@ -676,7 +730,7 @@ const Services = ({
   const particulierProducts = PRODUCTS_DATA.filter(p => p.category === 'particulier' && p.id !== 'emprunteur');
 
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-[#000a28] via-[#00133c] to-[#00081d] text-white relative overflow-hidden">
+    <section id="services" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#000a28] via-[#00133c] to-[#00081d] text-white relative overflow-hidden">
       {/* Grille de points subtile (Dot Matrix) comme dans la référence AXA */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.08]"
@@ -705,8 +759,8 @@ const Services = ({
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/15 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tighter">PARTICULIERS</h2>
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-3 sm:mb-4 tracking-tighter">PARTICULIERS</h2>
           
           <div className="flex justify-center items-center gap-3">
             <div className="w-12 h-1 bg-[#ff0000]" />
@@ -714,7 +768,7 @@ const Services = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {particulierProducts.map((service, index) => (
             <motion.div
               key={service.id}
@@ -723,19 +777,19 @@ const Services = ({
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
               onClick={() => onSelectProduct?.(service)}
-              className="bg-white p-8 rounded-2xl shadow-[0_20px_45px_rgba(0,15,50,0.25)] border-t-4 border-[#ff0000] axa-card-3d group text-gray-900 cursor-pointer flex flex-col justify-between"
+              className="bg-white p-6 sm:p-8 rounded-2xl shadow-[0_20px_45px_rgba(0,15,50,0.25)] border-t-4 border-[#ff0000] axa-card-3d group text-gray-900 cursor-pointer flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-[#001f5c] transition-all duration-300 shadow-xs">
-                    <ServiceIcon name={service.iconName} className="text-[#001f5c] group-hover:text-white transition-colors w-7 h-7" />
+                <div className="flex items-center justify-between mb-5 sm:mb-6">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-[#001f5c] transition-all duration-300 shadow-xs">
+                    <ServiceIcon name={service.iconName} className="text-[#001f5c] group-hover:text-white transition-colors w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
                   <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider bg-slate-100 px-2.5 py-1 rounded-md">
                     {service.subcategory}
                   </span>
                 </div>
 
-                <h3 className="text-xl font-black text-gray-900 group-hover:text-[#001f5c] transition-colors mb-2 tracking-tight">
+                <h3 className="text-lg sm:text-xl font-black text-gray-900 group-hover:text-[#001f5c] transition-colors mb-2 tracking-tight">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed font-medium text-xs sm:text-sm line-clamp-3">
@@ -764,10 +818,10 @@ const Services = ({
         </div>
 
         {/* Explore all CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-10 sm:mt-14 text-center">
           <button
             onClick={() => onExploreCategory?.('particulier')}
-            className="inline-flex items-center gap-3 bg-white/10 hover:bg-white text-white hover:text-[#001f5c] border border-white/25 px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-lg backdrop-blur-md cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white text-white hover:text-[#001f5c] border border-white/25 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-lg backdrop-blur-md cursor-pointer"
           >
             <span>Consulter l'Espace Particuliers complet</span>
             <ArrowRight size={16} />
@@ -800,7 +854,7 @@ const ProfessionalSection = ({
   };
 
   return (
-    <section id="professionnels" className="py-24 bg-[#fcfdfe] relative overflow-hidden border-b border-gray-100">
+    <section id="professionnels" className="py-16 sm:py-20 lg:py-24 bg-[#fcfdfe] relative overflow-hidden border-b border-gray-100">
       {/* Moroccan Geometric Diamond Grid Pattern */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-30"
@@ -811,33 +865,33 @@ const ProfessionalSection = ({
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20 items-start mb-16">
-          <div className="lg:w-7/12">
-            <div className="mb-10">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-1 bg-[#ff0000]" />
-                <h2 className="text-sm font-black text-[#002b80] uppercase tracking-[0.3em]">Espace Entreprises & Professionnels</h2>
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start mb-12 sm:mb-16">
+          <div className="lg:w-7/12 w-full">
+            <div className="mb-8 sm:mb-10">
+              <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                <div className="w-10 sm:w-12 h-1 bg-[#ff0000]" />
+                <h2 className="text-xs sm:text-sm font-black text-[#002b80] uppercase tracking-[0.25em] sm:tracking-[0.3em]">Espace Entreprises & Professionnels</h2>
               </div>
-              <h3 className="text-4xl sm:text-5xl font-black text-[#001f5c] mb-8 tracking-tighter leading-tight">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#001f5c] mb-6 sm:mb-8 tracking-tighter leading-tight">
                 L'EXPERTISE PRO <br /><span className="text-[#001f5c]">SANS COMPROMIS.</span>
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {proProducts.slice(0, 4).map((pro) => (
                 <motion.div 
                   key={pro.id}
                   onClick={() => onSelectProduct?.(pro)}
-                  className="bg-white p-7 rounded-2xl shadow-[0_15px_35px_rgba(0,31,92,0.06)] border border-gray-200/90 hover:border-[#ff0000] transition-all group axa-card-3d cursor-pointer flex flex-col justify-between"
+                  className="bg-white p-5 sm:p-7 rounded-2xl shadow-[0_15px_35px_rgba(0,31,92,0.06)] border border-gray-200/90 hover:border-[#ff0000] transition-all group axa-card-3d cursor-pointer flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center gap-3.5 mb-4">
-                      <div className="w-12 h-12 bg-[#001f5c] group-hover:bg-[#ff0000] rounded-xl flex items-center justify-center text-white shadow-md transition-colors">
-                        <ServiceIcon name={pro.iconName} className="w-6 h-6 text-white" />
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 bg-[#001f5c] group-hover:bg-[#ff0000] rounded-xl flex items-center justify-center text-white shadow-md transition-colors shrink-0">
+                        <ServiceIcon name={pro.iconName} className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                       <div>
                         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">{pro.subcategory}</span>
-                        <h4 className="font-black text-[#001f5c] text-base leading-tight tracking-tight">{pro.title}</h4>
+                        <h4 className="font-black text-[#001f5c] text-sm sm:text-base leading-tight tracking-tight">{pro.title}</h4>
                       </div>
                     </div>
                     <p className="text-xs text-gray-600 mb-4 leading-relaxed font-medium line-clamp-2">
@@ -875,7 +929,7 @@ const ProfessionalSection = ({
             <div className="mt-8">
               <button
                 onClick={() => onExploreCategory?.('entreprise')}
-                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#001f5c] hover:text-[#ff0000] transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#001f5c] hover:text-[#ff0000] transition-colors cursor-pointer"
               >
                 <span>Voir les 8 solutions Entreprises & BTP</span>
                 <ArrowRight size={16} />
@@ -883,12 +937,12 @@ const ProfessionalSection = ({
             </div>
           </div>
 
-          <div className="lg:w-5/12 w-full sticky top-28">
-            <div className="bg-white p-8 sm:p-10 shadow-[0_25px_60px_rgba(0,31,92,0.1)] border border-gray-200/90 rounded-3xl relative">
+          <div className="lg:w-5/12 w-full lg:sticky lg:top-28">
+            <div className="bg-white p-6 sm:p-8 lg:p-10 shadow-[0_25px_60px_rgba(0,31,92,0.1)] border border-gray-200/90 rounded-2xl sm:rounded-3xl relative">
               <div className="absolute -top-3 -left-3 w-10 h-10 bg-[#ff0000] rounded-lg shadow-md flex items-center justify-center text-white font-black text-xs z-20">
                 PRO
               </div>
-              <h4 className="text-2xl font-black text-[#001f5c] mb-1 tracking-tight">CONTACT PRO CASABLANCA</h4>
+              <h4 className="text-xl sm:text-2xl font-black text-[#001f5c] mb-1 tracking-tight">CONTACT PRO CASABLANCA</h4>
               <p className="text-[#ff0000] text-xs mb-6 font-black uppercase tracking-widest">Audit gratuit de vos risques d'entreprise</p>
               
               {isSent ? (
@@ -908,7 +962,7 @@ const ProfessionalSection = ({
                       required
                       value={proCompany}
                       onChange={(e) => setProCompany(e.target.value)}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:py-2.5 text-sm sm:text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
                       placeholder="Raison sociale (SARL, SA, Auto-entrepreneur...)"
                     />
                   </div>
@@ -917,7 +971,7 @@ const ProfessionalSection = ({
                     <select 
                       value={proSector}
                       onChange={(e) => setProSector(e.target.value)}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:py-2.5 text-sm sm:text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
                     >
                       <option>Services / Conseil / IT</option>
                       <option>Industrie & Production</option>
@@ -934,7 +988,7 @@ const ProfessionalSection = ({
                       required
                       value={proPhone}
                       onChange={(e) => setProPhone(e.target.value)}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 sm:py-2.5 text-sm sm:text-xs text-gray-900 focus:outline-none focus:border-[#001f5c] focus:bg-white transition-all font-semibold"
                       placeholder="05 XX XX XX XX ou 06 XX XX XX XX"
                     />
                   </div>
@@ -1009,7 +1063,7 @@ const Testimonials = ({
   onOpenQuoteModal?: (productTitle?: string) => void;
 }) => {
   return (
-    <section id="temoignages" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#000638] via-[#000a4a] to-[#00105c] text-white">
+    <section id="temoignages" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-gradient-to-b from-[#000638] via-[#000a4a] to-[#00105c] text-white">
       {/* Arrière-plan bleu avec motif répété AXA & Zellij géométrique marocain adouci (moins visible et discret) */}
       <div 
         className="absolute inset-0 pointer-events-none select-none opacity-20"
@@ -1026,8 +1080,8 @@ const Testimonials = ({
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-white mb-3 sm:mb-4 tracking-tight">
             Ce que disent nos clients
           </h2>
 
@@ -1040,7 +1094,7 @@ const Testimonials = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {TESTIMONIALS.map((testimonial, idx) => (
             <motion.div
               key={testimonial.id}
@@ -1048,10 +1102,10 @@ const Testimonials = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-white p-8 rounded-3xl shadow-2xl border-t-4 border-[#ff0000] relative flex flex-col justify-between text-gray-900 group hover:-translate-y-1.5 transition-all duration-300"
+              className="bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border-t-4 border-[#ff0000] relative flex flex-col justify-between text-gray-900 group hover:-translate-y-1.5 transition-all duration-300"
             >
-              <div className="absolute top-6 right-8 text-blue-100 group-hover:text-blue-200 transition-colors">
-                <Quote size={44} />
+              <div className="absolute top-6 right-6 sm:right-8 text-blue-100 group-hover:text-blue-200 transition-colors">
+                <Quote size={40} />
               </div>
               
               <div>
@@ -1065,7 +1119,7 @@ const Testimonials = ({
                   ))}
                 </div>
 
-                <p className="text-gray-700 mb-8 italic relative z-10 text-sm leading-relaxed font-medium">
+                <p className="text-gray-700 mb-6 sm:mb-8 italic relative z-10 text-xs sm:text-sm leading-relaxed font-medium">
                   "{testimonial.content}"
                 </p>
               </div>
@@ -1074,7 +1128,7 @@ const Testimonials = ({
                 <img 
                   src={testimonial.avatar} 
                   alt={testimonial.name} 
-                  className="w-12 h-12 rounded-full object-cover border-2 border-blue-50 shadow-xs"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-blue-50 shadow-xs"
                   referrerPolicy="no-referrer"
                 />
                 <div>
@@ -1089,20 +1143,20 @@ const Testimonials = ({
         </div>
 
         {/* Action Banner */}
-        <div className="mt-16 bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="mt-12 sm:mt-16 bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 border border-white/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div className="text-center md:text-left">
-            <h4 className="text-2xl font-black text-white mb-2">Rejoignez nos clients satisfaits</h4>
+            <h4 className="text-xl sm:text-2xl font-black text-white mb-2">Rejoignez nos clients satisfaits</h4>
             <p className="text-blue-100 text-xs sm:text-sm font-medium">
               Plus de 2 000 assurés nous font confiance à Hay Mohammadi et Casablanca pour leurs contrats d'assurance.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 shrink-0 w-full md:w-auto">
             <a
               href="https://wa.me/212600000000?text=Bonjour%20Assurances%20Hay%20Saada,%20je%20souhaite%20un%20devis%20personnalis%C3%A9%20d%27assurance."
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2"
+              className="bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 text-center"
             >
               <MessageCircle size={16} />
               <span>WhatsApp Direct</span>
@@ -1110,7 +1164,7 @@ const Testimonials = ({
 
             <button
               onClick={() => onOpenQuoteModal ? onOpenQuoteModal() : window.location.hash = '#contact'}
-              className="bg-[#ff0000] hover:bg-[#d60000] text-white px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
+              className="bg-[#ff0000] hover:bg-[#d60000] text-white px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer text-center"
             >
               Demander un devis
             </button>
@@ -1125,20 +1179,20 @@ const About = () => {
   const [showCallWidget, setShowCallWidget] = useState(true);
 
   return (
-    <section id="hay-mohammadi" className="py-24 relative bg-[#fcfdfe] overflow-hidden border-b border-gray-100">
+    <section id="hay-mohammadi" className="py-16 sm:py-20 lg:py-24 relative bg-white overflow-hidden border-b border-gray-100">
       <div id="about" className="absolute -top-24" />
 
-      {/* Moroccan Geometric Zellij Pattern Background with subtle red center dots */}
+      {/* Motif d'arrière-plan avec visibilité équilibrée */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-25"
+        className="absolute inset-0 pointer-events-none opacity-[0.13]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%2394a3b8' stroke-width='0.75'%3E%3Cpath d='M36 0l36 36-36 36L0 36z'/%3E%3Cpath d='M0 0l72 72M72 0L0 72'/%3E%3Ccircle cx='36' cy='36' r='2.2' fill='%23ef4444' stroke='none'/%3E%3Ccircle cx='0' cy='0' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='72' cy='0' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='0' cy='72' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='72' cy='72' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='72' height='72' viewBox='0 0 72 72' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%2394a3b8' stroke-width='0.7'%3E%3Cpath d='M36 0l36 36-36 36L0 36z'/%3E%3Cpath d='M0 0l72 72M72 0L0 72'/%3E%3Ccircle cx='36' cy='36' r='1.8' fill='%23ef4444' stroke='none'/%3E%3Ccircle cx='0' cy='0' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='72' cy='0' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='0' cy='72' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3Ccircle cx='72' cy='72' r='1.2' fill='%23cbd5e1' stroke='none'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           backgroundSize: '72px 72px'
         }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left Column: Framed Image with Navy Border + Bottom Red Ribbon + Floating Call Widget */}
           <div className="lg:col-span-5 relative">
@@ -1165,7 +1219,7 @@ const About = () => {
 
               {/* Floating "Besoin d'un conseil ?" Widget on bottom-left */}
               {showCallWidget && (
-                <div className="absolute -bottom-8 -left-3 sm:-left-8 bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,31,92,0.18)] border border-gray-100 p-4 max-w-[275px] z-20">
+                <div className="absolute -bottom-6 left-2 sm:-bottom-8 sm:-left-6 bg-white rounded-2xl shadow-[0_15px_40px_rgba(0,31,92,0.18)] border border-gray-100 p-3.5 sm:p-4 max-w-[calc(100%-1rem)] sm:max-w-[275px] z-20">
                   <button 
                     onClick={() => setShowCallWidget(false)}
                     className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 transition-colors p-1"
@@ -1212,12 +1266,12 @@ const About = () => {
           {/* Right Column: Title + Paragraphs + 2 Cards + Address Pill */}
           <div className="lg:col-span-7">
             {/* Main Heading in bold uppercase navy */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#001f5c] leading-[1.05] tracking-tight mb-6 uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#001f5c] leading-[1.1] tracking-tight mb-4 sm:mb-6 uppercase">
               VOTRE PARTENAIRE ASSURANCE DE CONFIANCE À HAY MOHAMMADI
             </h2>
 
             {/* Paragraph 1 */}
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8">
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-6 sm:mb-8">
               Implantée au cœur de Hay Mohammadi, l'agence <strong className="font-extrabold text-[#001f5c]">Assurances Hay Saada</strong> vous accompagne avec rigueur et écoute en tant qu'agent général agréé <strong className="font-extrabold text-[#001f5c]">AXA Assurance Maroc</strong>.
             </p>
 
@@ -1296,7 +1350,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-white text-gray-900 border-t border-gray-100">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-white text-gray-900 border-t border-gray-100">
       {/* Texture de fond subtile et halos très doux */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-40"
@@ -1309,9 +1363,9 @@ const Contact = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-50/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#001f5c] mb-4 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-[#001f5c] mb-3 sm:mb-4 tracking-tight leading-tight">
               Prêt à être mieux protégé ?
             </h2>
 
@@ -1320,44 +1374,44 @@ const Contact = () => {
               <div className="w-4 h-1 bg-[#002b80]/40" />
             </div>
 
-            <p className="text-gray-600 mb-10 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-600 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg leading-relaxed">
               Nos conseillers sont à votre disposition pour réaliser une étude gratuite de vos besoins et vous proposer la meilleure solution d'assurance.
             </p>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-5 p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
-                <div className="w-12 h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
-                  <Phone className="text-[#002b80]" size={22} />
+            <div className="space-y-4 sm:space-y-6">
+              <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                  <Phone className="text-[#002b80]" size={20} />
                 </div>
                 <div>
                   <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Téléphone</p>
-                  <a href="tel:+212522000000" className="text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors">
-                    +212 5 22 XX XX XX
+                  <a href="tel:+212522000000" className="text-lg sm:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors">
+                    05 22 00 00 00
                   </a>
                   <p className="text-xs text-gray-500 mt-0.5">Du lundi au vendredi 8h30-18h30, samedi matin</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-5 p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
-                <div className="w-12 h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
-                  <Mail className="text-[#002b80]" size={22} />
+              <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                  <Mail className="text-[#002b80]" size={20} />
                 </div>
                 <div>
                   <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Email</p>
-                  <a href="mailto:contact@axacasablanca.ma" className="text-lg sm:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors break-all">
-                    contact@axacasablanca.ma
+                  <a href="mailto:contact@assuranceshaysaada.ma" className="text-base sm:text-lg md:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors break-all">
+                    contact@assuranceshaysaada.ma
                   </a>
                   <p className="text-xs text-gray-500 mt-0.5">Réponse garantie sous 24h ouvrées</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-5 p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
-                <div className="w-12 h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
-                  <MapPin className="text-[#002b80]" size={22} />
+              <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                  <MapPin className="text-[#002b80]" size={20} />
                 </div>
                 <div>
                   <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Adresse</p>
-                  <p className="text-base sm:text-lg font-semibold text-[#001f5c] leading-snug">
+                  <p className="text-sm sm:text-base md:text-lg font-semibold text-[#001f5c] leading-snug">
                     271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)
                   </p>
                   <p className="text-xs text-gray-500 mt-0.5">Casablanca, Maroc • Parking à proximité</p>
@@ -1366,31 +1420,31 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl border border-gray-200 text-gray-900">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-gray-200 text-gray-900">
             {formSubmitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 size={36} />
                 </div>
                 <h3 className="text-2xl font-black text-[#001f5c]">Demande envoyée avec succès !</h3>
-                <p className="text-gray-600 max-w-md mx-auto">
+                <p className="text-gray-600 max-w-md mx-auto text-sm">
                   Merci pour votre confiance. Un conseiller de l'agence Assurances Hay Saada étudie votre demande et vous contactera dans les plus brefs délais.
                 </p>
                 <div className="pt-4">
                   <button
                     type="button"
                     onClick={() => setFormSubmitted(false)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-sm transition-colors"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-sm transition-colors cursor-pointer"
                   >
                     Envoyer un autre message
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
                       Nom Complet
                     </label>
                     <input
@@ -1403,7 +1457,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
                       Téléphone
                     </label>
                     <input
@@ -1418,7 +1472,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
                     Email
                   </label>
                   <input
@@ -1432,7 +1486,7 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
                     Type d'Assurance
                   </label>
                   <select 
@@ -1440,17 +1494,17 @@ const Contact = () => {
                     onChange={(e) => setContactForm({ ...contactForm, type: e.target.value })}
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm font-medium"
                   >
-                    <option value="Auto">Auto</option>
-                    <option value="Santé">Santé</option>
-                    <option value="Habitation">Habitation</option>
-                    <option value="Professionnelle">Professionnelle</option>
+                    <option value="Auto">Auto & Moto</option>
+                    <option value="Santé">Santé & Mutuelle</option>
+                    <option value="Habitation">Multirisque Habitation</option>
+                    <option value="Professionnelle">Professionnelle & Entreprise</option>
                     <option value="Épargne & Retraite">Épargne & Retraite</option>
-                    <option value="Autre">Autre</option>
+                    <option value="Autre">Autre solution</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
                     Message (Optionnel)
                   </label>
                   <textarea
@@ -1464,7 +1518,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#002b80] hover:bg-[#001f5c] text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 active:scale-[0.99] flex items-center justify-center gap-2"
+                  className="w-full bg-[#002b80] hover:bg-[#001f5c] text-white font-bold py-3.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer text-sm"
                 >
                   <span>Envoyer ma demande</span>
                   <ArrowRight size={18} />
@@ -1489,39 +1543,60 @@ const MapSection = () => {
   const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26590.23114979144!2d-7.581896799999999!3d33.5936858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd6010530739%3A0x633512a2cb58ad57!2sHay%20Mohammadi%2C%20Casablanca!5e0!3m2!1sfr!2sma!4v1680000000000!5m2!1sfr!2sma`;
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-12 items-stretch">
-          <div className="lg:w-1/3 flex flex-col justify-between">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#001744] via-[#001b52] to-[#001d5a] text-white relative overflow-hidden border-t border-blue-900/30">
+      {/* Texture discrète de micro-points */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.06]"
+        style={{
+          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch">
+          <div className="lg:w-1/3 w-full flex flex-col justify-between">
             <div>
-              <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">Nous Trouver</h2>
-              <h3 className="text-4xl font-bold text-gray-900 mb-6">Venez nous rencontrer</h3>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-8 h-1 bg-[#ff0000]" />
+                <h2 className="text-xs font-black text-blue-300 uppercase tracking-widest">Nous Trouver</h2>
+              </div>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 sm:mb-4 tracking-tight">Venez nous rencontrer</h3>
+              <p className="text-blue-100/80 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
                 Notre agence est idéalement située au cœur de Casablanca pour vous accueillir et vous conseiller.
               </p>
 
-              <div className="space-y-6 mb-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
-                    <MapPin className="text-blue-600" size={20} />
+              <div className="space-y-4 mb-6 sm:mb-8">
+                {/* Carte Adresse */}
+                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.05] border border-white/10 backdrop-blur-sm shadow-inner">
+                  <div className="w-10 h-10 bg-blue-600/25 border border-blue-400/30 rounded-xl flex items-center justify-center shrink-0 text-blue-300">
+                    <MapPin size={20} />
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 text-sm mb-1">Adresse</p>
-                    <p className="text-gray-600 text-sm">{address}</p>
+                    <p className="font-bold text-white text-xs uppercase tracking-wider mb-1">Adresse</p>
+                    <p className="text-blue-100/90 text-sm leading-snug">{address}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center shrink-0">
-                    <Calendar className="text-blue-600" size={20} />
+                {/* Carte Horaires */}
+                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.05] border border-white/10 backdrop-blur-sm shadow-inner">
+                  <div className="w-10 h-10 bg-blue-600/25 border border-blue-400/30 rounded-xl flex items-center justify-center shrink-0 text-blue-300">
+                    <Calendar size={20} />
                   </div>
-                  <div>
-                    <p className="font-bold text-gray-900 text-sm mb-1">Horaires d'ouverture</p>
-                    <div className="space-y-1">
+                  <div className="flex-1">
+                    <p className="font-bold text-white text-xs uppercase tracking-wider mb-2">Horaires d'ouverture</p>
+                    <div className="space-y-1.5">
                       {operatingHours.map((item, i) => (
-                        <div key={i} className="flex justify-between gap-4 text-sm">
-                          <span className="text-gray-500">{item.day}</span>
-                          <span className="text-gray-900 font-medium">{item.hours}</span>
+                        <div key={i} className="flex justify-between items-center gap-4 text-xs">
+                          <span className="text-blue-200/70">{item.day}</span>
+                          {item.hours === 'Fermé' ? (
+                            <span className="text-red-300 font-bold bg-red-950/50 border border-red-800/40 px-2 py-0.5 rounded text-[11px]">
+                              Fermé
+                            </span>
+                          ) : (
+                            <span className="text-white font-medium">{item.hours}</span>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -1534,14 +1609,14 @@ const MapSection = () => {
               href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 group"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#ff0000] hover:bg-[#d60000] text-white font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-xl transition-all shadow-lg shadow-red-600/30 group text-center cursor-pointer"
             >
-              <Navigation size={20} />
-              Obtenir l'itinéraire
+              <Navigation size={18} />
+              <span>Obtenir l'itinéraire</span>
             </a>
           </div>
 
-          <div className="lg:w-2/3 h-[500px] lg:h-auto min-h-[400px] rounded-3xl overflow-hidden shadow-xl border border-gray-100">
+          <div className="lg:w-2/3 w-full h-[320px] sm:h-[420px] lg:h-auto min-h-[300px] sm:min-h-[420px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-white/15 ring-1 ring-white/10">
             <iframe
               src={mapUrl}
               width="100%"
@@ -1566,42 +1641,108 @@ const Footer = ({
   onNavigate?: (view: 'home' | 'particuliers' | 'entreprises', targetHash?: string) => void;
   onSelectProduct?: (product: ProductData) => void;
 }) => {
-  const particulierTop = PRODUCTS_DATA.filter(p => p.category === 'particulier').slice(0, 5);
-  const entrepriseTop = PRODUCTS_DATA.filter(p => p.category === 'entreprise').slice(0, 5);
+  const particulierIds = ['auto', 'habitation', 'sante', 'epargne-retraite', 'voyage'];
+  const particulierList = particulierIds
+    .map(id => PRODUCTS_DATA.find(p => p.id === id))
+    .filter(Boolean) as ProductData[];
+
+  const entrepriseIds = ['rc-pro', 'mrp', 'flotte-auto', 'sante-collective', 'accidents-travail'];
+  const entrepriseList = entrepriseIds
+    .map(id => PRODUCTS_DATA.find(p => p.id === id))
+    .filter(Boolean) as ProductData[];
 
   return (
-    <footer className="bg-gray-900 text-gray-400 py-20 border-t border-gray-800 relative overflow-hidden">
-      <div className="axa-pattern-3d absolute inset-0 opacity-5" />
+    <footer className="bg-gradient-to-b from-[#001d5a] via-[#00184c] to-[#00123b] text-blue-100/80 py-14 sm:py-16 lg:py-20 border-t border-white/10 relative overflow-hidden">
+      {/* Texture géométrique subtile */}
+      <div className="axa-pattern-3d absolute inset-0 opacity-[0.06] pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 mb-12 sm:mb-16">
+          {/* Bloc Marque & Coordonnées */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-4 mb-6">
-              <SaadaMonogram variant="light" className="h-12 w-auto shrink-0" />
-              <div className="pl-3.5 border-l border-gray-700">
-                <span className="text-white font-black text-xs uppercase tracking-wider block">
-                  Agent Général Agréé
+            <div className="flex items-start gap-3.5 mb-5">
+              <SaadaMonogram variant="light" className="h-14 w-auto shrink-0 drop-shadow-md" />
+              <div>
+                <span className="text-white font-black text-base sm:text-lg tracking-wider block leading-tight">
+                  HAY SAADA
                 </span>
-                <span className="text-[#ff0000] text-xs font-black uppercase tracking-widest block mt-0.5">
-                  AXA Assurance Maroc
+                <span className="text-blue-300 font-extrabold text-[11px] tracking-widest block uppercase mt-0.5">
+                  ASSURANCES
                 </span>
+                <div className="mt-2 pt-1.5 border-t border-white/15">
+                  <span className="text-white/85 font-bold text-[10px] uppercase tracking-wider block">
+                    Agent Général Agréé
+                  </span>
+                  <span className="text-[#ff3b30] text-xs font-black uppercase tracking-widest block mt-0.5">
+                    AXA Assurance Maroc
+                  </span>
+                </div>
               </div>
             </div>
-            <p className="max-w-sm text-gray-400 font-medium leading-relaxed text-xs sm:text-sm mb-6">
+
+            <p className="max-w-sm text-blue-100/80 font-medium leading-relaxed text-xs sm:text-sm mb-6">
               Votre partenaire d'assurance de référence au Maroc. Protection des particuliers, familles, professionnels et entreprises avec la solidité du groupe AXA.
             </p>
-            <div className="text-xs text-gray-400 space-y-1">
-              <p>📍 271, Certificat Bloc 17, Hay Mohammadi, Casablanca</p>
-              <p>📞 05 22 00 00 00 • contact@assuranceshaysaada.ma</p>
+
+            <div className="text-xs text-blue-100/80 space-y-2 mb-5">
+              <p className="flex items-center gap-2">
+                <span className="text-sm">📍</span>
+                <span>271, Certificat Bloc 17, Hay Mohammadi, Casablanca</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-sm">📞</span>
+                <span>
+                  <a href="tel:+212522000000" className="hover:text-white transition-colors font-medium">05 22 00 00 00</a>
+                  {' '}•{' '}
+                  <a href="mailto:contact@assuranceshaysaada.ma" className="hover:text-white transition-colors font-medium">contact@assuranceshaysaada.ma</a>
+                </span>
+              </p>
+            </div>
+
+            {/* Réseaux Sociaux */}
+            <div className="flex items-center gap-5 pt-1">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-200/80 hover:text-white hover:scale-110 transition-all cursor-pointer p-1"
+                aria-label="Facebook"
+                title="Suivez-nous sur Facebook"
+              >
+                <Facebook size={19} />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-200/80 hover:text-white hover:scale-110 transition-all cursor-pointer p-1"
+                aria-label="LinkedIn"
+                title="Suivez-nous sur LinkedIn"
+              >
+                <Linkedin size={19} />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-200/80 hover:text-white hover:scale-110 transition-all cursor-pointer p-1"
+                aria-label="Instagram"
+                title="Suivez-nous sur Instagram"
+              >
+                <Instagram size={19} />
+              </a>
             </div>
           </div>
 
+          {/* Navigation */}
           <div>
             <h4 className="text-white font-black mb-5 uppercase tracking-widest text-xs">Navigation</h4>
             <ul className="space-y-3 text-xs font-bold">
               <li>
                 <button 
                   onClick={() => onNavigate?.('home')} 
-                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                  className="text-blue-100/90 hover:text-[#ff3b30] transition-colors cursor-pointer text-left"
                 >
                   Accueil
                 </button>
@@ -1609,7 +1750,7 @@ const Footer = ({
               <li>
                 <button 
                   onClick={() => onNavigate?.('particuliers')} 
-                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                  className="text-blue-100/90 hover:text-[#ff3b30] transition-colors cursor-pointer text-left"
                 >
                   Espace Particuliers
                 </button>
@@ -1617,7 +1758,7 @@ const Footer = ({
               <li>
                 <button 
                   onClick={() => onNavigate?.('entreprises')} 
-                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                  className="text-blue-100/90 hover:text-[#ff3b30] transition-colors cursor-pointer text-left"
                 >
                   Espace Entreprises
                 </button>
@@ -1625,7 +1766,7 @@ const Footer = ({
               <li>
                 <button 
                   onClick={() => onNavigate?.('home', '#contact')} 
-                  className="hover:text-[#ff0000] transition-colors cursor-pointer text-left"
+                  className="text-blue-100/90 hover:text-[#ff3b30] transition-colors cursor-pointer text-left"
                 >
                   Contact & Agence
                 </button>
@@ -1633,14 +1774,15 @@ const Footer = ({
             </ul>
           </div>
 
+          {/* Particuliers */}
           <div>
             <h4 className="text-white font-black mb-5 uppercase tracking-widest text-xs">Particuliers</h4>
             <ul className="space-y-3 text-xs font-semibold">
-              {particulierTop.map((p) => (
+              {particulierList.map((p) => (
                 <li key={p.id}>
                   <button
                     onClick={() => onSelectProduct?.(p)}
-                    className="hover:text-white transition-colors cursor-pointer text-left truncate max-w-full block"
+                    className="text-blue-100/80 hover:text-white transition-colors cursor-pointer text-left truncate max-w-full block"
                   >
                     {p.title}
                   </button>
@@ -1649,14 +1791,15 @@ const Footer = ({
             </ul>
           </div>
 
+          {/* Entreprises */}
           <div>
             <h4 className="text-white font-black mb-5 uppercase tracking-widest text-xs">Entreprises</h4>
             <ul className="space-y-3 text-xs font-semibold">
-              {entrepriseTop.map((p) => (
+              {entrepriseList.map((p) => (
                 <li key={p.id}>
                   <button
                     onClick={() => onSelectProduct?.(p)}
-                    className="hover:text-white transition-colors cursor-pointer text-left truncate max-w-full block"
+                    className="text-blue-100/80 hover:text-white transition-colors cursor-pointer text-left truncate max-w-full block"
                   >
                     {p.title}
                   </button>
@@ -1666,14 +1809,44 @@ const Footer = ({
           </div>
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-gray-800 text-xs">
-          <p className="text-gray-500 font-medium text-center md:text-left">
-            © {new Date().getFullYear()} Assurances Hay Saada - Intermédiaire Agréé AXA Assurance Maroc. Conforme ACAPS.
+        {/* Ligne inférieure de Copyright, Mentions Légales et Réseaux Sociaux */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/10 text-xs">
+          <p className="text-blue-200/70 font-medium text-center md:text-left">
+            © 2026 Assurances Hay Saada - Intermédiaire Agréé AXA Assurance Maroc. Conforme ACAPS.
           </p>
-          <div className="flex items-center gap-6 text-gray-500">
-            <span className="hover:text-gray-400">Mentions Légales</span>
-            <span className="hover:text-gray-400">Protection Données CNDP</span>
-            <span className="hover:text-gray-400">Code des Assurances Maroc</span>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-blue-200/70 font-medium">
+            <span className="hover:text-white transition-colors cursor-pointer">Mentions Légales</span>
+            <span className="hover:text-white transition-colors cursor-pointer">Protection Données CNDP</span>
+            <span className="hover:text-white transition-colors cursor-pointer">Code des Assurances Maroc</span>
+          </div>
+          <div className="flex items-center gap-5 text-blue-200/80">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="hover:text-white hover:scale-110 transition-all p-1"
+            >
+              <Facebook size={17} />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-white hover:scale-110 transition-all p-1"
+            >
+              <Linkedin size={17} />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-white hover:scale-110 transition-all p-1"
+            >
+              <Instagram size={17} />
+            </a>
           </div>
         </div>
       </div>
@@ -1684,52 +1857,52 @@ const Footer = ({
 const TrustFeaturesBar = () => {
   const features = [
     {
-      icon: <Clock className="w-6 h-6 stroke-[2]" />,
-      bgIcon: "bg-blue-50 text-[#002b80]",
-      title: "Assistance 24h/24",
+      icon: <Clock className="w-7 h-7 text-[#ff0000] stroke-[2.2] shrink-0" />,
+      title: "ASSISTANCE 24H/24",
       description: "Dépannage 0 km et remorquage express en cas de panne ou d'accident."
     },
     {
-      icon: <CheckCircle2 className="w-6 h-6 stroke-[2]" />,
-      bgIcon: "bg-red-50 text-[#e63946]",
-      title: "Règlement Rapide",
+      icon: <CheckCircle2 className="w-7 h-7 text-[#ff0000] stroke-[2.2] shrink-0" />,
+      title: "RÈGLEMENT RAPIDE",
       description: "Prise en charge simplifiée et remboursement accéléré de vos sinistres."
     },
     {
-      icon: <Users className="w-6 h-6 stroke-[2]" />,
-      bgIcon: "bg-emerald-50 text-emerald-600",
-      title: "Conseil de Proximité",
+      icon: <MapPin className="w-7 h-7 text-[#ff0000] stroke-[2.2] shrink-0" />,
+      title: "CONSEIL DE PROXIMITÉ",
       description: "Une agence dédiée à Casablanca animée par des conseillers qualifiés."
     },
     {
-      icon: <Star className="w-6 h-6 stroke-[2]" />,
-      bgIcon: "bg-amber-50 text-amber-500",
-      title: "Garantie AXA Maroc",
+      icon: <Shield className="w-7 h-7 text-[#ff0000] stroke-[2.2] shrink-0" />,
+      title: "GARANTIE AXA MAROC",
       description: "La puissance d'un groupe leader au service de vos intérêts quotidiens."
     }
   ];
 
   return (
-    <section className="py-8 bg-slate-50/70 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl border border-gray-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] p-6 sm:p-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {features.map((item, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className={`w-12 h-12 rounded-xl ${item.bgIcon} flex items-center justify-center shrink-0`}>
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-base font-bold text-[#002b80] mb-1.5 leading-snug">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-gray-500 leading-relaxed font-normal">
-                    {item.description}
-                  </p>
-                </div>
+    <section className="py-6 sm:py-7 bg-[#000a28] border-y border-white/[0.08] relative overflow-hidden">
+      {/* Texture de fond subtile */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center">
+          {features.map((item, index) => (
+            <div key={index} className="flex items-center gap-3.5">
+              {item.icon}
+              <div>
+                <h4 className="text-xs sm:text-[13px] font-black text-white uppercase tracking-wider leading-tight mb-0.5">
+                  {item.title}
+                </h4>
+                <p className="text-[11px] sm:text-xs text-blue-200/75 leading-snug font-normal">
+                  {item.description}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -1815,7 +1988,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900">
+    <div className="min-h-screen bg-white font-sans selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden w-full">
       <Navbar 
         currentView={currentView}
         onNavigate={handleNavigate}
