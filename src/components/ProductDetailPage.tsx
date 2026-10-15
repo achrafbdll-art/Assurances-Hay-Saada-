@@ -17,10 +17,6 @@ import {
   Phone, 
   Mail, 
   Calendar, 
-  FileText, 
-  HelpCircle, 
-  ChevronDown, 
-  ChevronUp, 
   Calculator, 
   MapPin, 
   Shield, 
@@ -47,7 +43,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const [selectedFormuleId, setSelectedFormuleId] = useState<string>(
     product.formules.find(f => f.isPopular)?.id || product.formules[0]?.id || ''
   );
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   // Configurateur state
   const [autoCv, setAutoCv] = useState('6');
@@ -804,104 +799,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           </div>
         </div>
 
-        {/* Section 3: Avantages Agence & Pièces à fournir */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-[#001f5c] text-white p-7 sm:p-8 rounded-3xl shadow-lg flex flex-col justify-between">
-            <div>
-              <h3 className="text-lg font-black uppercase tracking-wider mb-5 flex items-center gap-2.5">
-                <Shield className="text-[#ff0000]" size={20} />
-                <span>Pourquoi choisir Assurances Hay Saada ?</span>
-              </h3>
-              <ul className="space-y-4 text-xs sm:text-sm text-gray-200">
-                {product.advantages.map((adv, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-blue-300 shrink-0 mt-0.5" />
-                    <span className="leading-relaxed font-medium">{adv}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-              <span className="text-xs text-blue-200 font-semibold">Agent Général Agréé AXA Maroc</span>
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline"
-              >
-                <MessageCircle size={14} />
-                <span>Contacter l'agence</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="bg-white p-7 sm:p-8 rounded-3xl border border-gray-200 shadow-xs flex flex-col justify-between">
-            <div>
-              <h3 className="text-lg font-black uppercase tracking-wider text-gray-900 mb-5 flex items-center gap-2.5">
-                <FileText size={20} className="text-[#ff0000]" />
-                <span>Pièces à fournir pour la souscription</span>
-              </h3>
-              <ul className="space-y-3.5 text-xs sm:text-sm text-gray-600 font-medium">
-                {product.documentsRequired.map((doc, index) => (
-                  <li key={index} className="flex items-start gap-2.5">
-                    <span className="font-bold text-[#001f5c] w-5">{index + 1}.</span>
-                    <span>{doc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mt-8 pt-5 border-t border-gray-100">
-              <a
-                href={getWhatsAppUrl("(Envoi des documents justificatifs)")}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 py-3 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2"
-              >
-                <MessageCircle size={15} className="text-[#25D366]" />
-                <span>Transmettre mes documents par WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Section 4: FAQ Accordion */}
-        {product.faq && product.faq.length > 0 && (
-          <div className="mb-16">
-            <div className="mb-6">
-              <h2 className="text-2xl font-black text-[#001f5c] tracking-tight flex items-center gap-2">
-                <HelpCircle className="text-[#ff0000]" size={24} />
-                <span>Questions fréquentes sur ce contrat</span>
-              </h2>
-            </div>
-
-            <div className="space-y-3">
-              {product.faq.map((item, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <div
-                    key={idx}
-                    className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs transition-all"
-                  >
-                    <button
-                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-sm text-gray-900 hover:text-[#001f5c] transition-colors"
-                    >
-                      <span>{item.question}</span>
-                      {isOpen ? <ChevronUp size={18} className="text-[#ff0000]" /> : <ChevronDown size={18} className="text-gray-400" />}
-                    </button>
-                    {isOpen && (
-                      <div className="px-5 pb-5 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
-                        {item.answer}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
 
         {/* Bottom CTA Card */}
         <div className="bg-gradient-to-r from-[#001f5c] to-[#002b80] rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-xl text-center">

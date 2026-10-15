@@ -43,86 +43,85 @@ import { QuoteModal } from './components/QuoteModal';
 const SaadaMonogram = ({ 
   isScrolled = false, 
   variant = 'auto',
-  className = "h-10 sm:h-12 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105" 
+  className = "h-11 sm:h-12 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105" 
 }: { 
   isScrolled?: boolean;
   variant?: 'auto' | 'light' | 'dark';
   className?: string;
 }) => {
   const isLight = variant === 'light' || (variant === 'auto' && !isScrolled);
+  const primaryColor = isLight ? "#ffffff" : "#2d2d2d";
+  const contrastA = isLight ? "#111827" : "#ffffff";
 
   return (
     <svg
       className={className}
-      viewBox="0 0 170 95"
+      viewBox="0 0 540 375"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Logo Monogramme AH - Assurances Hay Saada"
+      aria-label="Logo Officiel Assurances Hay Saada"
     >
       <defs>
-        <linearGradient id="ahNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#0038a8" />
-          <stop offset="100%" stopColor="#001844" />
-        </linearGradient>
-        <linearGradient id="ahWhiteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="100%" stopColor="#f0f5ff" />
-        </linearGradient>
-        <filter id="ahDropShadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="2.5" floodColor="#000000" floodOpacity="0.4" />
-        </filter>
+        {isLight && (
+          <filter id="saadaLogoGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000000" floodOpacity="0.4" />
+          </filter>
+        )}
       </defs>
 
-      {/* Monogramme officiel Didone AH 100% conforme à la photo : Typographie Didone haute couture avec empattements fins, fûts contrastés et ligature fluide en S */}
-      <g 
-        fill={isLight ? "url(#ahWhiteGrad)" : "url(#ahNavyGrad)"}
-        filter={isLight ? "url(#ahDropShadow)" : undefined}
-      >
-        {/* === LETTRE A === */}
-        {/* Terminal en goutte Didone à la base de la jambe gauche galbée */}
-        <circle cx="21" cy="72" r="3.8" />
+      <g filter={isLight ? "url(#saadaLogoGlow)" : undefined}>
+        {/* Cercle principal anthracite */}
+        <circle cx="175" cy="175" r="125" fill={primaryColor} />
         
-        {/* Jambe gauche déliée et courbée avec élégance vers le sommet */}
-        <path d="M 21.2 68.2 C 22.8 61.5 29.5 40 42.5 16 L 46 16 C 32.5 40 25.2 61.5 24.2 68.5 Z" />
-        
-        {/* Empattement sommital plat du A */}
-        <rect x="36" y="14" width="16" height="2.2" rx="0.3" />
-        
-        {/* Fût diagonal massif et contrasté du A */}
-        <polygon points="43.5,16 52,16 73.5,73 64.5,73" />
-        
-        {/* Empattement bilatéral à la base du A */}
-        <rect x="57" y="73" width="22" height="2.5" rx="0.3" />
+        {/* Lettre A blanche géométrique et grasse à l'intérieur du cercle */}
+        <path 
+          fill={contrastA} 
+          fillRule="evenodd" 
+          d="
+            M 163 75 
+            L 187 75 
+            L 272 255 
+            L 226 255 
+            L 210 216 
+            L 154 216 
+            L 138 255 
+            L 92 255 
+            Z
+            M 175 130 
+            L 159 182 
+            L 191 182 
+            Z
+          " 
+        />
 
-        {/* === LETTRE H === */}
-        {/* Fût vertical gauche et ses empattements plats */}
-        <rect x="79" y="14" width="20" height="2.2" rx="0.3" />
-        <rect x="86" y="16" width="6" height="57" />
-        <rect x="79" y="73" width="20" height="2.5" rx="0.3" />
+        {/* Lettre H majuscule bold */}
+        <path 
+          fill={primaryColor} 
+          d="
+            M 274 75 
+            L 322 75 
+            L 322 148 
+            L 392 148 
+            L 392 75 
+            L 440 75 
+            L 440 255 
+            L 392 255 
+            L 392 186 
+            L 322 186 
+            L 322 255 
+            L 274 255 
+            Z
+          " 
+        />
 
-        {/* Fût vertical droit Didone et ses empattements plats */}
-        <rect x="115" y="14" width="24" height="2.2" rx="0.3" />
-        <rect x="122" y="16" width="10" height="57" />
-        <rect x="115" y="73" width="24" height="2.5" rx="0.3" />
+        {/* Point circulaire '.' après le H */}
+        <circle cx="480" cy="235" r="20" fill={primaryColor} />
 
-        {/* === TRAIT DE LIGATURE SIGNATURE EN S === */}
-        {/* Naissance sur la jambe gauche du A, traversée galbée en S montant, passage à travers le A et liaison continue à travers les deux fûts du H */}
-        <path d="
-          M 24 51
-          C 30 47, 38 39, 51 39
-          C 63 39, 72 45, 86 44
-          C 97 43.2, 112 39, 126 39.5
-          C 134 39.8, 142 41.5, 146 39
-          C 147.5 38, 147.2 36.2, 145.5 36.5
-          C 142 37.8, 134 36.8, 126 36.5
-          C 112 36, 97 40.5, 86 41
-          C 72 41.8, 63 36, 51 36
-          C 38 36, 30 44, 24 48
-          Z
-        " />
-        
-        {/* Finition en goutte calligraphique sur l'extrémité droite */}
-        <circle cx="146.5" cy="38.5" r="1.6" />
+        {/* Typographie officielle : HAY SAADA et ASSURANCES sous le H. */}
+        <g fill={primaryColor} fontFamily="Montserrat, Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" fontWeight="900">
+          <text x="274" y="306" fontSize="36" letterSpacing="0.5">HAY SAADA</text>
+          <text x="274" y="350" fontSize="36" letterSpacing="0.2">ASSURANCES</text>
+        </g>
       </g>
     </svg>
   );
@@ -181,14 +180,14 @@ const Navbar = ({
             className="flex items-center gap-3 group shrink-0 cursor-pointer" 
             aria-label="Accueil Assurances Hay Saada"
           >
-            {/* Monogramme AH officiel sans cadran */}
-            <SaadaMonogram isScrolled={isScrolled || currentView !== 'home'} />
-            <div className="flex flex-col justify-center">
-              <span className={`text-base sm:text-lg lg:text-xl font-black tracking-tight whitespace-nowrap leading-none ${isDarkNav ? 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]' : 'text-[#001f5c]'}`}>
-                ASSURANCES <span className="text-[#ff0000]">HAY SAADA</span>
+            {/* Logo officiel Assurances Hay Saada (photo attachée) */}
+            <SaadaMonogram isScrolled={isScrolled || currentView !== 'home'} className="h-11 sm:h-12 w-auto shrink-0" />
+            <div className="hidden sm:flex flex-col justify-center pl-3 border-l border-gray-300/40">
+              <span className={`text-[11px] font-black uppercase tracking-wider block whitespace-nowrap leading-tight ${isDarkNav ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]' : 'text-[#001f5c]'}`}>
+                Agent Général Agréé
               </span>
-              <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider block mt-1.5 whitespace-nowrap ${isDarkNav ? 'text-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]' : 'text-gray-600'}`}>
-                Agent Général AXA Assurance Maroc
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#ff0000] block mt-0.5 whitespace-nowrap">
+                AXA Assurance Maroc
               </span>
             </div>
           </a>
@@ -270,14 +269,14 @@ const Navbar = ({
             className="md:hidden bg-white absolute top-full left-0 w-full shadow-2xl border-t border-gray-100 divide-y divide-gray-100"
           >
             <div className="p-4 bg-slate-50 flex items-center justify-between">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <SaadaMonogram isScrolled={true} className="h-9 w-auto shrink-0" />
-                <div className="min-w-0">
-                  <div className="text-xs sm:text-sm font-black text-[#001f5c] whitespace-nowrap">
-                    ASSURANCES <span className="text-[#ff0000]">HAY SAADA</span>
+              <div className="flex items-center gap-3 min-w-0">
+                <SaadaMonogram isScrolled={true} className="h-10 w-auto shrink-0" />
+                <div className="min-w-0 pl-2.5 border-l border-gray-200">
+                  <div className="text-[11px] font-black uppercase text-[#001f5c] tracking-wider whitespace-nowrap">
+                    Agent Général Agréé
                   </div>
-                  <div className="text-[10px] text-gray-500 font-bold uppercase tracking-wider whitespace-nowrap mt-0.5">
-                    Agent Général AXA Assurance Maroc
+                  <div className="text-[10px] text-[#ff0000] font-black uppercase tracking-widest whitespace-nowrap mt-0.5">
+                    AXA Assurance Maroc
                   </div>
                 </div>
               </div>
@@ -466,12 +465,12 @@ const Hero = () => {
           <img
             src={activeSlide.image}
             alt={activeSlide.alt}
-            className="w-full h-full object-cover object-center filter brightness-[0.88]"
+            className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
             referrerPolicy="no-referrer"
           />
-          {/* Multi-layer AXA Branded Overlays for high contrast & elegance */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#001f5c]/95 via-[#002b80]/75 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-black/40" />
+          {/* Voiles AXA allégés pour une photo de fond beaucoup plus claire et lumineuse */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00153d]/75 via-[#001c52]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-black/15" />
         </motion.div>
       </AnimatePresence>
 
@@ -487,14 +486,14 @@ const Hero = () => {
           className="absolute top-28 right-12 md:right-28 w-44 h-44 bg-[#ff0000]/20 border-2 border-[#ff0000]/40 rounded-3xl backdrop-blur-md shadow-[0_20px_50px_rgba(255,0,0,0.3)] hidden lg:block"
         />
 
-        {/* Floating 3D Frosted Cube */}
+        {/* Floating 3D AXA Blue Square Accent (carreau arrière-plan en bas) */}
         <motion.div
           animate={{ 
             y: [0, 20, 0],
             rotate: [-15, -8, -15]
           }}
           transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-          className="absolute bottom-32 right-1/4 w-36 h-36 bg-white/5 border border-white/20 rounded-2xl backdrop-blur-lg shadow-2xl hidden md:block"
+          className="absolute bottom-32 right-1/4 w-36 h-36 bg-blue-600/30 border-2 border-blue-400/50 rounded-2xl backdrop-blur-lg shadow-[0_20px_50px_rgba(37,99,235,0.35)] hidden md:block"
         />
 
         {/* Moroccan Geometric Grid Accent (Subtle) */}
@@ -523,7 +522,7 @@ const Hero = () => {
                 </div>
 
                 {/* Main Heading */}
-                <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[0.95] mb-6 tracking-tighter">
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-black text-white leading-[0.95] mb-6 tracking-tighter drop-shadow-lg">
                   {activeSlide.titleLine1} <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#ff4d4d]">
                     {activeSlide.titleLine2}
@@ -531,7 +530,7 @@ const Hero = () => {
                 </h1>
 
                 {/* Description */}
-                <p className="text-lg sm:text-xl text-blue-50/90 mb-10 leading-relaxed font-medium">
+                <p className="text-lg sm:text-xl text-blue-50/95 mb-10 leading-relaxed font-medium drop-shadow-md">
                   {activeSlide.description}
                 </p>
 
@@ -677,41 +676,42 @@ const Services = ({
   const particulierProducts = PRODUCTS_DATA.filter(p => p.category === 'particulier' && p.id !== 'emprunteur');
 
   return (
-    <section id="services" className="py-24 axa-blue-bg-pattern text-white relative overflow-hidden">
-      {/* Dynamic 3D AXA Brand Motifs in Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <div 
-          className="absolute -right-20 -top-32 w-96 h-[600px] bg-white/[0.03] border-l-8 border-[#ff0000]/30 transform -skew-x-[14deg] pointer-events-none blur-[0.5px]" 
-        />
-        <div 
-          className="absolute -left-24 bottom-10 w-72 h-[450px] bg-blue-400/[0.04] border-r-8 border-white/10 transform -skew-x-[14deg] pointer-events-none" 
-        />
-        <div className="absolute top-16 right-12 w-64 h-64 border border-white/15 rounded-3xl rotate-12 bg-white/[0.03] backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.3)]" />
-        <div className="absolute bottom-20 left-10 w-52 h-52 border border-[#ff0000]/40 rounded-2xl -rotate-12 bg-[#ff0000]/10 backdrop-blur-md shadow-[0_20px_50px_rgba(255,0,0,0.15)]" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-400/20 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-10 right-1/4 w-[500px] h-[250px] bg-red-600/15 rounded-full blur-[100px]" />
-        <div className="absolute top-0 right-1/3 w-2.5 h-48 bg-gradient-to-b from-[#ff0000] to-transparent transform -skew-x-[14deg] opacity-80" />
-      </div>
+    <section id="services" className="py-24 bg-gradient-to-br from-[#000a28] via-[#00133c] to-[#00081d] text-white relative overflow-hidden">
+      {/* Grille de points subtile (Dot Matrix) comme dans la référence AXA */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.08]"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.7) 1px, transparent 1px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
+
+      {/* Lignes diagonales architecturales AXA subtiles */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.06]"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(-45deg, rgba(255,255,255,0.18) 0, rgba(255,255,255,0.18) 1px, transparent 0, transparent 48px)'
+        }}
+      />
+
+      {/* Accents diagonaux géométriques AXA discrets */}
+      <div className="absolute -top-32 -right-20 w-[500px] h-[700px] bg-gradient-to-b from-blue-500/[0.04] to-transparent transform -skew-x-[20deg] border-l border-white/[0.06] pointer-events-none" />
+      <div className="absolute -bottom-40 -left-20 w-[450px] h-[600px] bg-gradient-to-t from-red-600/[0.04] to-transparent transform -skew-x-[20deg] border-r border-[#ff0000]/10 pointer-events-none" />
+
+      {/* Halos d'ambiance discrets */}
+      <div className="absolute -bottom-24 -left-20 w-96 h-96 bg-[#ff0000]/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 -right-20 w-[450px] h-[450px] bg-blue-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/25 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/15 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-4 shadow-sm">
-            <div className="w-2.5 h-2.5 bg-[#ff0000] rotate-45" />
-            <span className="text-xs font-black tracking-[0.25em] text-blue-200 uppercase">
-              Gamme AXA Particuliers • Solutions Clés
-            </span>
-          </div>
-
-          <div className="flex justify-center items-center gap-4 mb-3">
+          <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tighter">PARTICULIERS</h2>
+          
+          <div className="flex justify-center items-center gap-3">
             <div className="w-12 h-1 bg-[#ff0000]" />
-            <h2 className="text-sm font-black text-blue-300 uppercase tracking-[0.3em]">Nos Solutions</h2>
-            <div className="w-12 h-1 bg-[#ff0000]" />
+            <div className="w-4 h-1 bg-blue-400/60" />
           </div>
-
-          <p className="text-4xl sm:text-5xl font-black text-white mb-4 tracking-tighter">PARTICULIERS</p>
-          <p className="text-lg text-blue-100/90 max-w-2xl mx-auto font-medium leading-relaxed">
-            Des garanties modulables et innovantes pour protéger votre famille, votre véhicule et votre patrimoine au quotidien.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -818,12 +818,9 @@ const ProfessionalSection = ({
                 <div className="w-12 h-1 bg-[#ff0000]" />
                 <h2 className="text-sm font-black text-[#002b80] uppercase tracking-[0.3em]">Espace Entreprises & Professionnels</h2>
               </div>
-              <h3 className="text-4xl sm:text-5xl font-black text-[#001f5c] mb-6 tracking-tighter leading-tight">
+              <h3 className="text-4xl sm:text-5xl font-black text-[#001f5c] mb-8 tracking-tighter leading-tight">
                 L'EXPERTISE PRO <br /><span className="text-[#001f5c]">SANS COMPROMIS.</span>
               </h3>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-medium">
-                Sécurisez votre avenir professionnel avec les solutions d'assurance AXA. Nous protégeons vos actifs, votre responsabilité juridique, vos salariés et votre flotte de transport.
-              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -1013,45 +1010,34 @@ const Testimonials = ({
 }) => {
   return (
     <section id="temoignages" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#000638] via-[#000a4a] to-[#00105c] text-white">
-      {/* Arrière-plan bleu avec motif répété AXA & Zellij géométrique marocain */}
+      {/* Arrière-plan bleu avec motif répété AXA & Zellij géométrique marocain adouci (moins visible et discret) */}
       <div 
-        className="absolute inset-0 pointer-events-none select-none"
+        className="absolute inset-0 pointer-events-none select-none opacity-20"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='180' height='100' viewBox='0 0 180 100' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Entrelacs Zellij géométriques marocains --%3E%3Cpath d='M90 0 L180 50 L90 100 L0 50 Z' fill='none' stroke='%23193599' stroke-width='0.75' stroke-opacity='0.45'/%3E%3Cpath d='M0 0 L180 100 M180 0 L0 100' fill='none' stroke='%23132c85' stroke-width='0.5' stroke-opacity='0.35'/%3E%3Cpolygon points='90,14 96,28 110,34 96,40 90,54 84,40 70,34 84,28' fill='none' stroke='%232850cc' stroke-width='0.75' stroke-opacity='0.4'/%3E%3Ccircle cx='90' cy='34' r='2.2' fill='%23ff0000' fill-opacity='0.55'/%3E%3C!-- Répétition typographique AXA du motif --%3E%3Ctext x='90' y='66' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-weight='900' font-size='34' fill='%23122c8c' letter-spacing='2.5'%3EAXA%3C/text%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='180' height='100' viewBox='0 0 180 100' xmlns='http://www.w3.org/2000/svg'%3E%3C!-- Entrelacs Zellij discrets --%3E%3Cpath d='M90 0 L180 50 L90 100 L0 50 Z' fill='none' stroke='%23254bc4' stroke-width='0.5' stroke-opacity='0.25'/%3E%3Cpath d='M0 0 L180 100 M180 0 L0 100' fill='none' stroke='%23193599' stroke-width='0.35' stroke-opacity='0.2'/%3E%3Cpolygon points='90,14 96,28 110,34 96,40 90,54 84,40 70,34 84,28' fill='none' stroke='%232850cc' stroke-width='0.5' stroke-opacity='0.2'/%3E%3Ccircle cx='90' cy='34' r='1.5' fill='%23ff0000' fill-opacity='0.25'/%3E%3C!-- Répétition typographique AXA estompée --%3E%3Ctext x='90' y='66' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-weight='900' font-size='28' fill='%231f42bf' fill-opacity='0.2' letter-spacing='2.5'%3EAXA%3C/text%3E%3C/svg%3E")`,
           backgroundSize: '180px 100px'
         }}
       />
 
-      {/* Lueur d'ambiance et accents de marque */}
-      <div className="absolute top-0 right-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-52 h-52 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
-      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+      {/* Lueur d'ambiance et accents de marque discrets */}
+      <div className="absolute top-0 right-1/4 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-52 h-52 bg-red-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent" />
+      <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-4 shadow-sm">
-            <div className="w-2.5 h-2.5 bg-[#ff0000] rotate-45" />
-            <span className="text-xs font-black tracking-[0.25em] text-blue-200 uppercase">
-              Témoignages & Avis Clients
-            </span>
-          </div>
-
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4 tracking-tight">
             Ce que disent nos clients
           </h2>
 
-          <div className="flex justify-center items-center gap-3 mb-4">
+          <div className="flex justify-center items-center gap-3">
             <div className="w-12 h-1 bg-[#ff0000]" />
             <p className="text-xs font-black text-blue-300 uppercase tracking-[0.25em]">
               Assurances Hay Saada • Agence AXA Casablanca
             </p>
             <div className="w-12 h-1 bg-[#ff0000]" />
           </div>
-
-          <p className="text-sm sm:text-base text-blue-100/90 max-w-2xl mx-auto font-normal leading-relaxed">
-            Particuliers, chefs d'entreprise et professions libérales partagent leur expérience avec notre équipe à Hay Mohammadi.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1231,13 +1217,8 @@ const About = () => {
             </h2>
 
             {/* Paragraph 1 */}
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4">
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-8">
               Implantée au cœur de Hay Mohammadi, l'agence <strong className="font-extrabold text-[#001f5c]">Assurances Hay Saada</strong> vous accompagne avec rigueur et écoute en tant qu'agent général agréé <strong className="font-extrabold text-[#001f5c]">AXA Assurance Maroc</strong>.
-            </p>
-
-            {/* Paragraph 2 */}
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
-              Nous allions la proximité humaine d'un cabinet de confiance et l'envergure internationale d'AXA pour protéger vos biens, votre santé, votre famille et votre patrimoine professionnel avec une réactivité irréprochable.
             </p>
 
             {/* Two Side-by-Side Highlight Cards */}
@@ -1290,101 +1271,206 @@ const About = () => {
 };
 
 const Contact = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    type: 'Auto',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+    setTimeout(() => {
+      setFormSubmitted(false);
+      setContactForm({
+        name: '',
+        phone: '',
+        email: '',
+        type: 'Auto',
+        message: ''
+      });
+    }, 5000);
+  };
+
   return (
-    <section id="contact" className="py-24 bg-blue-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <section id="contact" className="py-24 relative overflow-hidden bg-white text-gray-900 border-t border-gray-100">
+      {/* Texture de fond subtile et halos très doux */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-40"
+        style={{
+          backgroundImage: 'radial-gradient(#cbd5e1 0.75px, transparent 0.75px)',
+          backgroundSize: '24px 24px'
+        }}
+      />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50/60 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-50/40 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <h2 className="text-sm font-bold text-blue-400 uppercase tracking-widest mb-3">Contactez-nous</h2>
-            <h3 className="text-4xl font-bold mb-8">Prêt à être mieux protégé ?</h3>
-            <p className="text-blue-100 mb-12 text-lg leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#001f5c] mb-4 tracking-tight leading-tight">
+              Prêt à être mieux protégé ?
+            </h2>
+
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-1 bg-[#ff0000]" />
+              <div className="w-4 h-1 bg-[#002b80]/40" />
+            </div>
+
+            <p className="text-gray-600 mb-10 text-base sm:text-lg leading-relaxed">
               Nos conseillers sont à votre disposition pour réaliser une étude gratuite de vos besoins et vous proposer la meilleure solution d'assurance.
             </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center shrink-0">
-                  <Phone className="text-blue-400" />
+            <div className="space-y-6">
+              <div className="flex items-start gap-5 p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
+                <div className="w-12 h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                  <Phone className="text-[#002b80]" size={22} />
                 </div>
                 <div>
-                  <p className="text-blue-300 text-sm font-bold uppercase mb-1">Téléphone</p>
-                  <p className="text-xl font-semibold">+212 5 22 XX XX XX</p>
+                  <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Téléphone</p>
+                  <a href="tel:+212522000000" className="text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors">
+                    +212 5 22 XX XX XX
+                  </a>
+                  <p className="text-xs text-gray-500 mt-0.5">Du lundi au vendredi 8h30-18h30, samedi matin</p>
                 </div>
               </div>
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center shrink-0">
-                  <Mail className="text-blue-400" />
+
+              <div className="flex items-start gap-5 p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
+                <div className="w-12 h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                  <Mail className="text-[#002b80]" size={22} />
                 </div>
                 <div>
-                  <p className="text-blue-300 text-sm font-bold uppercase mb-1">Email</p>
-                  <p className="text-xl font-semibold">contact@axacasablanca.ma</p>
+                  <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Email</p>
+                  <a href="mailto:contact@axacasablanca.ma" className="text-lg sm:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors break-all">
+                    contact@axacasablanca.ma
+                  </a>
+                  <p className="text-xs text-gray-500 mt-0.5">Réponse garantie sous 24h ouvrées</p>
                 </div>
               </div>
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-blue-800 rounded-xl flex items-center justify-center shrink-0">
-                  <MapPin className="text-blue-400" />
+
+              <div className="flex items-start gap-5 p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
+                <div className="w-12 h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                  <MapPin className="text-[#002b80]" size={22} />
                 </div>
                 <div>
-                  <p className="text-blue-300 text-sm font-bold uppercase mb-1">Adresse</p>
-                  <p className="text-xl font-semibold">271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)</p>
+                  <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Adresse</p>
+                  <p className="text-base sm:text-lg font-semibold text-[#001f5c] leading-snug">
+                    271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)
+                  </p>
+                  <p className="text-xs text-gray-500 mt-0.5">Casablanca, Maroc • Parking à proximité</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl border border-gray-200 text-gray-900">
+            {formSubmitted ? (
+              <div className="py-12 text-center space-y-4">
+                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 size={36} />
+                </div>
+                <h3 className="text-2xl font-black text-[#001f5c]">Demande envoyée avec succès !</h3>
+                <p className="text-gray-600 max-w-md mx-auto">
+                  Merci pour votre confiance. Un conseiller de l'agence Assurances Hay Saada étudie votre demande et vous contactera dans les plus brefs délais.
+                </p>
+                <div className="pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setFormSubmitted(false)}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-sm transition-colors"
+                  >
+                    Envoyer un autre message
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                      Nom Complet
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                      placeholder="Votre nom"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                      Téléphone
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={contactForm.phone}
+                      onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                      placeholder="06 XX XX XX XX"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">Nom Complet</label>
+                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                    Email
+                  </label>
                   <input
-                    type="text"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                    placeholder="Votre nom"
+                    type="email"
+                    required
+                    value={contactForm.email}
+                    onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                    placeholder="votre@email.com"
                   />
                 </div>
+
                 <div>
-                  <label className="block text-gray-700 text-sm font-bold mb-2">Téléphone</label>
-                  <input
-                    type="tel"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                    placeholder="06 XX XX XX XX"
-                  />
+                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                    Type d'Assurance
+                  </label>
+                  <select 
+                    value={contactForm.type}
+                    onChange={(e) => setContactForm({ ...contactForm, type: e.target.value })}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm font-medium"
+                  >
+                    <option value="Auto">Auto</option>
+                    <option value="Santé">Santé</option>
+                    <option value="Habitation">Habitation</option>
+                    <option value="Professionnelle">Professionnelle</option>
+                    <option value="Épargne & Retraite">Épargne & Retraite</option>
+                    <option value="Autre">Autre</option>
+                  </select>
                 </div>
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  placeholder="votre@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">Type d'Assurance</label>
-                <select className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
-                  <option>Auto</option>
-                  <option>Santé</option>
-                  <option>Habitation</option>
-                  <option>Professionnelle</option>
-                  <option>Autre</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-bold mb-2">Message (Optionnel)</label>
-                <textarea
-                  rows={4}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  placeholder="Comment pouvons-nous vous aider ?"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30"
-              >
-                Envoyer ma demande
-              </button>
-            </form>
+
+                <div>
+                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-2">
+                    Message (Optionnel)
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={contactForm.message}
+                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                    placeholder="Comment pouvons-nous vous aider ?"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[#002b80] hover:bg-[#001f5c] text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 active:scale-[0.99] flex items-center justify-center gap-2"
+                >
+                  <span>Envoyer ma demande</span>
+                  <ArrowRight size={18} />
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
@@ -1489,14 +1575,14 @@ const Footer = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3.5 mb-6">
-              <SaadaMonogram variant="light" className="h-11 w-auto shrink-0" />
-              <div>
-                <span className="text-white font-black text-lg sm:text-xl tracking-tight whitespace-nowrap block leading-none">
-                  ASSURANCES <span className="text-[#ff0000]">HAY SAADA</span>
+            <div className="flex items-center gap-4 mb-6">
+              <SaadaMonogram variant="light" className="h-12 w-auto shrink-0" />
+              <div className="pl-3.5 border-l border-gray-700">
+                <span className="text-white font-black text-xs uppercase tracking-wider block">
+                  Agent Général Agréé
                 </span>
-                <span className="text-gray-300 text-xs font-bold uppercase tracking-wider block mt-2 whitespace-nowrap">
-                  Agent Général AXA Assurance Maroc
+                <span className="text-[#ff0000] text-xs font-black uppercase tracking-widest block mt-0.5">
+                  AXA Assurance Maroc
                 </span>
               </div>
             </div>
@@ -1780,8 +1866,8 @@ export default function App() {
           />
           
           <Testimonials onOpenQuoteModal={handleOpenQuoteModal} />
-          <MapSection />
           <Contact />
+          <MapSection />
         </main>
       )}
 
