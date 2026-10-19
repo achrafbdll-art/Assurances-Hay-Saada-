@@ -152,9 +152,9 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold uppercase tracking-widest text-blue-200 mb-4">
-              <Sparkles size={13} className="text-[#ff0000]" />
-              <span>Assurances Hay Saada • Agent Général AXA Casablanca</span>
+            <div className="inline-flex items-center gap-2.5 pl-2 pr-3.5 py-1 rounded-md bg-black/35 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-white mb-4 shadow-sm">
+              <span className="px-1.5 py-0.5 bg-[#ff0000] text-white font-black text-[10px] rounded tracking-wider shadow-xs">AXA</span>
+              <span>Assurances Hay Saada • <span className="text-[#ff4d4d] font-black">Agent Général AXA</span> Casablanca</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
@@ -271,7 +271,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
 
                 <div className="pt-4 border-t border-gray-100 flex items-center justify-between gap-3">
                   <a
-                    href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour : ${prod.title}`)}`}
+                    href={`https://wa.me/212661180422?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour : ${prod.title}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -309,7 +309,7 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
 
           <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
             <a
-              href="https://wa.me/212600000000?text=Bonjour%20Assurances%20Hay%20Saada,%20je%20souhaite%20un%20conseil%20personnalis%C3%A9%20sur%20vos%20offres%20d%27assurance."
+              href="https://wa.me/212661180422?text=Bonjour%20Assurances%20Hay%20Saada,%20je%20souhaite%20un%20conseil%20personnalis%C3%A9%20sur%20vos%20offres%20d%27assurance."
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 md:flex-none text-center bg-[#25D366] hover:bg-[#20ba5a] text-white px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 shadow-sm"
@@ -318,10 +318,10 @@ export const CatalogPage: React.FC<CatalogPageProps> = ({
               <span>WhatsApp Direct</span>
             </a>
             <a
-              href="tel:+212522000000"
+              href="tel:+212522630268"
               className="flex-1 md:flex-none text-center bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors"
             >
-              05 22 00 00 00
+              05 22 63 02 68
             </a>
             <button
               onClick={() => onOpenQuoteModal()}

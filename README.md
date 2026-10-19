@@ -3,9 +3,9 @@
 Site web officiel responsive (Mobile & PC 100% opérationnel) de l'agence **Assurances Hay Saada**, intermédiaire d'assurance agréé par l'ACAPS pour le compte d'AXA Assurance Maroc.
 
 📍 **Adresse :** 271, Certificat Bloc 17, Hay Mohammadi, Casablanca, Maroc  
-📞 **Téléphone :** 05 22 00 00 00  
-✉️ **Email :** contact@assuranceshaysaada.ma  
-💬 **WhatsApp :** +212 6 00 00 00 00  
+📞 **Téléphone Fixe :** 05 22 63 02 68  
+📱 **Mobile & WhatsApp :** 06 61 18 04 22 (+212 6 61 18 04 22)  
+✉️ **Email :** axasaada9@gmail.com  
 
 ---
 

@@ -16,14 +16,12 @@ import {
   CheckCircle2, 
   Phone, 
   Mail, 
-  Calendar, 
-  Calculator, 
-  MapPin, 
   Shield, 
   Sparkles,
-  ArrowRight,
-  Send,
-  MessageCircle
+  MessageCircle,
+  ChevronDown,
+  FileText,
+  HelpCircle
 } from 'lucide-react';
 import { ProductData } from '../data/products';
 
@@ -43,33 +41,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   const [selectedFormuleId, setSelectedFormuleId] = useState<string>(
     product.formules.find(f => f.isPopular)?.id || product.formules[0]?.id || ''
   );
-
-  // Configurateur state
-  const [autoCv, setAutoCv] = useState('6');
-  const [autoUsage, setAutoUsage] = useState('prive');
-  const [autoFormule, setAutoFormule] = useState('tiers-etendu');
-
-  const [habType, setHabType] = useState('appartement');
-  const [habPieces, setHabPieces] = useState('3');
-  const [habStatut, setHabStatut] = useState('locataire');
-
-  const [santeFormule, setSanteFormule] = useState('sante-confort');
-  const [santeFamille, setSanteFamille] = useState('famille');
-
-  const [retraiteMensuel, setRetraiteMensuel] = useState(1000);
-  const [retraiteDuree, setRetraiteDuree] = useState(20);
-
-  const [rcProSector, setRcProSector] = useState('services');
-  const [rcProTurnover, setRcProTurnover] = useState('moyen');
-
-  const [flotteVehicules, setFlotteVehicules] = useState(5);
-
-  // Quote callback form inside page
-  const [leadName, setLeadName] = useState('');
-  const [leadPhone, setLeadPhone] = useState('');
-  const [leadEmail, setLeadEmail] = useState('');
-  const [leadNotes, setLeadNotes] = useState('');
-  const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   // Build WhatsApp URL with contextual message
   const getWhatsAppUrl = (extraText = '') => {
@@ -77,36 +49,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
     if (extraText) {
       msg += ` ${extraText}`;
     }
-    return `https://wa.me/212600000000?text=${encodeURIComponent(msg)}`;
-  };
-
-  const getConfigurationSummary = () => {
-    if (product.id === 'auto') {
-      const usageLabel = autoUsage === 'pro' ? 'Usage Professionnel' : 'Usage Privé';
-      return `(Véhicule: ${autoCv} CV, ${usageLabel}, Formule: ${autoFormule})`;
-    }
-    if (product.id === 'habitation') {
-      return `(Bien: ${habType}, ${habPieces} pièces, Statut: ${habStatut})`;
-    }
-    if (product.id === 'sante') {
-      return `(Formule: ${santeFormule}, Composition: ${santeFamille})`;
-    }
-    if (product.id === 'epargne-retraite') {
-      return `(Projet: épargne retraite sur ${retraiteDuree} ans)`;
-    }
-    if (product.id === 'rc-pro') {
-      return `(Secteur: ${rcProSector}, Profil: ${rcProTurnover})`;
-    }
-    if (product.id === 'flotte-auto') {
-      return `(Flotte: ${flotteVehicules} véhicules professionnels)`;
-    }
-    return '';
-  };
-
-  const handleLeadSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!leadName || !leadPhone) return;
-    setLeadSubmitted(true);
+    return `https://wa.me/212661180422?text=${encodeURIComponent(msg)}`;
   };
 
   const getProductIcon = (name: string) => {
@@ -218,7 +161,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 {product.fullDescription}
               </p>
 
-              {/* Main Action CTAs : WhatsApp & Contact Form */}
+              {/* Main Action CTAs : WhatsApp & Contact Modal */}
               <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
                 <a
                   href={getWhatsAppUrl()}
@@ -230,20 +173,21 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   <span>Demander un devis sur WhatsApp</span>
                 </a>
                 
-                <a
-                  href="#contact-form"
-                  className="w-full sm:w-auto bg-[#ff0000] hover:bg-[#d60000] text-white px-6 py-3.5 sm:py-4 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 text-center"
+                <button
+                  type="button"
+                  onClick={() => onOpenQuoteModal(product.title)}
+                  className="w-full sm:w-auto bg-[#ff0000] hover:bg-[#d60000] text-white px-6 py-3.5 sm:py-4 rounded-xl font-black text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 text-center cursor-pointer"
                 >
                   <Mail size={16} />
-                  <span>Formulaire de contact</span>
-                </a>
+                  <span>Demande de devis en ligne</span>
+                </button>
 
                 <a
-                  href="tel:+212522000000"
+                  href="tel:+212522630268"
                   className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-3.5 sm:py-4 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 text-center"
                 >
                   <Phone size={16} />
-                  <span>05 22 00 00 00</span>
+                  <span>05 22 63 02 68</span>
                 </a>
               </div>
             </div>
@@ -305,38 +249,42 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         </div>
       </div>
 
-      {/* Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      {/* Main Content Area */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
-        {/* Section 1: Formules & Niveaux de Garantie (NO PRICE) */}
+        {/* Section 1: Formules & Niveaux de Garantie */}
         <div className="mb-16">
-          <div className="mb-8">
-            <h2 className="text-2xl sm:text-3xl font-black text-[#001f5c] tracking-tight">
-              Nos formules disponibles
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 text-[#001f5c] text-xs font-black uppercase tracking-wider mb-2">
+              <ShieldCheck size={14} className="text-[#ff0000]" />
+              <span>Gamme & Couvertures Disponibles</span>
+            </div>
+            <h2 className="text-3xl font-black text-[#001f5c] mb-3">
+              Choisissez la formule adaptée à vos besoins
             </h2>
-            <p className="text-gray-600 font-medium text-sm mt-1">
-              Des formules modulables adaptées à vos besoins, sans engagement.
+            <p className="text-gray-600 text-sm">
+              Toutes nos formules bénéficient de l'assistance et des garanties AXA Maroc avec accompagnement personnalisé par l'agence Assurances Hay Saada.
             </p>
           </div>
 
-          <div className={`grid grid-cols-1 md:grid-cols-${Math.min(product.formules.length, 3)} gap-6`}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
             {product.formules.map((formule) => {
               const isSelected = selectedFormuleId === formule.id;
-              const formuleWhatsAppUrl = getWhatsAppUrl(`(Formule souhaitée : ${formule.name})`);
+              const formuleWhatsAppUrl = getWhatsAppUrl(`(Intéressé par la formule : ${formule.name})`);
 
               return (
                 <div
                   key={formule.id}
                   onClick={() => setSelectedFormuleId(formule.id)}
-                  className={`bg-white rounded-2xl p-7 border-2 transition-all cursor-pointer relative flex flex-col justify-between ${
+                  className={`bg-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between border-2 transition-all relative cursor-pointer ${
                     isSelected 
-                      ? 'border-[#001f5c] shadow-xl ring-2 ring-[#001f5c]/20' 
+                      ? 'border-[#001f5c] shadow-xl ring-2 ring-[#001f5c]/10' 
                       : 'border-gray-200 hover:border-gray-300 shadow-sm'
                   }`}
                 >
                   {formule.isPopular && (
-                    <div className="absolute -top-3 right-6 bg-[#ff0000] text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-md">
-                      Le + Choisi
+                    <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#ff0000] text-white text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-md">
+                      Formule Recommandée
                     </div>
                   )}
 
@@ -379,7 +327,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                         e.stopPropagation();
                         onOpenQuoteModal(`${product.title} - ${formule.name}`);
                       }}
-                      className="w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-gray-100 text-gray-800 hover:bg-gray-200"
+                      className="w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer"
                     >
                       Formulaire de contact
                     </button>
@@ -390,419 +338,149 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           </div>
         </div>
 
-        {/* Section 2: Configurateur & Demande de Devis (NO PRICE) */}
-        <div id="contact-form" className="mb-16 bg-white rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-xl">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 mb-8 border-b border-gray-100">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-red-50 text-[#ff0000] text-xs font-black uppercase tracking-wider mb-2">
-                <Calculator size={14} />
-                <span>Configurateur de Garanties</span>
+        {/* Section 2: Garanties Incluses & Documents Requis */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+          {/* Garanties Clés */}
+          <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+            <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-100">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#001f5c] flex items-center justify-center font-bold">
+                <ShieldCheck size={20} className="text-[#ff0000]" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#001f5c]">
-                Préparez votre demande de devis
-              </h2>
-              <p className="text-gray-500 text-xs sm:text-sm mt-1">
-                Indiquez vos préférences ci-dessous et transmettez-les en 1 clic par WhatsApp ou via le formulaire.
-              </p>
+              <div>
+                <h3 className="text-lg font-black text-[#001f5c]">
+                  Garanties Clés & Engagements AXA
+                </h3>
+                <p className="text-xs text-gray-500">
+                  Couverture garantie par les conditions générales AXA Assurance Maroc
+                </p>
+              </div>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-center sm:text-right shrink-0">
-              <span className="text-xs font-bold text-gray-500 block uppercase">Option directe</span>
+            <div className="space-y-4">
+              {product.keyGuarantees.map((guarantee, idx) => (
+                <div key={idx} className="p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-slate-200 transition-colors">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-2.5">
+                      <CheckCircle2 size={16} className="text-emerald-600 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="text-xs sm:text-sm font-black text-gray-900">
+                          {guarantee.title}
+                        </h4>
+                        <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                          {guarantee.description}
+                        </p>
+                      </div>
+                    </div>
+                    {guarantee.coverageLimit && (
+                      <span className="text-[10px] font-bold text-[#001f5c] bg-blue-100/60 px-2 py-0.5 rounded shrink-0">
+                        {guarantee.coverageLimit}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pièces à fournir pour la souscription */}
+          <div className="lg:col-span-5 flex flex-col justify-between bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+            <div>
+              <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-100">
+                <div className="w-10 h-10 rounded-xl bg-red-50 text-[#ff0000] flex items-center justify-center font-bold">
+                  <FileText size={20} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-[#001f5c]">
+                    Pièces & Justificatifs
+                  </h3>
+                  <p className="text-xs text-gray-500">
+                    Documents à présenter à l'agence ou par WhatsApp
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3 mb-6">
+                {product.documentsRequired.map((doc, idx) => (
+                  <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100">
+                    <span className="w-5 h-5 rounded-full bg-[#001f5c] text-white flex items-center justify-center text-[10px] font-black shrink-0 mt-0.5">
+                      {idx + 1}
+                    </span>
+                    <span className="text-xs font-semibold text-gray-700 leading-snug">
+                      {doc}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100">
+              <span className="text-xs font-black text-[#001f5c] block mb-1">
+                Souscription Express en Agence
+              </span>
+              <p className="text-[11px] text-gray-600 leading-relaxed mb-3">
+                Envoyez vos photos de documents par WhatsApp : votre conseiller prépare votre contrat avant votre passage à l'agence de Hay Mohammadi.
+              </p>
               <a
-                href={getWhatsAppUrl(getConfigurationSummary())}
+                href={getWhatsAppUrl("(Envoi des justificatifs pour souscription)")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
+                className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-2 px-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-xs"
               >
-                <MessageCircle size={16} />
-                <span>Envoyer ma sélection sur WhatsApp</span>
+                <MessageCircle size={14} />
+                <span>Transmettre mes pièces sur WhatsApp</span>
               </a>
             </div>
           </div>
-
-          {/* Configurator Inputs by product type */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            {product.id === 'auto' && (
-              <>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Puissance Fiscale (CV)
-                  </label>
-                  <select
-                    value={autoCv}
-                    onChange={(e) => setAutoCv(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="6">Jusqu'à 6 CV (Essence / Diesel)</option>
-                    <option value="7">7 à 8 CV (Berline moyenne)</option>
-                    <option value="9">9 à 10 CV (SUV / Grande berline)</option>
-                    <option value="11">11 CV et plus (Sportive / Luxe)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Usage du véhicule
-                  </label>
-                  <select
-                    value={autoUsage}
-                    onChange={(e) => setAutoUsage(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="prive">Privé & Trajet domicile-travail</option>
-                    <option value="pro">Usage Professionnel / Commercial</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Niveau de couverture
-                  </label>
-                  <select
-                    value={autoFormule}
-                    onChange={(e) => setAutoFormule(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="tiers-simple">Tiers Simple (RC + Défense)</option>
-                    <option value="tiers-etendu">Tiers Étendu (Collision + Vol + Bris)</option>
-                    <option value="tous-risques">Tous Risques Intégrale</option>
-                  </select>
-                </div>
-              </>
-            )}
-
-            {product.id === 'habitation' && (
-              <>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Type de bien
-                  </label>
-                  <select
-                    value={habType}
-                    onChange={(e) => setHabType(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="appartement">Appartement en résidence</option>
-                    <option value="villa">Villa individuelle</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Nombre de pièces principales
-                  </label>
-                  <select
-                    value={habPieces}
-                    onChange={(e) => setHabPieces(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="2">Studio / 2 pièces</option>
-                    <option value="3">3 pièces (Salon + 2 chambres)</option>
-                    <option value="4">4 pièces (Salon + 3 chambres)</option>
-                    <option value="5">5 pièces ou plus</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Qualité de l'occupant
-                  </label>
-                  <select
-                    value={habStatut}
-                    onChange={(e) => setHabStatut(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="locataire">Locataire (Risques locatifs)</option>
-                    <option value="proprietaire">Propriétaire occupant</option>
-                  </select>
-                </div>
-              </>
-            )}
-
-            {product.id === 'sante' && (
-              <>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Formule de remboursement
-                  </label>
-                  <select
-                    value={santeFormule}
-                    onChange={(e) => setSanteFormule(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="sante-essentielle">Hospi & Chirurgie seule</option>
-                    <option value="sante-confort">Confort : Hospi + Soins ambulatoires 80%</option>
-                    <option value="sante-serenite">Sérénité : Couverture 90% + Dentaire/Optique</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Composition du foyer
-                  </label>
-                  <select
-                    value={santeFamille}
-                    onChange={(e) => setSanteFamille(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="solo">Assuré individuel seul</option>
-                    <option value="couple">Couple (Souscripteur + Conjoint)</option>
-                    <option value="famille">Famille complète (Parents + Enfants)</option>
-                  </select>
-                </div>
-
-                <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200">
-                  <span className="text-xs font-bold text-emerald-800 block mb-1">Réseau Tiers-Payant</span>
-                  <span className="text-[11px] text-emerald-700 leading-tight block">
-                    Accès sans avance de frais dans les cliniques privées partenaires de Casablanca.
-                  </span>
-                </div>
-              </>
-            )}
-
-            {product.id === 'epargne-retraite' && (
-              <>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Profil de versement envisagé
-                  </label>
-                  <select
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="progressif">Épargne progressive (démarrage modulable)</option>
-                    <option value="confort">Épargne confort (constitution régulière)</option>
-                    <option value="optimale">Épargne optimale (optimisation fiscale maximale)</option>
-                    <option value="patrimoniale">Épargne patrimoniale & transmission</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Horizon d'épargne : <span className="text-[#001f5c] font-black">{retraiteDuree} ans</span>
-                  </label>
-                  <input
-                    type="range"
-                    min="5"
-                    max="35"
-                    step="1"
-                    value={retraiteDuree}
-                    onChange={(e) => setRetraiteDuree(Number(e.target.value))}
-                    className="w-full accent-[#001f5c] cursor-pointer"
-                  />
-                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
-                    <span>5 ans</span>
-                    <span>20 ans</span>
-                    <span>35 ans</span>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
-                  <span className="text-xs font-bold text-[#001f5c] block mb-1">Avantage Fiscal Maroc</span>
-                  <span className="text-[11px] text-blue-800 leading-tight block">
-                    Déductibilité intégrale de l'IR selon le Code Général des Impôts marocain.
-                  </span>
-                </div>
-              </>
-            )}
-
-            {product.id === 'rc-pro' && (
-              <>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Secteur d'activité
-                  </label>
-                  <select
-                    value={rcProSector}
-                    onChange={(e) => setRcProSector(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="services">Services, IT, Conseil, Agences</option>
-                    <option value="commerce">Commerce de détail, Restauration</option>
-                    <option value="btp">BTP, Artisans du bâtiment</option>
-                    <option value="industrie">Industrie, Production, Transport</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Taille de structure
-                  </label>
-                  <select
-                    value={rcProTurnover}
-                    onChange={(e) => setRcProTurnover(e.target.value)}
-                    className="w-full bg-slate-50 border border-gray-300 rounded-xl px-4 py-3 text-sm font-semibold focus:outline-none focus:border-[#001f5c]"
-                  >
-                    <option value="petit">TPE / Indépendant / Profession libérale</option>
-                    <option value="moyen">PME / Société de services</option>
-                    <option value="grand">Grande Entreprise / Groupe</option>
-                  </select>
-                </div>
-
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <span className="text-xs font-bold text-gray-800 block mb-1">Attestation Marchés Publics</span>
-                  <span className="text-[11px] text-gray-600 leading-tight block">
-                    Délivrée sous 24h avec plafonds adaptés à vos cahiers des charges.
-                  </span>
-                </div>
-              </>
-            )}
-
-            {product.id === 'flotte-auto' && (
-              <>
-                <div className="md:col-span-2">
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">
-                    Nombre de véhicules dans le parc : <span className="text-[#001f5c] font-black">{flotteVehicules} véhicules</span>
-                  </label>
-                  <input
-                    type="range"
-                    min="3"
-                    max="50"
-                    step="1"
-                    value={flotteVehicules}
-                    onChange={(e) => setFlotteVehicules(Number(e.target.value))}
-                    className="w-full accent-[#001f5c] cursor-pointer"
-                  />
-                  <div className="flex justify-between text-[11px] text-gray-500 mt-1">
-                    <span>3 véhicules</span>
-                    <span>25 véhicules</span>
-                    <span>50+ véhicules</span>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
-                  <span className="text-xs font-bold text-[#001f5c] block mb-1">Audit de Flotte Gratuit</span>
-                  <span className="text-[11px] text-blue-800 leading-tight block">
-                    Nos conseillers étudient votre parc pour optimiser vos conditions de couverture.
-                  </span>
-                </div>
-              </>
-            )}
-
-            {!['auto', 'habitation', 'sante', 'epargne-retraite', 'rc-pro', 'flotte-auto'].includes(product.id) && (
-              <div className="md:col-span-3 p-6 bg-slate-50 rounded-2xl border border-slate-200 text-center">
-                <p className="text-sm font-semibold text-gray-700 mb-2">
-                  Ce contrat fait l'objet d'une étude technique sur-mesure conforme à la réglementation marocaine.
-                </p>
-                <p className="text-xs text-gray-500">
-                  Remplissez le formulaire ci-dessous ou contactez notre agence de Hay Mohammadi par WhatsApp.
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Formulaire de Contact Direct */}
-          <div className="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200">
-            {leadSubmitted ? (
-              <div className="p-6 bg-emerald-50 rounded-xl text-center border border-emerald-200">
-                <CheckCircle2 size={36} className="text-emerald-600 mx-auto mb-2" />
-                <h4 className="text-base font-bold text-emerald-900">Demande de devis enregistrée !</h4>
-                <p className="text-xs text-emerald-700 mt-1">
-                  Un conseiller de l'agence Assurances Hay Saada va vous contacter au <strong>{leadPhone}</strong> sous 2 heures ouvrées pour vous présenter votre devis personnalisé.
-                </p>
-                <a
-                  href={getWhatsAppUrl(`(Demande envoyée par ${leadName} au ${leadPhone})`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-xs hover:bg-[#20ba5a] transition-colors"
-                >
-                  <MessageCircle size={15} />
-                  <span>Accélérer ma demande sur WhatsApp</span>
-                </a>
-              </div>
-            ) : (
-              <form onSubmit={handleLeadSubmit} className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-gray-200">
-                  <div>
-                    <h4 className="text-sm font-black uppercase tracking-wider text-[#001f5c]">
-                      Formulaire de Devis Personnalisé
-                    </h4>
-                    <p className="text-xs text-gray-500">
-                      Remplissez vos coordonnées pour recevoir votre proposition chiffrée
-                    </p>
-                  </div>
-                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200 shrink-0">
-                    Sans engagement
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">
-                      Nom complet *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Votre nom & prénom"
-                      value={leadName}
-                      onChange={(e) => setLeadName(e.target.value)}
-                      className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-xs font-semibold focus:outline-none focus:border-[#001f5c]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">
-                      Téléphone (GSM) *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="06 XX XX XX XX"
-                      value={leadPhone}
-                      onChange={(e) => setLeadPhone(e.target.value)}
-                      className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-xs font-semibold focus:outline-none focus:border-[#001f5c]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="votre@email.com"
-                      value={leadEmail}
-                      onChange={(e) => setLeadEmail(e.target.value)}
-                      className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-xs font-semibold focus:outline-none focus:border-[#001f5c]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[11px] font-bold text-gray-700 uppercase mb-1">
-                    Précisions éventuelles (facultatif)
-                  </label>
-                  <textarea
-                    rows={2}
-                    placeholder="Modèle du véhicule, date d'échéance du contrat actuel, superficie du local..."
-                    value={leadNotes}
-                    onChange={(e) => setLeadNotes(e.target.value)}
-                    className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2.5 text-xs font-semibold focus:outline-none focus:border-[#001f5c] resize-none"
-                  />
-                </div>
-
-                <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto bg-[#001f5c] hover:bg-[#ff0000] text-white px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
-                  >
-                    <Send size={14} />
-                    <span>Envoyer ma demande de devis</span>
-                  </button>
-
-                  <a
-                    href={getWhatsAppUrl(getConfigurationSummary())}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
-                  >
-                    <MessageCircle size={15} />
-                    <span>Préférer WhatsApp</span>
-                  </a>
-                </div>
-              </form>
-            )}
-          </div>
         </div>
 
+        {/* Section 3: Questions Fréquentes (FAQ) */}
+        {product.faq && product.faq.length > 0 && (
+          <div className="mb-16 bg-white rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-sm">
+            <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-100">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#001f5c] flex items-center justify-center font-bold">
+                <HelpCircle size={20} className="text-[#001f5c]" />
+              </div>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-black text-[#001f5c]">
+                  Questions Fréquentes sur {product.title}
+                </h3>
+                <p className="text-xs text-gray-500">
+                  Tout ce que vous devez savoir avant de souscrire auprès de votre agent général AXA
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {product.faq.map((item, index) => {
+                const isOpen = openFaqIndex === index;
+                return (
+                  <div 
+                    key={index} 
+                    className="border border-gray-200 rounded-2xl overflow-hidden transition-colors"
+                  >
+                    <button
+                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 bg-slate-50/60 hover:bg-slate-50 transition-colors cursor-pointer"
+                    >
+                      <span className="text-xs sm:text-sm font-bold text-gray-900">
+                        {item.question}
+                      </span>
+                      <ChevronDown 
+                        size={18} 
+                        className={`text-gray-500 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180 text-[#001f5c]' : ''}`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="p-4 sm:p-5 bg-white border-t border-gray-100 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        {item.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Bottom CTA Card */}
         <div className="bg-gradient-to-r from-[#001f5c] to-[#002b80] rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-xl text-center">
@@ -827,14 +505,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={() => onOpenQuoteModal(product.title)}
                 className="bg-[#ff0000] hover:bg-[#d60000] text-white px-7 py-3.5 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-lg cursor-pointer"
               >
-                Formulaire de Contact
+                Formulaire de Devis
               </button>
               <a
-                href="tel:+212522000000"
+                href="tel:+212522630268"
                 className="bg-white text-[#001f5c] hover:bg-gray-100 px-7 py-3.5 rounded-full font-black text-xs uppercase tracking-widest transition-all flex items-center gap-2"
               >
                 <Phone size={14} className="text-[#ff0000]" />
-                <span>05 22 00 00 00</span>
+                <span>05 22 63 02 68</span>
               </a>
             </div>
           </div>

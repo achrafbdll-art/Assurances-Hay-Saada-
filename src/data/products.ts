@@ -43,1369 +43,1456 @@ export interface ProductData {
 }
 
 export const PRODUCTS_DATA: ProductData[] = [
-  // ==========================================
-  // PARTICULIERS (7 Produits complets)
-  // ==========================================
   {
-    id: 'auto',
-    slug: 'assurance-auto',
-    category: 'particulier',
-    subcategory: 'Mobilité & Véhicules',
-    title: 'Assurance Auto & Moto',
-    tagline: 'Roulez en toute sérénité au Maroc et à l\'étranger avec l\'assistance AXA 24h/24',
-    shortDescription: 'Protection sur mesure de votre véhicule avec assistance remorquage 0 km, bris de glace sans franchise et véhicule de courtoisie.',
-    fullDescription: 'L\'assurance automobile AXA chez Assurances Hay Saada offre une couverture complète répondant aux exigences légales marocaines tout en apportant des garanties haut de gamme : assistance dépannage immédiate à Casablanca et dans tout le Royaume, réparation rapide dans les garages conventionnés et indemnisation accélérée en cas de sinistre.',
-    iconName: 'Car',
-    badge: 'Produit Phare Particuliers',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Constat amiable assisté + Remorquage 24/7 au Maroc',
-    formules: [
+    "id": "auto",
+    "slug": "assurance-auto",
+    "category": "particulier",
+    "subcategory": "Mobilité & Véhicules",
+    "title": "Solution Auto & Fidelity by AXA",
+    "tagline": "Des offres qui répondent à vos besoins avec le programme exclusif Fidelity by AXA",
+    "shortDescription": "Accédez à une assurance auto avant tout pensée pour vous : packs Tiers, Tiers+, Accident ou Tous Risques, avec programme exclusif Fidelity by AXA et réductions multi-véhicules.",
+    "fullDescription": "Avec AXA, accédez à une assurance auto pensée pour vous et qui s'adapte à vos besoins réels. Choisissez parmi les packs Tiers, Tiers+, Accident ou Tous Risques selon votre véhicule, votre budget et le niveau de couverture souhaité, ou composez vous-même votre formule sur-mesure. Vous avez une conduite responsable et êtes fidèle à AXA au Maroc : chaque année sans sinistre, le programme « Fidelity by AXA » vous offre une baisse sur vos garanties annexes et un capital fidélité cumulable dès la Responsabilité Civile pour réparer votre véhicule en cas de sinistre responsable ou racheter votre franchise. Bénéficiez également de l'offre Pack Auto Fonctionnaires avec mensualisation sans frais CNT et de la Solution Cyclomoteurs.",
+    "iconName": "Car",
+    "badge": "Programme Fidelity by AXA",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Programme exclusif Fidelity by AXA & Assistance routière 24/7 partout au Maroc",
+    "formules": [
       {
-        id: 'tiers-simple',
-        name: 'Formule Tiers Simple',
-        tagline: 'L\'essentiel obligatoire au meilleur tarif',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Responsabilité Civile obligatoire',
-          'Défense et Recours juridique',
-          'Assistance panne & accident (dès 50 km)',
-          'Protection passagers transportés'
+        "id": "tiers-simple",
+        "name": "Formule Tiers Éco",
+        "tagline": "L'essentiel légal avec l'assistance AXA incluse",
+        "priceNote": "Sur devis personnalisé sans engagement",
+        "isPopular": false,
+        "features": [
+          "Responsabilité Civile obligatoire au Maroc",
+          "Défense et Recours avec prise en charge des frais d'avocat",
+          "Assistance dépannage et remorquage 24h/24 7j/7",
+          "Éligibilité immédiate au programme Fidelity by AXA",
+          "Protection Juridique de base"
         ]
       },
       {
-        id: 'tiers-etendu',
-        name: 'Formule Tiers Étendu (Collision & Vol)',
-        tagline: 'Le compromis idéal pour une protection renforcée',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Toutes les garanties Tiers Simple',
-          'Bris de glace sans franchise',
-          'Vol du véhicule et accessoires',
-          'Incendie et explosion',
-          'Collision avec un tiers identifié',
-          'Assistance 0 km à domicile'
+        "id": "tiers-etendu",
+        "name": "Formule Tiers+ & Éléments",
+        "tagline": "Protection renforcée contre les aléas majeurs",
+        "priceNote": "Étude sur-mesure selon votre véhicule",
+        "isPopular": true,
+        "features": [
+          "Toutes les garanties de la formule Tiers Éco",
+          "Garantie Vol total, partiel et détériorations consécutives",
+          "Garantie Incendie et explosion offerte si souscription Vol",
+          "Bris de glaces sans franchise (pare-brise, vitres latérales, lunette arrière)",
+          "Dommages collision avec tiers identifié",
+          "Véhicule de remplacement en cas d'accident ou de vol"
         ]
       },
       {
-        id: 'tous-risques',
-        name: 'Formule Tous Risques Intégrale',
-        tagline: 'La couverture maximale pour véhicules récents',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Toutes les garanties Tiers Étendu',
-          'Dommages tous accidents (choc, renversement)',
-          'Actes de vandalisme et intempéries',
-          'Véhicule de remplacement garanti (jusqu\'à 15 jours)',
-          'Valeur à neuf pendant 24 mois (selon options)',
-          'Garantie conducteur jusqu\'à 500 000 DH'
+        "id": "tous-risques",
+        "name": "Formule Tous Risques Sérénité",
+        "tagline": "La couverture intégrale maximale avec valeur à neuf",
+        "priceNote": "Recommandée pour véhicules neufs et récents",
+        "isPopular": false,
+        "features": [
+          "Dommages tous accidents sans tiers identifié requis",
+          "Indemnisation en valeur à neuf sur véhicules récents",
+          "Perte Financière pour les véhicules neufs",
+          "Protection Familiale, Conducteur et Passagers (PFCP jusqu'à 30 000 DH)",
+          "Capital fidélité jusqu'à 5 000 DH cumulable chaque année",
+          "Assistance VIP 0 km avec véhicule de courtoisie étendu"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Responsabilité Civile Obligatoire',
-        description: 'Indemnisation des dommages corporels et matériels causés à des tiers par votre véhicule au Maroc.',
-        isIncluded: true,
-        coverageLimit: 'Illimitée pour dommages corporels'
+        "title": "Programme Fidelity by AXA",
+        "description": "Baisse annuelle sur vos garanties annexes et capital fidélité cumulable dès la Responsabilité Civile pour réparer votre véhicule ou racheter votre franchise en cas de sinistre responsable.",
+        "isIncluded": true,
+        "coverageLimit": "Programme Fidélité AXA"
       },
       {
-        title: 'Assistance Dépannage & Remorquage 24h/24',
-        description: 'Intervention sur place ou remorquage vers le garage de votre choix ou réseau agréé AXA.',
-        isIncluded: true,
-        coverageLimit: '0 km inclus en formule étendue'
+        "title": "Responsabilité Civile & Défense Recours",
+        "description": "Couvre l'indemnisation des dommages corporels et matériels causés à des tiers et assure la prise en charge des frais d'avocat en cas de litige suite à accident.",
+        "isIncluded": true,
+        "coverageLimit": "Obligatoire illimitée"
       },
       {
-        title: 'Bris de Glace Intégral',
-        description: 'Prise en charge du pare-brise, vitres latérales, lunette arrière et optiques de phares.',
-        isIncluded: true,
-        coverageLimit: 'Remplacement immédiat sans avance'
+        "title": "Pack Spécial Auto Fonctionnaires",
+        "description": "Possibilité de règlement en plusieurs mensualités sans frais pour toute souscription d'un an (paie prise en charge par le CNT). Garanties Défense & Recours, PFCP et Perte Financière offertes.",
+        "isIncluded": true,
+        "coverageLimit": "Mensualisation sans frais"
       },
       {
-        title: 'Garantie Conducteur',
-        description: 'Protection corporelle du conducteur en cas d\'accident responsable ou non (décès, invalidité, frais médicaux).',
-        isIncluded: true,
-        coverageLimit: 'Jusqu\'à 500 000 DH de capital'
+        "title": "Solution Deux-Roues & Cyclomoteurs",
+        "description": "Contrat dédié deux-roues et cyclomoteurs comprenant la Responsabilité Civile obligatoire et l'option Individuelle Accidents.",
+        "isIncluded": true,
+        "coverageLimit": "Sur devis personnalisé"
       },
       {
-        title: 'Véhicule de Remplacement',
-        description: 'Mise à disposition d\'une voiture de courtoisie pendant la durée d\'immobilisation de votre véhicule.',
-        isIncluded: false,
-        coverageLimit: 'Option 7 à 15 jours'
+        "title": "Assistance Dépannage & Véhicule de Remplacement",
+        "description": "Remorquage express partout au Maroc et mise à disposition d'un véhicule de courtoisie dès la Responsabilité Civile.",
+        "isIncluded": true,
+        "coverageLimit": "24h/24 7j/7 Maroc"
       }
     ],
-    options: [
-      'Garantie conducteur étendue à 1 000 000 DH',
-      'Option Valeur à Neuf 24 ou 36 mois',
-      'Assistance internationale Carte Verte',
-      'Protection juridique avancée litiges automobiles',
-      'Assurance des accessoires et équipements non de série'
+    "options": [
+      "Réduction Famille : Remise importante sur la prime du 2ème et 3ème véhicule du foyer (conjoint ou enfant)",
+      "Réduction Couplée : Jusqu'à -20% sur garanties annexes auto si détention d'un contrat MRP ou Individuelle Accidents",
+      "Remise Habitation : -10% immédiat sur votre contrat Habitassur pour tout client auto",
+      "Rachat total de franchise en cas de collision",
+      "Protection bagages et objets personnels transportés"
     ],
-    advantages: [
-      'Constat amiable assisté par un expert dépêché sur les lieux à Casablanca',
-      'Réseau conventionné de plus de 120 garages et carrosseries de référence au Maroc',
-      'Paiement échelonné de votre prime d\'assurance sans frais cachés',
-      'Attestation d\'assurance immédiate remise en main propre à l\'agence Hay Saada'
+    "advantages": [
+      "Programme exclusif Fidelity by AXA avec capital fidélité cumulable",
+      "Offre spéciale Fonctionnaires mensualisée sans frais (paie CNT)",
+      "Réduction multi-véhicules pour les familles",
+      "Réseau étendu de garages conventionnés AXA sans avance de frais",
+      "Prise en charge immédiate à l'agence Assurances Hay Saada à Casablanca"
     ],
-    documentsRequired: [
-      'Copie de la Carte Grise du véhicule',
-      'Copie du Permis de Conduire en cours de validité',
-      'Copie de la Carte Nationale d\'Identité (CIN ou Carte de séjour)',
-      'Relevé d\'information de votre précédent assureur (pour bénéfice du bonus)'
+    "documentsRequired": [
+      "Carte grise originale du véhicule (ou récépissé de mutation)",
+      "Permis de conduire valide du conducteur principal",
+      "Attestation d'assurance précédente ou relevé d'informations (bonus/malus CRM)",
+      "Attestation de travail / état d'engagement CNT (pour le tarif Fonctionnaires)"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'Comment bénéficier de la réduction Bonus-Malus au Maroc ?',
-        answer: 'Sur présentation de votre relevé d\'information officiel de votre assureur précédent, nous appliquons votre coefficient de réduction (jusqu\'à 50% de bonus sur la garantie Responsabilité Civile).'
+        "question": "Comment fonctionne le capital fidélité « Fidelity by AXA » ?",
+        "answer": "Chaque année passée sans sinistre responsable chez AXA vous donne droit à une réduction sur vos garanties annexes ainsi qu'à un capital fidélité cumulable. En cas de sinistre responsable ultérieur, ce capital vous permet de régler vos réparations, racheter votre franchise ou augmenter le plafond de garantie."
       },
       {
-        question: 'Que faire en cas d\'accident à Casablanca ?',
-        answer: 'Contactez immédiatement notre numéro d\'assistance 24/7. Un agent mobile peut intervenir pour sécuriser les lieux et vous assister dans la rédaction rigoureuse du constat amiable.'
+        "question": "Qui peut bénéficier de l'offre Auto Fonctionnaires ?",
+        "answer": "Tous les fonctionnaires et agents publics dont le salaire est géré par le Centre National des Traitements (CNT). Vous bénéficiez d'une mensualisation sur 12 mois sans aucun frais additionnel, avec plusieurs garanties offertes."
       },
       {
-        question: 'Mon pare-brise est fissuré, comment le remplacer ?',
-        answer: 'Présentez-vous directement dans un centre agréé partenaire AXA à Casablanca avec votre attestation. Le vitrage est remplacé sans avance de frais selon votre contrat.'
+        "question": "Puis-je assurer un cyclomoteur ou une moto ?",
+        "answer": "Oui, AXA propose la Solution Cyclomoteurs incluant la Responsabilité Civile et la défense des droits, avec possibilité d'ajouter la garantie Individuelle Accidents."
       }
     ],
-    simulationType: 'auto'
+    "simulationType": "auto"
   },
   {
-    id: 'habitation',
-    slug: 'assurance-habitation',
-    category: 'particulier',
-    subcategory: 'Patrimoine & Logement',
-    title: 'Multirisque Habitation (MRH)',
-    tagline: 'Protégez votre appartement ou villa contre les aléas et les dégâts des eaux',
-    shortDescription: 'Couverture complète des murs et du mobilier pour propriétaires et locataires avec assistance serrurerie et plomberie d\'urgence.',
-    fullDescription: 'L\'assurance Multirisque Habitation AXA protège votre logement, vos biens précieux et votre responsabilité civile familiale. Que vous soyez locataire à Casablanca ou propriétaire d\'une villa, bénéficiez d\'une indemnisation rapide en cas de dégât des eaux, incendie, vol ou bris de vitres, assortie d\'une assistance artisan d\'urgence 24h/24.',
-    iconName: 'Home',
-    badge: 'Protection Foyer',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Assistance serrurier & plombier d\'urgence 24/7 incluse',
-    formules: [
+    "id": "habitation",
+    "slug": "assurance-habitation",
+    "category": "particulier",
+    "subcategory": "Foyer & Patrimoine",
+    "title": "Habitassur",
+    "tagline": "Protégez votre foyer, vos biens et votre famille contre les imprévus du quotidien",
+    "shortDescription": "Que vous soyez locataire ou propriétaire, l'assurance Habitassur vous protège contre l'incendie, les dégâts des eaux, le vol et les bris de glaces avec l'assistance AXA.",
+    "fullDescription": "Que vous soyez locataire, propriétaire occupant ou propriétaire non-occupant, l'assurance multirisque habitation Habitassur vous propose des solutions complètes pour vous prémunir contre tous les événements qui peuvent survenir dans votre logement : incendies et risques annexes, dégâts des eaux avec recherche de fuites et refoulement des égouts, vol et actes de vandalisme (y compris détériorations immobilières, vol dans dépendances séparées, serrures et frais de gardiennage), bris de glaces et miroirs (vitrages portes, fenêtres, marquises et vérandas), perte d'usage des locaux et recours des voisins et des tiers.",
+    "iconName": "Home",
+    "badge": "Contrat Habitassur AXA",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Protection complète de votre logement, bâtiment et mobilier",
+    "formules": [
       {
-        id: 'mrh-essentielle',
-        name: 'Formule Locataire Essentielle',
-        tagline: 'L\'obligation locative et les risques locatifs couverts',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Risques locatifs (incendie, explosion)',
-          'Dégâts des eaux causés à l\'immeuble',
-          'Responsabilité civile chef de famille',
-          'Assistance serrurerie d\'urgence'
+        "id": "habitassur-locataire",
+        "name": "Formule Habitassur Locataire",
+        "tagline": "Garanties risques locatifs et protection du mobilier",
+        "priceNote": "Tarif économique adapté à votre bail",
+        "isPopular": false,
+        "features": [
+          "Risques locatifs (incendie, explosion, dégâts des eaux)",
+          "Mobilier assuré jusqu'à 40% de la valeur totale déclarée",
+          "Recours des voisins et des tiers",
+          "Frais de déblai, démolition et relogement temporaire",
+          "Défense et recours en cas de litige"
         ]
       },
       {
-        id: 'mrh-confort',
-        name: 'Formule Propriétaire Confort',
-        tagline: 'Protection complète du bâtiment et des biens mobiliers',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Toutes les garanties de base',
-          'Vol et vandalisme avec effraction',
-          'Bris de glaces, miroirs et baies vitrées',
-          'Dommages électriques aux appareils ménagers',
-          'Frais de relogement d\'urgence',
-          'Assistance plomberie & serrurerie'
-        ]
-      },
-      {
-        id: 'mrh-prestige',
-        name: 'Formule Prestige & Villas',
-        tagline: 'Pour résidences de standing et objets de valeur',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Couverture intégrale bâtiment et annexes/jardins',
-          'Objets d\'art, bijoux et biens précieux',
-          'Pertes indirectes et honoraires d\'expert',
-          'Dommages causés par les surtensions et tempêtes',
-          'Assistance premium avec relogement en hôtel'
+        "id": "habitassur-confort",
+        "name": "Formule Habitassur Propriétaire Confort",
+        "tagline": "La formule équilibrée pour appartements et villas",
+        "priceNote": "La formule Habitassur de référence",
+        "isPopular": true,
+        "features": [
+          "Bâtiment, jardin et clôtures couverts en valeur intégrale",
+          "Dégâts des eaux incluant frais de recherche de fuites et refoulement égouts",
+          "Vol avec effraction, détériorations immobilières et remplacement serrures",
+          "Bris de glaces, miroirs, vitrages, fenêtres et vérandas",
+          "Perte d'usage des locaux et indemnité de relogement temporaire",
+          "Recours des voisins et des tiers"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Incendie & Explosion',
-        description: 'Prise en charge intégrale des dégâts matériels causés à l\'appartement ou à la maison.',
-        isIncluded: true,
-        coverageLimit: 'Valeur à neuf des constructions'
+        "title": "Incendie, Risques Annexes & Dégâts des Eaux",
+        "description": "Couvre les bâtiments, embellissements, agencements, mobilier et objets précieux. Prise en charge des frais de recherche de fuites, refoulement des égouts et frais de déblai/démolition.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur à neuf déclarée"
       },
       {
-        title: 'Dégâts des Eaux & Infiltrations',
-        description: 'Réparation des fuites accidentelles, ruptures de canalisations et dommages aux voisins.',
-        isIncluded: true,
-        coverageLimit: 'Indemnisation rapide et recherche de fuite'
+        "title": "Vol & Actes de Vandalisme",
+        "description": "Indemnisation du mobilier dérobé, détériorations immobilières causées par les cambrioleurs, réparation des serrures fracturées, frais de gardiennage et vol dans les dépendances séparées.",
+        "isIncluded": true,
+        "coverageLimit": "Jusqu'à 100% valeur mobilier"
       },
       {
-        title: 'Vol & Actes de Vandalisme',
-        description: 'Indemnisation des meubles, appareils électroniques, bijoux et réparations de serrures endommagées.',
-        isIncluded: true,
-        coverageLimit: 'Selon déclaration du capital mobilier'
+        "title": "Bris de Glaces, Vitrages & Vérandas",
+        "description": "Remplacement des vitrages des portes, fenêtres, marquises, baies vitrées et miroirs intérieurs.",
+        "isIncluded": true,
+        "coverageLimit": "Frais réels"
       },
       {
-        title: 'Responsabilité Civile Vie Privée',
-        description: 'Couvre les dommages causés par vous, vos enfants, vos animaux domestiques ou vos employés de maison.',
-        isIncluded: true,
-        coverageLimit: 'Conforme aux standards AXA'
+        "title": "Recours des Voisins & des Tiers",
+        "description": "Prise en charge des dommages matériels causés aux logements voisins suite à un incendie ou un dégât des eaux prenant naissance chez vous.",
+        "isIncluded": true,
+        "coverageLimit": "Inclus"
       }
     ],
-    options: [
-      'Garantie piscines, jardins et clôtures',
-      'Extension bijoux et montres de collection hors coffre-fort',
-      'Assurance cave, débarras et garage séparé',
-      'Protection juridique pour litiges de copropriété ou voisinage'
+    "options": [
+      "Remise client Auto : -10% sur votre contrat Habitassur si vous êtes déjà assuré auto chez AXA",
+      "Extension bijoux et objets de valeur au-delà du barème standard",
+      "Perte d'usage des locaux et indemnité de relogement d'urgence"
     ],
-    advantages: [
-      'Tarification transparente selon le nombre de pièces principales',
-      'Assistance dépannage d\'urgence : serrurier, plombier, électricien',
-      'Prise en charge directe des devis d\'artisans agréés AXA'
+    "advantages": [
+      "Habitassur : le standard de référence de l'assurance habitation au Maroc",
+      "Assistance serrurerie, plomberie et urgence à domicile 24/7",
+      "Protection complète de vos biens mobiliers et immobiliers",
+      "Démarche simple et indemnisation rapide en agence"
     ],
-    documentsRequired: [
-      'Contrat de bail (pour locataires) ou titre foncier / acte notarié (propriétaires)',
-      'Copie de la CIN du souscripteur',
-      'Estimation globale du capital mobilier à assurer'
+    "documentsRequired": [
+      "Copie de la CIN du souscripteur",
+      "Adresse exacte du logement et justificatif de résidence",
+      "Contrat de bail pour les locataires",
+      "Estimation globale de la valeur du mobilier et des équipements"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'L\'assurance habitation est-elle obligatoire pour un locataire au Maroc ?',
-        answer: 'Elle est généralement exigée par le propriétaire dans le contrat de bail afin de couvrir la responsabilité locative en cas d\'incendie ou de dégât des eaux.'
+        "question": "Quels sont les biens couverts par l'assurance Habitassur ?",
+        "answer": "Habitassur couvre l'ensemble de votre bâtiment (murs, toiture, clôtures) ainsi que tout votre mobilier personnel, appareils électroménagers et équipements intérieurs contre les dommages majeurs."
       },
       {
-        question: 'Comment évaluer mon capital mobilier ?',
-        answer: 'Faites la somme de vos meubles, appareils électroménagers, vêtements et appareils numériques. Nos conseillers à l\'agence Hay Saada vous aident à établir une estimation juste pour éviter toute sous-assurance.'
+        "question": "Comment estimer la valeur de mon mobilier ?",
+        "answer": "Faites la somme de vos meubles, appareils électroménagers, vêtements, électroniques et literie. Nos conseillers à l'agence Assurances Hay Saada vous aident à établir une déclaration juste pour éviter toute sous-assurance en cas de sinistre."
       }
     ],
-    simulationType: 'habitation'
+    "simulationType": "habitation"
   },
   {
-    id: 'sante',
-    slug: 'assurance-sante',
-    category: 'particulier',
-    subcategory: 'Santé & Prévoyance',
-    title: 'Complémentaire Santé & Famille',
-    tagline: 'Accédez aux meilleures cliniques et spécialistes avec des remboursements élevés et rapides',
-    shortDescription: 'Couverture des soins ambulatoires, hospitalisations chirurgicales, maternité, dentaire et optique avec tiers payant national.',
-    fullDescription: 'Face au coût croissant des soins médicaux, l\'assurance santé AXA proposée par Assurances Hay Saada garantit à vous et à vos proches une prise en charge médicale d\'excellence. Des remboursements rapides sur dossier, le tiers payant en clinique, et un accès sans avance de frais aux examens lourds (IRM, scanner, chirurgie).',
-    iconName: 'HeartPulse',
-    badge: 'Santé & Bien-être',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Tiers-Payant dans plus de 200 cliniques privées au Maroc',
-    formules: [
+    "id": "epargne-retraite",
+    "slug": "epargne-retraite",
+    "category": "particulier",
+    "subcategory": "Épargne & Avenir",
+    "title": "Futuris Individuel II & Educatis II",
+    "tagline": "Constitution progressive d'un capital retraite ou d'études pour vos enfants avec avantage fiscal",
+    "shortDescription": "Solution d'épargne retraite souple avec déductibilité totale de l'Impôt sur le Revenu (IR) et formule Éducation Educatis II pour financer les études supérieures de vos enfants.",
+    "fullDescription": "Futuris Individuel II est une solution d'épargne retraite qui allie simplicité et souplesse : constituez progressivement votre capital retraite en choisissant librement la périodicité de vos cotisations selon votre budget actuel et vos besoins futurs. Vos fonds sont revalorisés à des taux de rentabilité performants et sécurisés, et bénéficient d'une déductibilité fiscale totale de l'Impôt sur le Revenu (IR). Pour les études de vos enfants, Educatis II assure la constitution d'un capital garanti pour financer leur cursus supérieur en toute sérénité avec exonération fiscale complète sur les rendements.",
+    "iconName": "TrendingUp",
+    "badge": "Produits Phares Futuris & Educatis",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "cotisations personnalisées",
+    "heroHighlight": "Déductibilité fiscale 100% de l'IR & Épargne modulable sans engagement",
+    "formules": [
       {
-        id: 'sante-essentielle',
-        name: 'Formule Hospi & Chirurgie',
-        tagline: 'La sécurité financière face aux coups durs',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Hospitalisation médicale et chirurgicale à 100%',
-          'Frais de séjour et honoraires des chirurgiens',
-          'Urgences médicales et transport en ambulance',
-          'Plafond annuel de 250 000 DH'
+        "id": "futuris-retraite",
+        "name": "Futuris Individuel II",
+        "tagline": "Plan épargne retraite souple et défiscalisé",
+        "priceNote": "Cotisations modulables selon vos objectifs",
+        "isPopular": true,
+        "features": [
+          "Cotisations régulières personnalisées selon votre budget",
+          "Versements libres supplémentaires à votre convenance",
+          "Déduction fiscale totale de vos cotisations de l'Impôt sur le Revenu (IR)",
+          "Taux de rentabilité annuel performant et garanti",
+          "Capital complémentaire décès/invalidité",
+          "Bonus fidélité contractuel au terme des périodes prévues"
         ]
       },
       {
-        id: 'sante-confort',
-        name: 'Formule Confort Ambulatoire & Hospi',
-        tagline: 'Le suivi médical régulier pour toute la famille',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Toutes les garanties de la Formule Hospi',
-          'Consultations généralistes et spécialistes (remboursées à 80%)',
-          'Analyses de biologie et radiologie / échographie',
-          'Médicaments prescrits en pharmacie',
-          'Forfait optique annuel (monture + verres)',
-          'Plafond annuel jusqu\'à 500 000 DH'
+        "id": "educatis-etudes",
+        "name": "Educatis II (Épargne Études)",
+        "tagline": "Financement des études supérieures de vos enfants",
+        "priceNote": "Plan d'épargne études personnalisé",
+        "isPopular": false,
+        "features": [
+          "Épargne au profit de votre enfant jusqu'à ses 25 ans",
+          "Exonération fiscale totale sur le rendement de l'épargne",
+          "Assurance décès-invalidité du parent souscripteur",
+          "Bonus fidélité contractuel",
+          "Sortie en rente éducation annuelle ou capital unique"
         ]
       },
       {
-        id: 'sante-serenite',
-        name: 'Formule Sérénité Intégrale',
-        tagline: 'La protection haut de gamme sans compromis',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Remboursement jusqu\'à 90% des frais réels',
-          'Chambre individuelle en clinique',
-          'Maternité, accouchement et soins du nouveau-né',
-          'Prothèses dentaires et orthodontie pour enfants',
-          'Évacuation sanitaire internationale en cas d\'urgence'
+        "id": "mixte-capital",
+        "name": "Assurance Mixte AXA",
+        "tagline": "Épargne et prévoyance combinées sans fonds perdus",
+        "priceNote": "Étude patrimoniale sur mesure",
+        "isPopular": false,
+        "features": [
+          "Combinaison d'un contrat d'épargne et d'une prévoyance sans fonds perdus",
+          "Versement du capital garanti en cas de vie à l'échéance",
+          "Capital doublé en cas de décès accidentel",
+          "Capital triplé en cas d'accident de voiture",
+          "Double effet familial : capital pour conjoint et enfants mineurs",
+          "Avances et rachats possibles dès 3 ans de cotisations"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Hospitalisation Médicale & Chirurgicale',
-        description: 'Prise en charge directe par entente préalable auprès des cliniques privées conventionnées AXA.',
-        isIncluded: true,
-        coverageLimit: 'Jusqu\'à 1 000 000 DH / personne'
+        "title": "Déduction Fiscale Exceptionnelle de l'IR",
+        "description": "Vos cotisations de retraite Futuris sont 100% déductibles de votre assiette d'Impôt sur le Revenu, vous permettant de générer une économie d'impôt immédiate chaque mois.",
+        "isIncluded": true,
+        "coverageLimit": "Déductibilité 100% IR"
       },
       {
-        title: 'Soins Ambulatoires & Médicaments',
-        description: 'Remboursement des visites médicales, actes de radiologie, analyses de laboratoire et ordonnances.',
-        isIncluded: true,
-        coverageLimit: 'Traitement dossier en 48-72h'
+        "title": "Capital Complémentaire Décès / Invalidité",
+        "description": "Paiement d'un capital complémentaire immédiat en cas de décès ou d'invalidité absolue et définitive avant 65 ans (50% des cotisations versées des 12 derniers mois).",
+        "isIncluded": true,
+        "coverageLimit": "50% des cotisations annuelles"
       },
       {
-        title: 'Maternité & Accouchement',
-        description: 'Couverture des consultations prénatales, accouchement par voie basse ou césarienne et soins pédiatriques.',
-        isIncluded: true,
-        coverageLimit: 'Forfait dédié selon formule'
+        "title": "Bonus Fidélité 6ème et 8ème Année",
+        "description": "Versement automatique d'une bonification fidélité à la fin de la 6ème année et de la 8ème année sur vos cotisations périodiques (plafond 1 000 000 DH).",
+        "isIncluded": true,
+        "coverageLimit": "Jusqu'à 1 000 000 DH"
       },
       {
-        title: 'Dentaire & Optique',
-        description: 'Forfaits pour soins dentaires courants, couronnes, détartrage, ainsi que verres et montures de vue.',
-        isIncluded: true,
-        coverageLimit: 'Renouvellement annuel'
+        "title": "Disponibilité & Rachats d'Urgence",
+        "description": "Possibilité de demander une avance sur votre épargne ou d'effectuer un rachat partiel ou total après trois années de cotisations.",
+        "isIncluded": true,
+        "coverageLimit": "Avances & Rachats"
       }
     ],
-    options: [
-      'Garantie Assistance Médicale Internationale (évacuation sanitaire)',
-      'Option Médecines douces (ostéopathie, acupuncture, kinésithérapie)',
-      'Rente éducation en cas de disparition du souscripteur'
+    "options": [
+      "Choix des modalités de sortie : Capital unique, rente viagère réversible ou panachage",
+      "Indexation automatique des cotisations pour contrer l'inflation",
+      "Garantie d'exonération des primes en cas d'incapacité temporaire de travail"
     ],
-    advantages: [
-      'Dépôt et suivi instantané de vos feuilles de soins à l\'agence Hay Mohammadi',
-      'Accord de prise en charge hospitalière délivré en moins de 2 heures',
-      'Réseau étendu de professionnels de santé partenaires sans dépassement imprévu'
+    "advantages": [
+      "Accessible à tous les budgets et modulable à tout moment",
+      "Rendement sécurisé et supérieur aux placements bancaires traditionnels",
+      "Double gain : constitution de capital et économie d'impôt sur le revenu",
+      "Conseil patrimonial sur-mesure à l'agence Assurances Hay Saada"
     ],
-    documentsRequired: [
-      'Questionnaire médical simplifié (selon l\'âge du souscripteur)',
-      'Copie de la CIN du souscripteur et des ayants droit',
-      'Extrait d\'acte de naissance pour les enfants à charge',
-      'Relevé d\'Identité Bancaire (RIB) pour les virements de remboursement'
+    "documentsRequired": [
+      "Copie de la CIN du souscripteur",
+      "RIB bancaire pour la mise en place du prélèvement automatique",
+      "Extrait d'acte de naissance ou livret de famille pour l'enfant bénéficiaire (Educatis II)"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'Comment fonctionne le tiers payant en clinique ?',
-        answer: 'En cas d\'hospitalisation programmée ou urgente, la clinique conventionnée AXA contacte nos services avec votre carte d\'assuré. Nous délivrons un accord de prise en charge direct : vous ne réglez que l\'éventuel ticket modérateur.'
+        "question": "Comment fonctionne l'avantage fiscal avec Futuris ?",
+        "answer": "En souscrivant Futuris Individuel II, le montant de vos cotisations est déduit de votre revenu global imposable. Votre taux effectif d'imposition baisse, et vous récupérez cette économie sur votre fiche de paie ou lors de votre déclaration annuelle d'IR."
       },
       {
-        question: 'Quel est le délai de remboursement d\'une feuille de soins ?',
-        answer: 'Déposez votre dossier complet à notre agence Assurances Hay Saada : le remboursement est viré directement sur votre compte bancaire sous 48 à 72 heures.'
+        "question": "Puis-je modifier mes versements au fil du temps ?",
+        "answer": "Oui, Futuris vous offre une flexibilité totale : vous pouvez à tout moment augmenter, diminuer ou suspendre vos versements périodiques, ou effectuer des versements libres complémentaires selon vos capacités."
       }
     ],
-    simulationType: 'sante'
+    "simulationType": "retraite"
   },
   {
-    id: 'epargne-retraite',
-    slug: 'epargne-retraite',
-    category: 'particulier',
-    subcategory: 'Avenir & Épargne',
-    title: 'Épargne & Retraite Complémentaire',
-    tagline: 'Valorisez votre capital et optimisez vos impôts selon le Code Général des Impôts marocain',
-    shortDescription: 'Plan d\'épargne retraite défiscalisé avec rendements attractifs garantis, versements libres et disponibilité du capital.',
-    fullDescription: 'Préparez l\'avenir de votre foyer avec les solutions d\'Épargne et Retraite AXA chez Assurances Hay Saada. Profitez des avantages fiscaux exceptionnels prévus par le droit marocain (déductibilité totale de vos cotisations de l\'Impôt sur le Revenu IR), tout en vous constituant un capital sûr pour votre retraite ou les études supérieures de vos enfants.',
-    iconName: 'TrendingUp',
-    badge: 'Avantage Fiscal Maroc',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Déduction jusqu\'à 100% de votre Impôt sur le Revenu (IR)',
-    formules: [
+    "id": "sante",
+    "slug": "assurance-sante",
+    "category": "particulier",
+    "subcategory": "Santé & Bien-être",
+    "title": "Prévoyance Santé & Familis",
+    "tagline": "Couverture santé et prévoyance familiale pour vos soins, hospitalisations et accidents de la vie",
+    "shortDescription": "Le contrat de prévoyance et santé Familis vous couvre ainsi que votre famille contre les accidents corporels de la vie privée, scolaire ou professionnelle avec prise en charge hospitalière.",
+    "fullDescription": "Familis est le contrat de prévoyance et santé familiale d'AXA qui vous couvre ainsi que les membres de votre famille contre les accidents corporels survenus au cours de la vie privée, d'une activité scolaire ou professionnelle. Il garantit le versement d'un capital en cas de décès ou d'invalidité consécutive à un accident, une indemnité en cas d'invalidité permanente consécutive à une maladie ou un accident, le remboursement des frais médicaux, pharmaceutiques et chirurgicaux engagés, le remboursement des frais de recherche, de secours et de rapatriement de corps, ainsi qu'une indemnité journalière versée à l'assuré ou à son conjoint en cas d'arrêt de travail consécutif à un accident.",
+    "iconName": "HeartPulse",
+    "badge": "Contrat Familis AXA",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Remboursements médicaux, capital décès/invalidité & indemnités journalières",
+    "formules": [
       {
-        id: 'retraite-active',
-        name: 'Plan Retraite Individuelle',
-        tagline: 'Sécurité et allègement fiscal maximum',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Versements mensuels, trimestriels ou libres',
-          'Déductibilité fiscale intégrale de l\'IR au Maroc',
-          'Taux de rendement garanti + participation aux bénéfices',
-          'Sortie en capital net d\'impôt ou en rente viagère'
+        "id": "familis-essentiel",
+        "name": "Formule Familis Essentielle",
+        "tagline": "Protection individuelle face aux aléas corporels",
+        "priceNote": "Protection de base accessible",
+        "isPopular": false,
+        "features": [
+          "Capital garanti en cas de décès accidentel",
+          "Capital invalidité permanente partielle ou totale",
+          "Remboursement des frais médicaux et pharmaceutiques de base",
+          "Assistance rapatriement et recherche de secours"
         ]
       },
       {
-        id: 'epargne-etudes',
-        name: 'Plan Éducation & Projets',
-        tagline: 'Financer les études supérieures de vos enfants',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Constitution progressive d\'un capital dédié aux études',
-          'Option rente d\'études versée trimestriellement',
-          'Garantie de bonne fin : AXA prend le relais des versements en cas d\'aléa',
-          'Disponibilité partielle en cas de besoin'
+        "id": "familis-integrale",
+        "name": "Formule Familis Famille Complète",
+        "tagline": "La protection globale du foyer et des enfants",
+        "priceNote": "Recommandée pour couples avec enfants",
+        "isPopular": true,
+        "features": [
+          "Couverture du conjoint et des enfants (accidents scolaires et sportifs)",
+          "Plafonds majorés pour soins chirurgicaux et hospitalisations",
+          "Indemnités journalières en cas d'arrêt d'activité",
+          "Rapatriement sanitaire et prise en charge des frais de secours",
+          "Double capital en cas de décès accidentel de la route"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Capital Garanti à l\'Échéance',
-        description: 'La totalité de vos cotisations nettes est garantie contractuellement avec revalorisation annuelle.',
-        isIncluded: true,
-        coverageLimit: 'Sécurité 100% groupe AXA'
+        "title": "Frais Médicaux, Pharmaceutiques & Chirurgicaux",
+        "description": "Prise en charge intégrale des frais de santé consécutifs à un accident garanti : consultations, examens, pharmacie, chirurgie et soins d'urgence.",
+        "isIncluded": true,
+        "coverageLimit": "Selon barème choisi"
       },
       {
-        title: 'Déduction Fiscale de l\'Impôt sur le Revenu (IR)',
-        description: 'Possibilité de déduire vos versements de votre salaire imposable dans la limite prévue par le Code des Impôts.',
-        isIncluded: true,
-        coverageLimit: 'Économie d\'impôt immédiate'
+        "title": "Capital Décès & Invalidité Permanente",
+        "description": "Versement d'un capital substantiel aux bénéficiaires en cas de décès ou à l'assuré en cas d'invalidité permanente après un accident ou une maladie.",
+        "isIncluded": true,
+        "coverageLimit": "Capital garanti contractuel"
       },
       {
-        title: 'Garantie Décès / Invalidité Intégrée',
-        description: 'En cas de décès avant l\'échéance, le capital constitué majoré d\'une indemnité est versé aux bénéficiaires désignés.',
-        isIncluded: true,
-        coverageLimit: 'Versement net de droits de succession'
+        "title": "Indemnités Journalières d'Arrêt de Travail",
+        "description": "Versement d'un revenu de substitution journalier à l'assuré ou à son conjoint pour compenser la perte de gains lors d'un arrêt médical.",
+        "isIncluded": true,
+        "coverageLimit": "Par jour d'arrêt"
+      },
+      {
+        "title": "Frais de Recherche, Secours & Rapatriement",
+        "description": "Prise en charge des opérations de sauvetage en mer ou montagne et des frais de rapatriement de corps en cas de décès.",
+        "isIncluded": true,
+        "coverageLimit": "Frais réels"
       }
     ],
-    options: [
-      'Clause bénéficiaire personnalisée modifiable à tout moment',
-      'Possibilité de rachats partiels après la période de fidélité',
-      'Option rente viagère réversible au conjoint survivant'
+    "options": [
+      "Extension sports à risque et loisirs nautiques",
+      "Renfort optique et dentaire",
+      "Assistance aide à domicile pendant la convalescence"
     ],
-    advantages: [
-      'Simulation fiscale gratuite réalisée à l\'agence Hay Saada selon votre barème d\'IR',
-      'Relevé annuel clair de situation et performance financière',
-      'Versements exceptionnels possibles à tout moment (primes de fin d\'année, etc.)'
+    "advantages": [
+      "Protection globale de toute la famille sous un contrat unique",
+      "Couvre les activités de la vie privée, scolaires et professionnelles",
+      "Gestion humaine et réactive à l'agence Assurances Hay Saada",
+      "Complémentarité parfaite avec l'AMO"
     ],
-    documentsRequired: [
-      'Copie de la CIN du souscripteur',
-      'Attestation de salaire ou dernier bulletin de paie (pour calcul de l\'optimisation fiscale)',
-      'Spécimen de chèque ou RIB bancaire pour les prélèvements'
+    "documentsRequired": [
+      "Copie de la CIN du souscripteur",
+      "Livret de famille pour le rattachement des ayants droit",
+      "Questionnaire médical simplifié"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'Comment fonctionne la déductibilité fiscale au Maroc ?',
-        answer: 'Les cotisations versées au titre de la retraite complémentaire sont déductibles de l\'assiette de l\'IR, ce qui réduit directement votre prélèvement à la source ou vous ouvre droit à un remboursement d\'impôt.'
-      },
-      {
-        question: 'Puis-je récupérer mon argent avant la retraite ?',
-        answer: 'Oui, des rachats partiels ou totaux sont possibles selon les conditions contractuelles en cas d\'imprévu ou de projet immobilier.'
+        "question": "Quelle est la différence entre Familis et l'AMO ?",
+        "answer": "L'AMO obligatoire ne couvre qu'une partie des frais selon le tarif conventionné. Familis intervient en complément pour rembourser le reste à charge, et verse surtout un capital d'urgence et des indemnités journalières pour protéger financièrement votre foyer."
       }
     ],
-    simulationType: 'retraite'
+    "simulationType": "sante"
   },
   {
-    id: 'voyage',
-    slug: 'assurance-voyage',
-    category: 'particulier',
-    subcategory: 'Mobilité & Loisirs',
-    title: 'Assurance Voyage & Assistance Monde',
-    tagline: 'L\'attestation officielle reconnue par tous les consulats pour vos démarches Visa Schengen',
-    shortDescription: 'Couverture médicale d\'urgence à l\'étranger, rapatriement sanitaire, retard de vol et indemnisation des bagages perdus.',
-    fullDescription: 'Partez à l\'étranger l\'esprit tranquille avec l\'Assurance Voyage AXA délivrée instantanément par Assurances Hay Saada. Conforme aux obligations strictes des Visas Schengen (couverture médicale minimale de 30 000 €), elle vous protège aux États-Unis, en Europe, en Asie et dans le monde entier.',
-    iconName: 'Plane',
-    badge: 'Conforme Visa Schengen',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Attestation consulaire délivrée en 10 minutes en agence',
-    formules: [
+    "id": "voyage",
+    "slug": "assurance-voyage",
+    "category": "particulier",
+    "subcategory": "Mobilité & Voyage",
+    "title": "Globale Assistance Voyage",
+    "tagline": "Attestation Visa Schengen immédiate conforme (30 000 €) et assistance médicale dans le monde entier",
+    "shortDescription": "Pour répondre aux exigences des consulats de l'espace Schengen (30 000 € de couverture médicale), Globale Assistance Voyage vous protège ainsi que votre famille partout dans le monde et au Maroc.",
+    "fullDescription": "Pour répondre aux exigences des consulats de l'espace Schengen (couverture médicale minimale de 30 000 €), la Globale Assistance Voyage est une couverture complète qui permet à l'assuré ainsi qu'à sa famille d'être protégés partout dans le monde, y compris au Maroc. Les frais d'hospitalisation d'urgence et le rapatriement sanitaire médicalisé sont couverts sans avance de frais.",
+    "iconName": "Plane",
+    "badge": "Conforme Consulat Schengen 30 000 €",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Attestation Visa Schengen délivrée immédiatement en agence",
+    "formules": [
       {
-        id: 'voyage-schengen',
-        name: 'Formule Visa Schengen & Europe',
-        tagline: '100% conforme pour vos dépôts de visa consulaires',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Frais médicaux et chirurgicaux couverts jusqu\'à 30 000 €',
-          'Rapatriement sanitaire et retour des accompagnants',
-          'Attestation bilingue instantanée avec QR code officiel',
-          'Avance de caution hospitalière à l\'étranger'
+        "id": "schengen-court",
+        "name": "Formule Court Séjour Schengen",
+        "tagline": "Idéale pour vacances, missions et démarches consulaires",
+        "priceNote": "Délivrance immédiate en agence",
+        "isPopular": true,
+        "features": [
+          "Attestation officielle avec QR Code pour le consulat",
+          "Couverture médicale minimale de 30 000 € (conforme exigences UE)",
+          "Rapatriement sanitaire médicalisé d'urgence",
+          "Prise en charge directe sans avance de frais d'hospitalisation"
         ]
       },
       {
-        id: 'voyage-monde',
-        name: 'Formule Monde & USA / Canada',
-        tagline: 'Plafonds renforcés pour les pays aux frais de santé élevés',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Plafond de frais médicaux porté à 100 000 $ / 150 000 €',
-          'Perte, vol ou retard de bagages (jusqu\'à 10 000 DH)',
-          'Annulation ou interruption de voyage pour cause grave',
-          'Responsabilité civile vie privée à l\'étranger',
-          'Assistance juridique et avance de caution à l\'étranger'
+        "id": "monde-annuel",
+        "name": "Formule Multivoyages Monde Entier",
+        "tagline": "Pour voyageurs fréquents et voyages d'affaires",
+        "priceNote": "Valable 365 jours dans tous les pays",
+        "isPopular": false,
+        "features": [
+          "Tous les voyages de l'année couverts dans le monde entier et au Maroc",
+          "Plafond médical relevé jusqu'à 30 000 € (USA, Canada, Asie)",
+          "Rapatriement sanitaire médicalisé d'urgence partout dans le monde",
+          "Retour anticipé d'urgence en cas de sinistre médical"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Frais Médicaux & Hospitalisation à l\'Étranger',
-        description: 'Prise en charge directe des soins urgents sans que vous ayez à débourser des sommes colossales à l\'étranger.',
-        isIncluded: true,
-        coverageLimit: '30 000 € à 150 000 €'
+        "title": "Frais Médicaux & Hospitalisation Schengen (30 000 €)",
+        "description": "Prise en charge directe sans avance de frais des consultations, examens et chirurgies d'urgence dans tous les hôpitaux et cliniques de l'espace Schengen.",
+        "isIncluded": true,
+        "coverageLimit": "30 000 € minimum légal"
       },
       {
-        title: 'Rapatriement Sanitaire d\'Urgence',
-        description: 'Organisation et prise en charge du transport médicalisé vers le Maroc si votre état de santé l\'exige.',
-        isIncluded: true,
-        coverageLimit: 'Frais réels pris en charge à 100%'
-      },
-      {
-        title: 'Indemnisation Perte de Bagages',
-        description: 'Compensation financière en cas de bagages égarés ou détruits par la compagnie aérienne.',
-        isIncluded: true,
-        coverageLimit: 'Forfait d\'urgence + indemnisation au kg'
+        "title": "Rapatriement Sanitaire d'Urgence",
+        "description": "Organisation et prise en charge intégrale du transport médicalisé vers le Maroc ou l'établissement hospitalier le plus approprié.",
+        "isIncluded": true,
+        "coverageLimit": "Frais réels 100%"
       }
     ],
-    options: [
-      'Garantie annulation de voyage toute cause justifiée',
-      'Extension pour sports d\'hiver et activités nautiques',
-      'Couverture multi-voyages annuelle pour voyageurs fréquents'
+    "options": [
+      "Garantie annulation de voyage imprévue",
+      "Assurance sports d'hiver et activités de plein air",
+      "Option couverture USA, Canada et pays sans convention"
     ],
-    advantages: [
-      'Attestation Visa remise immédiatement imprimée à l\'agence ou envoyée par email/WhatsApp',
-      'Plateau d\'assistance international multilingue joignable 24/7/365',
-      'Remboursement intégral de l\'assurance si le visa consulaire est refusé (sur justificatif)'
+    "advantages": [
+      "Attestation acceptée à 100% par tous les consulats de l'espace Schengen",
+      "Délivrance immédiate en main propre à l'agence Assurances Hay Saada",
+      "Prise en charge directe sans avance de frais d'hospitalisation",
+      "Plateforme d'assistance multilingue accessible 24/7 dans le monde entier"
     ],
-    documentsRequired: [
-      'Copie du passeport en cours de validité',
-      'Dates exactes de départ et de retour',
-      'Destination(s) du voyage'
+    "documentsRequired": [
+      "Copie du passeport en cours de validité",
+      "Dates exactes de séjour et pays de destination",
+      "Formulaire de demande consulaire (le cas échéant)"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'L\'attestation AXA est-elle acceptée par les consulats de France, d\'Espagne ou d\'Italie ?',
-        answer: 'Oui, sans aucune exception. AXA est l\'un des assureurs leaders officiellement accrédités auprès de tous les consulats de l\'Espace Schengen au Maroc.'
-      },
-      {
-        question: 'Que se passe-t-il si mon visa est refusé ?',
-        answer: 'Sur simple présentation du courrier officiel de refus du consulat avant la date d\'effet du contrat, nous procédons à l\'annulation et au remboursement de votre prime.'
+        "question": "L'attestation est-elle acceptée pour les Visas Schengen ?",
+        "answer": "Oui, sans aucune exception. L'attestation délivrée par AXA répond point par point au règlement communautaire européen (couverture médicale minimale de 30 000 €, rapatriement sanitaire, validité sur tous les États membres)."
       }
     ],
-    simulationType: 'standard'
+    "simulationType": "standard"
   },
   {
-    id: 'prevoyance-deces',
-    slug: 'assurance-prevoyance-famille',
-    category: 'particulier',
-    subcategory: 'Famille & Avenir',
-    title: 'Protection Famille & Prévoyance Décès',
-    tagline: 'Mettez vos proches à l\'abri du besoin financier en cas d\'aléa de la vie',
-    shortDescription: 'Versement d\'un capital garanti et d\'une rente mensuelle d\'éducation pour protéger le train de vie de vos enfants.',
-    fullDescription: 'La prévoyance familiale AXA permet d\'assurer la continuité du foyer face aux imprévus majeurs. En cas de décès ou d\'invalidité permanente, un capital financier net d\'impôt est immédiatement mis à la disposition de votre conjoint et de vos enfants pour régler les dépenses urgentes et financer leurs études.',
-    iconName: 'Users',
-    badge: 'Sérénité Familiale',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Capital garanti de 100 000 DH à 2 000 000 DH versé sous 48h',
-    formules: [
+    "id": "loisirs-chasse",
+    "slug": "plaisance-chasse",
+    "category": "particulier",
+    "subcategory": "Loisirs & Passions",
+    "title": "Plaisance, Jet Ski & RC Chasse",
+    "tagline": "Vivez votre passion nautique et cynégétique en toute conformité et sérénité",
+    "shortDescription": "Assurance modulaire pour navires de plaisance, bateaux à moteur, jet-skis et scooters de mer, ainsi que le contrat obligatoire de Responsabilité Civile Chasse pour pratiquer en toute sécurité.",
+    "fullDescription": "Bénéficiez d'une couverture modulaire qui vous permet d'avoir une assurance adaptée à votre pratique de loisirs : voilier, bateau à moteur, hors-bord, jet-ski ou scooter de mer. La garantie Responsabilité Civile couvre les dommages corporels et matériels causés à autrui par le navire. En complément, bénéficiez de garanties contre la perte totale, le délaissement, le vol total ou des accessoires, les avaries matérielles (incendie, abordage, naufrage, collision, vice caché) et d'une protection individuelle accidents pour les personnes transportées. Pour les passionnés de chasse, la RC Chasse AXA est un contrat simple et rapide qui vous protège contre les conséquences financières de la responsabilité civile encourue en raison des dommages causés à des tiers par vos armes de chasse lors d'actions licites.",
+    "iconName": "ShieldCheck",
+    "badge": "Plaisance & Chasse Agréée",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Attestation Chasse immédiate & Couverture multirisque plaisance",
+    "formules": [
       {
-        id: 'prevoyance-essentielle',
-        name: 'Formule Sécurité Essentielle',
-        tagline: 'Pour couvrir les frais immédiats et dettes courantes',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Capital décès toutes causes de 150 000 DH',
-          'Doublement du capital en cas d\'accident',
-          'Avance immédiate sur frais d\'obsèques',
-          'Liberté totale de choix des bénéficiaires'
+        "id": "plaisance-pack",
+        "name": "Pack Plaisance & Jet Ski",
+        "tagline": "Pour bateaux, voiliers, jet-skis et scooters marins",
+        "priceNote": "Selon puissance et type d'embarcation",
+        "isPopular": true,
+        "features": [
+          "Responsabilité Civile maritime obligatoire",
+          "Défense et recours avec frais d'avocat et d'expert",
+          "Perte totale, sauvetage et délaissement du navire",
+          "Vol du navire, des annexes et des accessoires",
+          "Individuelle personnes transportées (frais médicaux, décès, invalidité)"
         ]
       },
       {
-        id: 'prevoyance-famille-plus',
-        name: 'Formule Famille Plus & Rente Éducation',
-        tagline: 'La protection totale de l\'avenir scolaire des enfants',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Capital décès / invalidité de 500 000 DH',
-          'Rente mensuelle d\'éducation versée jusqu\'aux 25 ans de chaque enfant',
-          'Rente annuelle de conjoint',
-          'Exonération des cotisations en cas d\'incapacité de travail'
+        "id": "chasse-pack",
+        "name": "Pack RC Chasse Officiel",
+        "tagline": "Obligatoire pour l'obtention et le renouvellement du permis",
+        "priceNote": "Délivrance immédiate de l'attestation",
+        "isPopular": false,
+        "features": [
+          "Attestation officielle pour la Fédération et les Eaux & Forêts",
+          "Responsabilité Civile dommages corporels et matériels causés par armes",
+          "Couverture des chiens de chasse en action de chasse",
+          "Défense et recours juridique suite à incident de tir",
+          "Validité sur l'ensemble du territoire national marocain"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Capital Décès Toutes Causes',
-        description: 'Versement rapide du montant convenu aux bénéficiaires désignés sans droits de succession.',
-        isIncluded: true,
-        coverageLimit: 'Jusqu\'à 2 000 000 DH'
+        "title": "Responsabilité Civile Navire & Chasse",
+        "description": "Couvre l'assuré contre les conséquences pécuniaires des dommages matériels et corporels involontairement causés à des tiers lors de la navigation ou de la chasse.",
+        "isIncluded": true,
+        "coverageLimit": "Illimitée"
       },
       {
-        title: 'Perte Totale & Irréversible d\'Autonomie (PTIA)',
-        description: 'Versement anticipé de l\'intégralité du capital au souscripteur lui-même pour adapter son quotidien.',
-        isIncluded: true,
-        coverageLimit: '100% du capital'
+        "title": "Pertes & Dommages Matériels du Bateau",
+        "description": "Indemnisation des avaries partielles ou totales subies par le navire suite à incendie, abordage, naufrage, tempête ou collision.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur agréée"
       },
       {
-        title: 'Rente Éducation',
-        description: 'Rente régulière versée pour garantir la poursuite sereine de la scolarité et des études supérieures.',
-        isIncluded: true,
-        coverageLimit: 'De 1 000 à 5 000 DH / mois / enfant'
+        "title": "Individuelle Accidents Personnes Transportées",
+        "description": "Capital en cas de décès ou d'invalidité et remboursement des frais médicaux pour l'assuré et les passagers montant ou descendant du navire.",
+        "isIncluded": true,
+        "coverageLimit": "Contractuelle"
+      },
+      {
+        "title": "Frais de Sauvetage & Retrait d'Épave",
+        "description": "Prise en charge des frais de remorquage en mer, sauvetage et renflouement exigés par les autorités portuaires.",
+        "isIncluded": true,
+        "coverageLimit": "Frais réels"
       }
     ],
-    options: [
-      'Garantie Maladies Redoutées (cancer, AVC, chirurgie cardiaque) avec versement d\'un capital immédiat',
-      'Assistance démarches administratives et successorales pour la famille'
+    "options": [
+      "Garantie vol des équipements électroniques de bord (GPS, sondeur)",
+      "Couverture remorque porte-bateau sur la route",
+      "Extension responsabilité civile chiens de chasse de race"
     ],
-    advantages: [
-      'Tarifs attractifs calculés selon votre tranche d\'âge',
-      'Adhésion simple sans formalités médicales lourdes en dessous d\'un certain seuil',
-      'Conseil discret et confidentiel à notre agence de Hay Mohammadi'
+    "advantages": [
+      "Attestation de chasse délivrée immédiatement pour votre permis",
+      "Contrats sur-mesure pour jet-ski et moteurs hors-bord de toute puissance",
+      "Accompagnement de proximité par des conseillers spécialisés à Casablanca",
+      "Assistance remorquage nautique et sauvetage en mer"
     ],
-    documentsRequired: [
-      'Copie de la CIN du souscripteur',
-      'Questionnaire de santé standard',
-      'Livret de famille ou identification précise des bénéficiaires'
+    "documentsRequired": [
+      "Copie de la CIN du souscripteur",
+      "Titre de navigation ou acte de francisation (pour les bateaux)",
+      "Permis de chasse ou carnet de tir (pour la RC Chasse)"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'Qui peut être désigné bénéficiaire du contrat ?',
-        answer: 'Vous êtes entièrement libre de désigner votre conjoint, vos enfants ou toute autre personne de votre choix, et de modifier cette clause par écrit à tout moment.'
-      },
-      {
-        question: 'Le capital versé est-il imposable au Maroc ?',
-        answer: 'Non, les capitaux décès issus des contrats d\'assurance prévoyance sont exonérés d\'impôt sur le revenu et des droits de mutation successorale.'
+        "question": "L'attestation RC Chasse est-elle valable pour valider mon permis ?",
+        "answer": "Oui, l'attestation délivrée par notre agence est conforme à toutes les exigences de l'Agence Nationale des Eaux et Forêts (ANEF) et de la Fédération Royale Marocaine de Chasse."
       }
     ],
-    simulationType: 'standard'
+    "simulationType": "standard"
   },
   {
-    id: 'emprunteur',
-    slug: 'assurance-emprunteur',
-    category: 'particulier',
-    subcategory: 'Crédit & Financement',
-    title: 'Assurance Emprunteur & Crédit Immobilier',
-    tagline: 'Économisez jusqu\'à 40% sur votre assurance de prêt immobilier par rapport aux banques marocaines',
-    shortDescription: 'Délégation d\'assurance acceptée par toutes les banques du Maroc (Attijariwafa, BCP, CIH, BMCE, etc.) pour vos crédits habitat.',
-    fullDescription: 'Lorsque vous souscrivez un prêt immobilier au Maroc, la banque vous impose une assurance décès-invalidité. Avec Assurances Hay Saada, vous pouvez opter pour la délégation d\'assurance AXA : garanties équivalentes ou supérieures à celles de la banque avec une économie pouvant atteindre plusieurs dizaines de milliers de dirhams sur la durée totale du prêt.',
-    iconName: 'Building2',
-    badge: 'Économie sur Crédit',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Agrément garanti auprès de toutes les banques marocaines',
-    formules: [
+    "id": "accidents-travail",
+    "slug": "accidents-travail",
+    "category": "entreprise",
+    "subcategory": "Protection Salariés",
+    "title": "Accidents du Travail & Maladies Pro (AT/MP)",
+    "tagline": "Conformité légale stricte (Loi 18-12) et protection globale de vos collaborateurs et apprentis",
+    "shortDescription": "La couverture obligatoire Accidents du Travail et Maladies Professionnelles a pour finalité de préserver et protéger vos collaborateurs : indemnités journalières, soins, rentes d'invalidité et reclassement.",
+    "fullDescription": "La couverture Accidents du Travail et Maladies Professionnelles a pour finalité de préserver et de protéger vos collaborateurs en toute circonstance. Obligatoire selon la loi marocaine n° 18-12, elle vous garantit le versement des indemnités journalières en cas d'arrêt de travail temporaire, le remboursement intégral des frais médicaux, chirurgicaux, pharmaceutiques et d'hospitalisation, le service de rentes d'invalidité permanente ou de pensions aux ayants droit en cas de décès accidentel, ainsi que la prise en charge des frais de réadaptation fonctionnelle, de rééducation et de reclassement professionnel. Assurances Hay Saada est votre interlocuteur privilégié pour sécuriser votre entreprise et garantir la paix sociale au sein de vos équipes.",
+    "iconName": "Users",
+    "badge": "Obligation Légale Loi 18-12",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "100% conforme à la loi 18-12 & Prise en charge médicale sans avance",
+    "formules": [
       {
-        id: 'emprunteur-standard',
-        name: 'Formule Crédit Habitat Particulier',
-        tagline: 'Conforme aux exigences bancaires marocaines',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Couverture du capital restant dû en cas de décès',
-          'Perte totale et irréversible d\'autonomie (PTIA)',
-          'Attestation bancaire immédiate conforme aux exigences du prêteur',
-          'Paiement de la prime calqué sur les échéances du prêt'
-        ]
-      }
-    ],
-    keyGuarantees: [
-      {
-        title: 'Décès Toutes Causes',
-        description: 'Remboursement direct du solde restant dû du prêt à la banque, protégeant ainsi vos héritiers.',
-        isIncluded: true,
-        coverageLimit: '100% du crédit immobilier'
-      },
-      {
-        title: 'Perte Totale & Irréversible d\'Autonomie',
-        description: 'Prise en charge intégrale du prêt si vous ne pouvez plus exercer d\'activité génératrice de revenus.',
-        isIncluded: true,
-        coverageLimit: 'Solde du prêt remboursé'
-      }
-    ],
-    options: [
-      'Option Incapacité Temporaire Totale de Travail (ITT) avec prise en charge des mensualités',
-      'Assurance Perte d\'Emploi (selon conditions)'
-    ],
-    advantages: [
-      'Tarification personnalisée selon votre profil médical et non pas un tarif groupe bancaire unique',
-      'Dossier traité et attestation remise à votre banquier sous 48 heures',
-      'Économies substantielles calculées noir sur blanc face à l\'offre de votre banque'
-    ],
-    documentsRequired: [
-      'Offre ou tableau d\'amortissement prévisionnel de la banque',
-      'Copie de la CIN',
-      'Questionnaire médical'
-    ],
-    faq: [
-      {
-        question: 'Ma banque marocaine est-elle obligée d\'accepter une assurance AXA ?',
-        answer: 'Oui, la réglementation bancaire et des assurances au Maroc consacre le libre choix de l\'assureur emprunteur (délégation d\'assurance) dès lors que les garanties sont au moins équivalentes.'
-      }
-    ],
-    simulationType: 'standard'
-  },
-
-  // ==========================================
-  // ENTREPRISES & PROFESSIONNELS (8 Produits complets)
-  // ==========================================
-  {
-    id: 'rc-pro',
-    slug: 'responsabilite-civile-professionnelle',
-    category: 'entreprise',
-    subcategory: 'Responsabilité & Droit',
-    title: 'Responsabilité Civile Professionnelle (RC Pro)',
-    tagline: 'Protégez votre entreprise contre les réclamations de tiers, clients et partenaires',
-    shortDescription: 'Couverture des préjudices corporels, matériels et immatériels causés dans le cadre de vos prestations, avec prise en charge des frais juridiques.',
-    fullDescription: 'Une faute professionnelle, un retard d\'exécution, une négligence ou un accident dans vos locaux peut entraîner des demandes de dommages et intérêts colossales. La RC Professionnelle et Exploitation d\'AXA chez Assurances Hay Saada protège votre trésorerie et la réputation de votre structure.',
-    iconName: 'ShieldCheck',
-    badge: 'Bouclier Juridique & Financier',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Protection juridique & frais d\'avocat inclus',
-    formules: [
-      {
-        id: 'rc-prof-liberale',
-        name: 'Formule Prestataires & Professions Libérales',
-        tagline: 'Consultants, informaticiens, agences, comptables, experts',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Erreurs, omissions, fautes professionnelles',
-          'Pertes financières et immatérielles subies par vos clients',
-          'Défense civile et recours (honoraires d\'avocats et experts)',
-          'Plafond de garantie de 1 000 000 DH à 5 000 000 DH'
+        "id": "at-conforme",
+        "name": "Formule Conformité Légale 18-12",
+        "tagline": "Conformité légale totale pour l'ensemble de vos effectifs",
+        "priceNote": "Calculée sur la masse salariale déclarée",
+        "isPopular": true,
+        "features": [
+          "Prise en charge intégrale des accidents du travail et de trajet",
+          "Indemnités journalières versées en cas d'arrêt temporaire",
+          "Remboursement des frais médicaux, chirurgicaux et pharmaceutiques",
+          "Rentes d'incapacité permanente partielle ou totale",
+          "Pensions aux veufs/veuves et orphelins en cas de décès accidentel",
+          "Frais funéraires et de transport de corps"
         ]
       },
       {
-        id: 'rc-exploitation-commerce',
-        name: 'Formule Commerces & Artisans',
-        tagline: 'Magasins, restaurateurs, artisans, PME',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'RC Exploitation (accidents de clients dans vos locaux)',
-          'Dommages aux biens confiés pour réparation ou stockage',
-          'Intoxications alimentaires (métiers de bouche)',
-          'Défense pénale et recours'
-        ]
-      },
-      {
-        id: 'rc-industrielle-btp',
-        name: 'Formule BTP, Industrie & Grands Comptes',
-        tagline: 'Constructeurs, industriels, distributeurs d\'envergure',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'RC après livraison de produits ou réception de chantiers',
-          'Pollution accidentelle',
-          'Dommages aux ouvrages voisins',
-          'Plafonds élevés adaptés aux appels d\'offres publics et privés'
+        "id": "at-etendue",
+        "name": "Formule AT Étendue & Cadres",
+        "tagline": "Prestations complémentaires pour valoriser vos équipes",
+        "priceNote": "Optimisation de la couverture sociale",
+        "isPopular": false,
+        "features": [
+          "Toutes les garanties de la formule légale 18-12",
+          "Majoration des capitaux d'indemnisation pour les cadres",
+          "Prise en charge des dépassements d'honoraires en clinique",
+          "Frais de réadaptation fonctionnelle et de reconversion professionnelle",
+          "Assistance psychologique post-traumatique pour les salariés"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Fautes Professionnelles & Omissions',
-        description: 'Indemnisation des préjudices subis par vos clients résultant d\'un conseil inadapté, d\'une erreur technique ou d\'un retard imputable.',
-        isIncluded: true,
-        coverageLimit: 'Jusqu\'à 10 000 000 DH'
+        "title": "Indemnités Journalières de Travail",
+        "description": "Maintien du revenu légal du salarié en arrêt d'activité prescrit médicalement suite à un accident du travail ou de trajet.",
+        "isIncluded": true,
+        "coverageLimit": "Conforme barème légal"
       },
       {
-        title: 'Responsabilité Civile Exploitation',
-        description: 'Dommages causés aux tiers au quotidien (client qui glisse dans votre boutique, chute d\'un objet depuis votre échafaudage).',
-        isIncluded: true,
-        coverageLimit: 'Dommages corporels et matériels'
+        "title": "Frais Médicaux, Chirurgicaux & d'Hospitalisation",
+        "description": "Prise en charge directe en clinique conventionnée ou remboursement intégral sans franchise des actes médicaux et médicaments.",
+        "isIncluded": true,
+        "coverageLimit": "Frais réels 100%"
       },
       {
-        title: 'Frais de Défense Juridique & Expertise',
-        description: 'Prise en charge des frais d\'avocats, d\'huissiers et d\'experts mandatés pour vous défendre devant les tribunaux de commerce.',
-        isIncluded: true,
-        coverageLimit: 'Inclus d\'office'
+        "title": "Rentes d'Invalidité & Pensions Ayants Droit",
+        "description": "Constitution et service des rentes viagères d'incapacité permanente (IPP) ou pensions aux conjoints et enfants mineurs.",
+        "isIncluded": true,
+        "coverageLimit": "Rente viagère légale"
+      },
+      {
+        "title": "Réadaptation & Reclassement Professionnel",
+        "description": "Financement des appareillages, prothèses, séances de rééducation et formations pour réinsérer le collaborateur.",
+        "isIncluded": true,
+        "coverageLimit": "Inclus"
       }
     ],
-    options: [
-      'Responsabilité Civile des Mandataires Sociaux (RC Dirigeants / D&O)',
-      'Garantie Atteinte à l\'environnement accidentelle',
-      'Extension géographique pour missions ou export à l\'international'
+    "options": [
+      "Garantie accidents de trajet élargie pour travailleurs nomades",
+      "Prise en charge du personnel temporaire, stagiaires et intérimaires",
+      "Assistance juridique de l'employeur devant le tribunal social"
     ],
-    advantages: [
-      'Attestation de RC Pro rédigée sur mesure sous 24h pour vos réponses aux appels d\'offres',
-      'Audit personnalisé des risques de votre activité réalisé par nos spécialistes à Casablanca',
-      'Plafonds ajustables selon les clauses contractuelles de vos clients'
+    "advantages": [
+      "Conformité absolue aux contrôles de l'Inspection du Travail",
+      "Déclaration simplifiée des bordereaux de paie trimestriels",
+      "Accompagnement dédié pour la gestion des dossiers de sinistre à Casablanca",
+      "Réseau conventionné de cliniques et centres de traumatologie"
     ],
-    documentsRequired: [
-      'Copie du Registre de Commerce (RC), Modèle J récent',
-      'Identifiant Fiscal (IF) et Taxe Professionnelle (TP)',
-      'Chiffre d\'affaires prévisionnel ou dernier bilan comptable',
-      'Description détaillée de l\'activité et type de contrats clients'
+    "documentsRequired": [
+      "Copie du Registre de Commerce (RC) et statut juridique",
+      "Déclaration de la masse salariale brute globale (CNSS)",
+      "Liste nominative du personnel ou effectif global par catégorie"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'La RC Pro est-elle obligatoire au Maroc ?',
-        answer: 'Elle est légalement obligatoire pour plusieurs professions réglementées (experts-comptables, notaires, architectes, agents de voyage, santé) et contractuellement indispensable pour répondre aux marchés et appels d\'offres des donneurs d\'ordres.'
-      },
-      {
-        question: 'Comment est calculée la cotisation de la RC Pro ?',
-        answer: 'Elle dépend principalement de votre secteur d\'activité, de votre chiffre d\'affaires annuel, du nombre de salariés et du plafond de garantie souhaité.'
+        "question": "L'assurance Accidents du Travail est-elle obligatoire ?",
+        "answer": "Oui, la loi marocaine n° 18-12 impose à tout employeur, quelle que soit la taille ou la forme juridique de son entreprise, de souscrire une assurance AT/MP sous peine de lourdes sanctions pénales et financières."
       }
     ],
-    simulationType: 'rcpro'
+    "simulationType": "standard"
   },
   {
-    id: 'mrp',
-    slug: 'multirisque-professionnelle',
-    category: 'entreprise',
-    subcategory: 'Biens & Locaux',
-    title: 'Multirisque Professionnelle (MRP)',
-    tagline: 'Protégez vos locaux, vos machines et sécurisez votre perte d\'exploitation',
-    shortDescription: 'Assurance globale de votre outil de travail : incendie, vol, dégât des eaux, bris de machine et maintien de votre marge brute en cas d\'arrêt d\'activité.',
-    fullDescription: 'Un sinistre peut paralyser votre activité du jour au lendemain. La Multirisque Professionnelle AXA chez Assurances Hay Saada offre un bouclier complet protégeant votre patrimoine immobilier professionnel, vos stocks de marchandises, votre matériel informatique ainsi que la perte de revenus consécutive à un arrêt d\'exploitation.',
-    iconName: 'Building2',
-    badge: 'Protection Intégrale Entreprise',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Maintien des salaires et charges fixes jusqu\'à 18 mois',
-    formules: [
+    "id": "sante-collective",
+    "slug": "prevoyance-sante-entreprise",
+    "category": "entreprise",
+    "subcategory": "Protection Salariés",
+    "title": "Prévoyance Santé Entreprise",
+    "tagline": "Assurance maladie complémentaire collective modulable pour valoriser et protéger votre personnel",
+    "shortDescription": "Prévoyance Santé Entreprise est une assurance maladie pour tous, que vous bénéficiiez ou non de l'AMO : libre choix des taux de remboursement (TNR), tiers payant et couverture prévoyance.",
+    "fullDescription": "Prévoyance Santé Entreprise est une assurance maladie pour tous vos salariés, que votre structure bénéficie de l'Assurance Maladie Obligatoire (AMO) ou souhaite un régime autonome. Plusieurs niveaux de couverture sont disponibles, de la solution basique à la solution la plus optimale incluant des prestations haut de gamme. Vous bénéficiez d'une complémentaire à la carte en fonction de votre budget, d'un libre choix entre différentes options de remboursement (sur la base du Tarif National de Référence TNR ou des frais réels), et d'un réseau de tiers payant en clinique. Prévoyance Santé Entreprise vous couvre également en cas de décès, d'incapacité totale temporaire (ITT) ou d'invalidité permanente de vos collaborateurs.",
+    "iconName": "HeartPulse",
+    "badge": "Santé Collective Modulable",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "mensualisé ou annuel",
+    "heroHighlight": "Tiers Payant Clinique & Libre choix des taux de remboursement (TNR)",
+    "formules": [
       {
-        id: 'mrp-commercant',
-        name: 'Formule Commerces & Boutiques',
-        tagline: 'Magasins de détail, franchises, showrooms',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Incendie, explosion, dégât des eaux',
-          'Vol des marchandises et fonds de caisse',
-          'Bris de vitrine et enseigne lumineuse',
-          'Assistance dépannage d\'urgence serrurerie/vitrerie'
+        "id": "sante-pro-base",
+        "name": "Formule Complémentaire AMO",
+        "tagline": "Comble le ticket modérateur de l'AMO au meilleur coût",
+        "priceNote": "Idéale pour PME et effectifs nombreux",
+        "isPopular": false,
+        "features": [
+          "Remboursement du ticket modérateur restant à la charge du salarié",
+          "Tiers payant hospitalier en clinique conventionnée",
+          "Prise en charge des médicaments ambulatoires",
+          "Capital décès accidentel garanti pour la famille"
         ]
       },
       {
-        id: 'mrp-bureaux',
-        name: 'Formule Bureaux & Cabinets',
-        tagline: 'Cabinets médicaux, sièges sociaux, agences',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Protection des locaux et aménagements',
-          'Matériel informatique, serveurs et mobilier de bureau',
-          'Perte de documents et frais de reconstitution d\'archives',
-          'Perte d\'exploitation consécutive'
-        ]
-      },
-      {
-        id: 'mrp-industrie-atelier',
-        name: 'Formule Usines & Ateliers de Production',
-        tagline: 'Sites de production, dépôts logistiques, usines',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Bâtiments industriels et stocks volumineux',
-          'Bris de machines et installations électriques',
-          'Perte d\'exploitation sur 12 à 24 mois',
-          'Frais de déblais et de dépollution'
+        "id": "sante-pro-confort",
+        "name": "Formule Santé Premium & Cadres",
+        "tagline": "Couverture santé d'excellence avec optique et dentaire",
+        "priceNote": "Outil de fidélisation des talents",
+        "isPopular": true,
+        "features": [
+          "Remboursement jusqu'à 80% ou 90% des frais réels engagés",
+          "Plafonds confortables en optique (verres et montures) et dentaire (prothèses)",
+          "Maternité, accouchement en clinique et soins néonataux",
+          "Scanner, IRM et analyses biologiques sans avance de frais",
+          "Indemnités d'incapacité temporaire et rente d'invalidité permanente"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Incendie, Foudre & Explosions',
-        description: 'Reconstruction des bâtiments et rééquipement de vos machines et mobiliers à neuf.',
-        isIncluded: true,
-        coverageLimit: 'Valeur déclarée'
+        "title": "Tiers Payant en Clinique Privée",
+        "description": "Accès sans avance de frais d'hospitalisation dans toutes les cliniques conventionnées AXA à Casablanca et dans tout le Royaume.",
+        "isIncluded": true,
+        "coverageLimit": "Prise en charge directe"
       },
       {
-        title: 'Perte d\'Exploitation Après Sinistre',
-        description: 'Versement d\'une indemnité compensant la perte de bénéfice et couvrant vos charges fixes (salaires, loyers, mensualités bancaires) pendant la fermeture.',
-        isIncluded: true,
-        coverageLimit: 'Période d\'indemnisation 12 à 18 mois'
+        "title": "Soins Ambulatoires & Médicaments",
+        "description": "Remboursement rapide des consultations médicales, ordonnances pharmaceutiques, examens radiologiques et analyses de laboratoire.",
+        "isIncluded": true,
+        "coverageLimit": "Selon taux contractuel"
       },
       {
-        title: 'Vol, Vandalisme & Dégradations',
-        description: 'Indemnisation des stocks volés, du matériel dérobé et réparation des dégradations commises.',
-        isIncluded: true,
-        coverageLimit: 'Avec ou sans effraction'
+        "title": "Prévoyance Décès & Incapacité Totale (ITT)",
+        "description": "Versement d'un capital substantiel aux ayants droit en cas de décès du salarié et versement d'indemnités journalières en cas d'incapacité.",
+        "isIncluded": true,
+        "coverageLimit": "Multiple de salaire annuel"
       },
       {
-        title: 'Dégâts des Eaux & Inondations',
-        description: 'Couvre les infiltrations de toiture, ruptures de canalisations et engorgements d\'eaux pluviales.',
-        isIncluded: true,
-        coverageLimit: 'Stocks et locaux protégés'
+        "title": "Rente Éducation & Conjoint",
+        "description": "Versement d'une rente d'éducation aux enfants mineurs du collaborateur disparu pour garantir la continuité de leurs études.",
+        "isIncluded": true,
+        "coverageLimit": "Jusqu'à 21 ans"
       }
     ],
-    options: [
-      'Garantie Bris de Machines spécifiques et automates industriels',
-      'Assurance marchandises sous température dirigée (chambres froides)',
-      'Pertes de valeur vénale du fonds de commerce'
+    "options": [
+      "Couverture des ascendants (parents à charge des salariés)",
+      "Évacuation sanitaire d'urgence vers l'étranger",
+      "Assistance médicale à domicile pour les salariés"
     ],
-    advantages: [
-      'Visite de prévention et conseils techniques par nos experts à Casablanca',
-      'Avance immédiate sur indemnité pour relancer l\'activité sans attendre la fin des expertises',
-      'Accompagnement de proximité par un chargé d\'affaires dédié à l\'agence Hay Saada'
+    "advantages": [
+      "Cotisations patronales déductibles à 100% de l'Impôt sur les Sociétés (IS)",
+      "Outil majeur d'attractivité et de fidélisation de vos collaborateurs",
+      "Remboursements accélérés sur dossier en agence sous 48 à 72h",
+      "Application mobile pour le suivi des remboursements"
     ],
-    documentsRequired: [
-      'Plan et superficie des locaux professionnels',
-      'Inventaire valorisé du matériel et des stocks marchands',
-      'Dernière liasse fiscale ou compte de résultat (pour la perte d\'exploitation)',
-      'Statuts de l\'entreprise et RC'
+    "documentsRequired": [
+      "Registre de commerce et statuts de la société",
+      "Liste du personnel avec âges, statuts familiaux et catégories professionnelles",
+      "Niveau de couverture et options souhaitées"
     ],
-    faq: [
+    "faq": [
       {
-        question: 'Pourquoi souscrire la garantie Perte d\'Exploitation ?',
-        answer: 'Après un incendie ou une inondation majeure, reconstruire les murs prend des mois. La garantie Perte d\'Exploitation évite la faillite en payant vos salariés, vos impôts et vos charges fixes pendant que vous ne produisez rien.'
+        "question": "Puis-je souscrire si mon entreprise est déjà assujettie à l'AMO ?",
+        "answer": "Oui, tout à fait. Prévoyance Santé Entreprise agit comme une excellente sur-complémentaire, prenant en charge le reste à payer laissé par l'AMO et offrant le tiers payant en clinique."
       }
     ],
-    simulationType: 'mrp'
+    "simulationType": "sante"
   },
   {
-    id: 'flotte-auto',
-    slug: 'assurance-flotte-automobile',
-    category: 'entreprise',
-    subcategory: 'Mobilité & Transport',
-    title: 'Assurance Flotte Automobile',
-    tagline: 'Optimisez les coûts et simplifiez la gestion du parc de véhicules de votre entreprise',
-    shortDescription: 'Contrat unique dès 3 véhicules (voitures de fonction, utilitaires, camions, deux-roues) avec assistance 24/7 et gestion en ligne simplifiée.',
-    fullDescription: 'Gérer une flotte de véhicules demande de la réactivité et un coût maîtrisé. Le contrat Flotte AXA auprès d\'Assurances Hay Saada regroupe l\'ensemble de vos véhicules professionnels sous une seule police d\'assurance, avec une facturation globale, des tarifs dégressifs et une assistance routière prioritaire pour que vos collaborateurs ne soient jamais bloqués.',
-    iconName: 'Truck',
-    badge: 'Dès 3 Véhicules',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Gestionnaire de compte dédié + Assistance remorquage prioritaire',
-    formules: [
+    "id": "flotte-auto",
+    "slug": "flotte-automobile",
+    "category": "entreprise",
+    "subcategory": "Mobilité Entreprise",
+    "title": "Flotte Automobile Entreprise",
+    "tagline": "Dédiée aux parcs supérieurs à 5 véhicules avec garanties innovantes et gestion unifiée",
+    "shortDescription": "L'offre Flotte Auto d'AXA est dédiée aux entreprises ayant un parc de véhicules supérieur à 5 (tous usages confondus) : indemnisation en valeur à neuf, aménagements professionnels et assistance 24/7.",
+    "fullDescription": "L'offre Flotte Auto d'AXA est spécialement dédiée aux entreprises disposant d'un parc de véhicules supérieur à 5 (tous usages confondus : véhicules utilitaires, camionnettes, berlines de direction, engins de livraison). Elle vous permet de maximiser la couverture de vos véhicules grâce à des garanties innovantes : Responsabilité Civile, Défense et Recours, indemnisation en valeur à neuf pour les véhicules récents, et une grande exclusivité AXA : la garantie Aménagements Professionnels pour protéger vos caissons frigorifiques, étagères d'artisans et équipements montés. Vous profitez d'une gestion simplifiée avec une échéance unique, d'une possibilité de fractionnement de la prime, d'une tarification dégressive et d'une assistance routière prioritaire 24h/24.",
+    "iconName": "Truck",
+    "badge": "Exclusivité Aménagements Pro AXA",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Exclusivité AXA : Garantie Aménagements Professionnels & Échéance unique",
+    "formules": [
       {
-        id: 'flotte-tiers',
-        name: 'Pack Flotte Tiers Pro',
-        tagline: 'Idéal pour utilitaires anciens et trajets urbains',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Responsabilité Civile obligatoire flotte',
-          'Défense et Recours groupe',
-          'Assistance dépannage 24/7 au Maroc',
-          'Gestion centralisée des mouvements d\'entrée/sortie'
+        "id": "flotte-eco",
+        "name": "Flotte Tiers & Assistance",
+        "tagline": "Contrat cadre pour véhicules utilitaires et commerciaux",
+        "priceNote": "Tarification dégressive par tranche de parc",
+        "isPopular": false,
+        "features": [
+          "Responsabilité Civile pour tous conducteurs mandatés",
+          "Défense et Recours avec avocat dédié",
+          "Assistance dépannage et remorquage 24/7 partout au Maroc",
+          "Gestion globale avec échéance de renouvellement unique",
+          "Inclusion / retrait de véhicules par simple avenant"
         ]
       },
       {
-        id: 'flotte-confort',
-        name: 'Pack Flotte Confort (Vol/Incendie + Bris)',
-        tagline: 'Pour parcs de livraison et véhicules commerciaux',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Toutes les garanties Tiers Pro',
-          'Bris de glace sans franchise',
-          'Vol et Incendie du véhicule',
-          'Véhicule de remplacement utilitaire'
-        ]
-      },
-      {
-        id: 'flotte-tous-risques',
-        name: 'Pack Flotte Tous Risques Intégrale',
-        tagline: 'Pour voitures de fonction et parcs récents',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Dommages tous accidents sans tiers identifié',
-          'Garantie corporelle des conducteurs salariés',
-          'Réseau prioritaire de réparation rapide AXA',
-          'Tableau de bord de sinistralité trimestriel'
+        "id": "flotte-complete",
+        "name": "Flotte Tous Risques & Aménagements Pro",
+        "tagline": "La protection maximale de votre outil de travail roulant",
+        "priceNote": "Recommandée pour véhicules récents et équipés",
+        "isPopular": true,
+        "features": [
+          "Dommages tous accidents, collision, renversement",
+          "Garantie exclusive AXA : Aménagements Professionnels",
+          "Indemnisation en valeur à neuf sur véhicules récents",
+          "Garantie Vol, Incendie et Bris de glaces sans franchise",
+          "Véhicule de remplacement utilitaire ou berline",
+          "Protection corporelle des conducteurs salariés"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Contrat Cadre Unique & Flexibilité',
-        description: 'Ajoutez ou retirez des véhicules de votre parc en un simple email à l\'agence Hay Saada avec régularisation au prorata temporis.',
-        isIncluded: true,
-        coverageLimit: 'De 3 à 500+ véhicules'
+        "title": "Garantie Exclusive AXA : Aménagements Professionnels",
+        "description": "Couvre la valeur réelle des équipements techniques installés à bord : rayonnages métalliques, caissons isothermes, hayons élévateurs, groupes frigorifiques et outillage fixe.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur déclarée"
       },
       {
-        title: 'Assistance Routière Prioritaire 24/7',
-        description: 'Dépannage sur place ou remorquage rapide pour limiter l\'impact sur vos livraisons ou vos rendez-vous clients.',
-        isIncluded: true,
-        coverageLimit: 'Partout au Maroc'
+        "title": "Indemnisation en Valeur à Neuf",
+        "description": "En cas de perte totale ou de vol non retrouvé d'un véhicule récent, remboursement sur la base du prix d'achat à neuf sans décote de vétusté.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur facture"
       },
       {
-        title: 'Protection Conducteurs Salariés',
-        description: 'Prise en charge des dommages corporels subis par vos salariés au volant.',
-        isIncluded: true,
-        coverageLimit: 'Jusqu\'à 300 000 DH / conducteur'
-      }
-    ],
-    options: [
-      'Garantie des marchandises transportées dans les utilitaires',
-      'Assurance des équipements professionnels embarqués (outillage, frigos, grues)',
-      'Véhicule de remplacement utilitaire adapté (fourgons)'
-    ],
-    advantages: [
-      'Économies d\'échelle substantielles sur la prime globale du parc',
-      'Régularisation trimestrielle ou semestrielle des mouvements de flotte',
-      'Interlocuteur unique à l\'agence de Hay Mohammadi joignable sur ligne directe'
-    ],
-    documentsRequired: [
-      'Listing complet du parc avec copies des cartes grises',
-      'Relevé de sinistralité de la flotte sur les 36 derniers mois',
-      'RC et coordonnées de l\'entreprise'
-    ],
-    faq: [
+        "title": "Assistance Routière Pro 24h/24 7j/7",
+        "description": "Dépannage express sur place, remorquage prioritaire 0 km partout au Maroc et rapatriement des chauffeurs et marchandises.",
+        "isIncluded": true,
+        "coverageLimit": "Maroc 24/7"
+      },
       {
-        question: 'À partir de combien de véhicules peut-on ouvrir une flotte ?',
-        answer: 'Chez AXA, un contrat flotte peut être créé dès 3 véhicules enregistrés au nom de la société ou des dirigeants.'
+        "title": "Protection Conducteurs Salariés",
+        "description": "Indemnité forfaitaire en cas de blessures, hospitalisation ou décès du chauffeur salarié lors d'un accident de la circulation.",
+        "isIncluded": true,
+        "coverageLimit": "Contractuelle"
       }
     ],
-    simulationType: 'flotte'
+    "options": [
+      "Garantie des marchandises et matériels transportés dans les véhicules",
+      "Extension géographique pour missions internationales",
+      "Rachat total de vétusté sur pièces mécaniques et carrosserie"
+    ],
+    "advantages": [
+      "Unicité des échéances et facturation centralisée simplifiée",
+      "Possibilité de fractionnement de prime sans alourdir la trésorerie",
+      "Tarifs dégressifs très attractifs selon la taille de votre flotte",
+      "Interlocuteur dédié à l'agence Assurances Hay Saada à Casablanca"
+    ],
+    "documentsRequired": [
+      "Liste de l'ensemble des véhicules (immatriculations, marques, modèles, usages)",
+      "Copies des cartes grises de l'ensemble du parc",
+      "Historique des sinistres sur les 36 derniers mois délivré par votre assureur précédent"
+    ],
+    "faq": [
+      {
+        "question": "À partir de combien de véhicules puis-je souscrire une Flotte ?",
+        "answer": "L'offre Flotte Auto AXA est accessible à partir de 5 véhicules, qu'il s'agisse de véhicules légers, de véhicules utilitaires, de camions ou d'engins professionnels."
+      }
+    ],
+    "simulationType": "flotte"
   },
   {
-    id: 'sante-collective',
-    slug: 'assurance-sante-collective',
-    category: 'entreprise',
-    subcategory: 'Ressources Humaines',
-    title: 'Santé & Prévoyance Collective',
-    tagline: 'Fidélisez vos collaborateurs avec une mutuelle d\'entreprise moderne et avantageuse',
-    shortDescription: 'Assurance maladie complémentaire de groupe pour les salariés et leurs familles, avec télétransmission rapide et tiers payant.',
-    fullDescription: 'Le bien-être et la fidélisation des talents passent par une excellente couverture de santé. L\'Assurance Santé Collective AXA permet aux entreprises de Casablanca et du Maroc d\'offrir à leurs équipes des remboursements médicaux généreux, l\'accès aux cliniques partenaires sans avance de frais, ainsi qu\'un capital décès-invalidité protecteur.',
-    iconName: 'HeartPulse',
-    badge: 'Avantage Salariés RH',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Application mobile assurés + Tiers payant clinique pour salariés',
-    formules: [
+    "id": "mrp",
+    "slug": "multirisque-professionnelle",
+    "category": "entreprise",
+    "subcategory": "Biens & Locaux Pro",
+    "title": "Multi PME/PMI, Multi Pharma & Hébergement",
+    "tagline": "Couverture sur-mesure des risques liés à votre activité professionnelle, vos stocks et vos locaux",
+    "shortDescription": "La multirisque professionnelle Multi PME-PMI vous garantit contre l'incendie, les dégâts des eaux, le vol, les bris de glaces, bris de machines, informatique et perte d'exploitation, avec des déclinaisons Pharma et Hôtellerie.",
+    "fullDescription": "La multirisque professionnelle Multi PME-PMI vous garantit au titre des risques liés à votre activité professionnelle. La garantie de base obligatoire couvre l'Incendie, l'explosion et les risques annexes. En complément, vous avez la possibilité de choisir au moins 2 garanties optionnelles parmi un large éventail : Dégâts des eaux, Bris de glaces et enseignes, Vol et vandalisme, Bris de matériel informatique et bureautique, Bris de machines, et Responsabilité Civile Exploitation. AXA propose également des offres sectorielles sur-mesure : « Multi Pharma » spécialement conçu pour les pharmacies (avec détérioration des médicaments en réfrigérateur sous température dirigée suite à coupure d'électricité et vol de stupéfiants) et « Multi Hébergement » dédié aux hôtels 1 à 3 étoiles, maisons d'hôtes et riads (incluant vol des biens clients et intoxication alimentaire).",
+    "iconName": "Building2",
+    "badge": "Pack Modulable PME & Spécialisés",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Packs spécialisés Multi Pharma, Multi Hébergement & Perte d'Exploitation",
+    "formules": [
       {
-        id: 'groupe-base',
-        name: 'Formule Groupe Essentielle (Taux 80%)',
-        tagline: 'La couverture performante accessible à toutes les PME',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Hospitalisations et chirurgies à 80% ou 100%',
-          'Consultations médicales et pharmacie remboursées à 80%',
-          'Plafond annuel de 150 000 DH par assuré',
-          'Gestion des dossiers dématérialisée'
+        "id": "pme-standard",
+        "name": "Multi PME/PMI Modulable",
+        "tagline": "Pour ateliers, commerces, prestataires de services et bureaux",
+        "priceNote": "Composée sur-mesure selon vos priorités",
+        "isPopular": true,
+        "features": [
+          "Garantie de base : Incendie, explosion, foudre et risques annexes",
+          "Dégâts des eaux et infiltrations dans les locaux professionnels",
+          "Bris de glaces, vitrines commerciales et enseignes lumineuses",
+          "Vol avec effraction et actes de vandalisme sur stocks et matériel",
+          "Bris de matériel informatique et bureautique",
+          "Responsabilité Civile Exploitation"
         ]
       },
       {
-        id: 'groupe-confort',
-        name: 'Formule Groupe Confort (Taux 90%)',
-        tagline: 'Idéal pour cadres, techniciens et employés',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Remboursement à 90% des soins ambulatoires et cliniques',
-          'Forfaits dentaires et optiques renforcés',
-          'Maternité avec prise en charge directe',
-          'Capital décès / invalidité inclus pour le salarié'
+        "id": "multi-pharma",
+        "name": "Pack Multi Pharma (Officines)",
+        "tagline": "Conçu sur-mesure pour les exigences des pharmaciens",
+        "priceNote": "Solution de référence pour officines au Maroc",
+        "isPopular": false,
+        "features": [
+          "Toutes les garanties de base incendie, vol et dégâts des eaux",
+          "Détérioration des médicaments thermosensibles en chambre froide/frigo",
+          "Vol d'espèces, de produits de parapharmacie et de stupéfiants",
+          "Bris des automates de dispensation et terminaux de gestion",
+          "RC Professionnelle et exploitation du pharmacien titulaire"
+        ]
+      },
+      {
+        "id": "multi-hebergement",
+        "name": "Pack Multi Hébergement (Hôtels & Riads)",
+        "tagline": "Pour hôtels 1 à 3 étoiles, maisons d'hôtes et riads",
+        "priceNote": "Couverture globale du bâti et de l'accueil clients",
+        "isPopular": false,
+        "features": [
+          "Bâtiments historiques, agencements, décoration et mobilier hôtelier",
+          "Vol des effets et objets personnels des clients (chambres et coffres)",
+          "Garantie intoxication alimentaire et bris de vaisselle",
+          "Bris de machines (climatisation centrale, ascenseurs, groupes électrogènes)",
+          "RC Exploitation hôtelière et recours des clients"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Tiers Payant National en Clinique Privée',
-        description: 'Les salariés n\'avancent pas les frais d\'hospitalisation dans les établissements partenaires.',
-        isIncluded: true,
-        coverageLimit: 'Prise en charge dématérialisée'
+        "title": "Incendie, Explosion & Risques Annexes (Base)",
+        "description": "Couvre les bâtiments professionnels, les installations techniques, le mobilier de bureau, les machines et l'intégralité des stocks de marchandises.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur déclarée"
       },
       {
-        title: 'Prévoyance Décès & Rente Invalidité',
-        description: 'Versement d\'un capital aux ayants droit du collaborateur en cas de décès ou d\'accident invalidant.',
-        isIncluded: true,
-        coverageLimit: 'Multiple du salaire annuel (12 à 36 mois)'
-      }
-    ],
-    options: [
-      'Prise en charge de la médecine douce et cures thermales',
-      'Assistance médicale d\'urgence à l\'étranger pour déplacements professionnels',
-      'Extension aux parents à charge des salariés'
-    ],
-    advantages: [
-      'Plateforme RH dédiée pour déclarer les entrées et sorties de salariés en 1 clic',
-      'Permanences régulières d\'un conseiller Hay Saada dans vos locaux pour accompagner vos salariés',
-      'Cotisations patronales déductibles du résultat fiscal de l\'entreprise'
-    ],
-    documentsRequired: [
-      'Liste du personnel avec dates de naissance et statut marital',
-      'Masse salariale globale',
-      'Historique de consommation médicale si contrat existant'
-    ],
-    faq: [
+        "title": "Bris de Matériel Informatique & Machines",
+        "description": "Indemnisation des pannes soudaines, surtensions électriques, chutes accidentelles et bris internes touchant vos serveurs, ordinateurs et équipements de production.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur de remplacement"
+      },
       {
-        question: 'L\'assurance maladie d\'entreprise est-elle déductible fiscalement ?',
-        answer: 'Oui, la part patronale de la cotisation est une charge d\'exploitation intégralement déductible pour le calcul de l\'Impôt sur les Sociétés (IS).'
+        "title": "Perte d'Exploitation Après Sinistre",
+        "description": "Maintien du chiffre d'affaires et versement d'une indemnité compensatoire couvrant vos charges fixes (salaires, loyers, amortissements) le temps des réparations.",
+        "isIncluded": true,
+        "coverageLimit": "Jusqu'à 12 mois de marge brute"
+      },
+      {
+        "title": "Détérioration sous Froid (Spécial Pharma & Restauration)",
+        "description": "Remboursement des pertes de produits pharmaceutiques ou denrées périssables suite à panne fortuite de réfrigérateur ou coupure de courant prolongée.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur d'achat HT"
       }
     ],
-    simulationType: 'standard'
+    "options": [
+      "Garantie vol de fonds en caisse et pendant le transport à la banque",
+      "Couverture des terrasses et enseignes lumineuses extérieures",
+      "Assistance d'urgence pour sécurisation provisoire des locaux 24/7"
+    ],
+    "advantages": [
+      "Produits modulables : composez exactement les garanties nécessaires à votre métier",
+      "Packs sectoriels exclusifs : Multi Pharma et Multi Hébergement",
+      "Réduction couplée de 20% sur votre contrat automobile si vous détenez une MRP",
+      "Prise en charge réactive à Casablanca pour éviter toute interruption d'activité"
+    ],
+    "documentsRequired": [
+      "Registre de commerce et statuts de la société",
+      "Description de l'activité exercée et plan des locaux",
+      "Inventaire chiffré des stocks de marchandises et liste du matériel"
+    ],
+    "faq": [
+      {
+        "question": "La garantie Perte d'Exploitation est-elle indispensable ?",
+        "answer": "Absolument. Si un incendie ou un dégât des eaux paralyse votre outil de production, réparer les murs ne suffit pas : vos charges fixes (salaires, emprunts, loyers) continuent de courir. La garantie perte d'exploitation comble cette perte financière."
+      }
+    ],
+    "simulationType": "mrp"
   },
   {
-    id: 'accidents-travail',
-    slug: 'accidents-du-travail-loi-18-12',
-    category: 'entreprise',
-    subcategory: 'Obligation Légale',
-    title: 'Accidents du Travail (Loi 18-12)',
-    tagline: 'L\'assurance obligatoire pour tout employeur au Maroc',
-    shortDescription: 'Conformité légale stricte avec prise en charge immédiate des soins, indemnités journalières et rentes d\'incapacité pour les salariés.',
-    fullDescription: 'La loi marocaine n° 18-12 fait obligation à toute entreprise, quelle que soit sa taille ou son statut, de souscrire une assurance couvrant ses salariés contre les accidents survenus pendant le travail ou le trajet domicile-travail. Le contrat AXA chez Assurances Hay Saada garantit une conformité légale totale et vous prémunit contre les poursuites pénales et financières.',
-    iconName: 'HardHat',
-    badge: 'Obligation Légale au Maroc',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: '100% conforme Loi 18-12 avec attestation d\'inspection du travail',
-    formules: [
+    "id": "multirisque-industrielle",
+    "slug": "multirisque-industrielle",
+    "category": "entreprise",
+    "subcategory": "Industrie & Usines",
+    "title": "Multirisque Industrielle",
+    "tagline": "Couverture totale pour la protection intégrale de l'outil industriel et de la pérennité du chef d'entreprise",
+    "shortDescription": "L'Assurance Multirisque Industrielle est une couverture totale permettant au dirigeant de sécuriser usines, machines, stocks, vol de fonds, bris de machines, perte d'exploitation et RC industrielle.",
+    "fullDescription": "L'Assurance Multirisque Industrielle est une couverture totale qui permet au chef d'entreprise une protection complète de son outil industriel et de son personnel. Garantie de base : Incendie, explosions, foudre et risques annexes. Les atouts du contrat résident dans un tarif compétitif, un produit à la carte qui s'adapte aux spécificités de chaque site manufacturier, et un large choix d'extensions : vol, transport de fonds et détournement, dégâts des eaux, bris de glaces et enseignes lumineuses, bris de machines de production, pertes d'exploitation après sinistre et Responsabilité Civile Industrielle.",
+    "iconName": "Building2",
+    "badge": "Couverture Industrielle Intégrale",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Protection complète : Usines, lignes de production & transport de fonds",
+    "formules": [
       {
-        id: 'at-conforme',
-        name: 'Contrat Conforme Loi 18-12',
-        tagline: 'Garanties légales obligatoires complètes',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Soins médicaux, chirurgicaux et pharmaceutiques à 100%',
-          'Frais d\'hospitalisation et prothèses médicales',
-          'Indemnités journalières versées en cas d\'arrêt de travail',
-          'Rentes d\'incapacité permanente ou de décès aux ayants droit'
+        "id": "industrie-standard",
+        "name": "Multirisque Industrielle Sur-Mesure",
+        "tagline": "Pour unités de fabrication, entrepôts logistiques et usines",
+        "priceNote": "Établie suite à visite de risque par nos experts",
+        "isPopular": true,
+        "features": [
+          "Bâtiments d'usine, hangars et entrepôts industriels",
+          "Machines-outils, lignes de production et robots industriels",
+          "Stocks de matières premières, produits semi-finis et finis",
+          "Vol avec effraction, agression et détournement de fonds",
+          "Dégâts des eaux et inondations des zones de stockage",
+          "Perte d'exploitation consécutive pour préserver la marge brute"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Prise en Charge Médicale & Hospitalière',
-        description: 'Prise en charge intégrale des factures d\'hôpitaux, cliniques et médicaments consécutifs à l\'accident de travail.',
-        isIncluded: true,
-        coverageLimit: 'Frais réels légaux'
+        "title": "Incendie, Explosion & Foudre",
+        "description": "Couverture maximale des structures d'usines, charpentes métalliques, transformateurs électriques et produits stockés.",
+        "isIncluded": true,
+        "coverageLimit": "Capitaux industriels"
       },
       {
-        title: 'Indemnités Journalières de Travail',
-        description: 'Maintien de revenus versé au salarié temporairement incapable de travailler.',
-        isIncluded: true,
-        coverageLimit: 'Selon les barèmes de la loi 18-12'
+        "title": "Bris de Machines de Production",
+        "description": "Garantit les dommages internes soudains et imprévus affectant les machines de production (court-circuit, défaillance mécanique, erreur d'exploitation).",
+        "isIncluded": true,
+        "coverageLimit": "Valeur de remplacement"
       },
       {
-        title: 'Rentes d\'Incapacité Permanente & Décès',
-        description: 'Calcul et versement direct des rentes viagères homologuées par le tribunal.',
-        isIncluded: true,
-        coverageLimit: 'Gestion déléguée par AXA'
-      }
-    ],
-    options: [
-      'Garantie "Faute Inexcusable de l\'Employeur"',
-      'Garantie Décès Accidentel complémentaire'
-    ],
-    advantages: [
-      'Délivrance immédiate de l\'attestation d\'assurance pour l\'Inspection du Travail et les banques',
-      'Assistance juridique dédiée pour la constitution des déclarations de sinistre dans les délais légaux (48h)',
-      'Tarification optimisée en fonction du secteur d\'activité et des mesures de prévention mises en place'
-    ],
-    documentsRequired: [
-      'Bordereau déclaratif de la CNSS (masse salariale brute)',
-      'Déclaration de début d\'activité ou RC',
-      'Effectif détaillé par catégorie d\'emploi'
-    ],
-    faq: [
+        "title": "Vol, Transport de Fonds & Détournement",
+        "description": "Protection des espèces et valeurs en coffre-fort fortifié, pendant les transferts de fonds vers la banque et en cas de détournement.",
+        "isIncluded": true,
+        "coverageLimit": "Plafonds négociés"
+      },
       {
-        question: 'Quel est le délai pour déclarer un accident du travail au Maroc ?',
-        answer: 'L\'employeur dispose d\'un délai légal strict de 48 heures (hors jours fériés) pour déclarer l\'accident auprès de l\'assureur et des autorités compétentes.'
+        "title": "Perte d'Exploitation Industrielle",
+        "description": "Versement de l'indemnité compensatoire de marge brute pour maintenir les salaires et remboursements bancaires pendant l'arrêt d'usine.",
+        "isIncluded": true,
+        "coverageLimit": "Jusqu'à 18 mois"
       }
     ],
-    simulationType: 'standard'
+    "options": [
+      "Garantie contamination ou altération des matières premières",
+      "Assurance des installations photovoltaïques industrielles",
+      "Responsabilité Civile Atteinte à l'Environnement"
+    ],
+    "advantages": [
+      "Tarif hautement compétitif négocié avec la direction des risques industriels AXA",
+      "Audit technique préalable réalisé par des ingénieurs préventionnistes",
+      "Gestion dédiée des dossiers d'indemnisation avec avance sur sinistre"
+    ],
+    "documentsRequired": [
+      "Rapport de visite ou descriptif détaillé des installations industrielles",
+      "Bilan comptable chiffrant les immobilisations et stocks",
+      "Descriptif des moyens de protection incendie (sprinklers, extincteurs, RIA)"
+    ],
+    "faq": [
+      {
+        "question": "Comment est fixée la prime d'une multirisque industrielle ?",
+        "answer": "La prime dépend de la nature des produits manufacturés, des capitaux déclarés (bâtiments, machines, stocks) et de la qualité des dispositifs de prévention incendie et sécurité en place sur le site."
+      }
+    ],
+    "simulationType": "mrp"
   },
   {
-    id: 'trc-decennale',
-    slug: 'tous-risques-chantier-decennale',
-    category: 'entreprise',
-    subcategory: 'BTP & Construction',
-    title: 'Tous Risques Chantier (TRC) & Décennale',
-    tagline: 'Sécurisez vos projets de construction, rénovation et promotion immobilière',
-    shortDescription: 'Garantie intégrale des ouvrages en cours de construction contre les effondrements, incendies, tempêtes et responsabilité civile du chantier.',
-    fullDescription: 'Chaque chantier de construction comporte des risques imprévisibles. La Tous Risques Chantier (TRC) et l\'Assurance Responsabilité Décennale d\'AXA couvrent les maîtres d\'ouvrage, promoteurs, architectes et entreprises du BTP à Casablanca et partout au Maroc, depuis l\'ouverture du chantier jusqu\'à 10 ans après la réception des travaux.',
-    iconName: 'HardHat',
-    badge: 'BTP & Promotion',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Couverture travaux neufs, rénovations et responsabilité décennale',
-    formules: [
+    "id": "rc-pro",
+    "slug": "responsabilite-civile-professionnelle",
+    "category": "entreprise",
+    "subcategory": "Sécurité Juridique",
+    "title": "Responsabilité Civile Exploitation & Pro",
+    "tagline": "Garantie des conséquences pécuniaires des dommages causés à des tiers dans le cadre de votre activité",
+    "shortDescription": "L'assurance RC Exploitation garantit votre entreprise contre les conséquences pécuniaires de dommages causés à des tiers du fait de vos salariés, matériels, installations ou marchandises.",
+    "fullDescription": "L'assurance Responsabilité Civile Exploitation a pour objet de vous garantir contre les conséquences pécuniaires de la responsabilité civile que vous pourriez encourir en raison des dommages corporels, matériels et immatériels causés à des tiers dans le cadre de l'exercice de votre activité. Sont notamment couverts les dommages résultant du fait : de l'assuré lui-même, de ses employés, préposés, salariés, apprentis ou stagiaires, du mobilier, matériel, outillage, installation et marchandises de l'entreprise, ou des animaux. Notre offre inclut également la Responsabilité Civile Professionnelle pour les fautes, erreurs, omissions ou manquements dans la délivrance de prestations intellectuelles ou techniques, ainsi que la prise en charge des frais de justice et d'expertise.",
+    "iconName": "ShieldCheck",
+    "badge": "Bouclier Juridique Entreprise",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Couverture des préjudices corporels, matériels et immatériels causés aux tiers",
+    "formules": [
       {
-        id: 'trc-standard',
-        name: 'Tous Risques Chantier (TRC)',
-        tagline: 'Pendant toute la durée des travaux',
-        priceNote: 'Pourcentage du coût d\'ouvrage',
-        isPopular: true,
-        features: [
-          'Dommages matériels à l\'ouvrage (effondrement, glissement de terrain)',
-          'Incendie, explosion, dégât des eaux sur le chantier',
-          'Vol des matériaux de construction et équipements',
-          'RC Chantier à l\'égard des voisins et des tiers'
+        "id": "rc-exploitation",
+        "name": "RC Exploitation Générale",
+        "tagline": "Pour commerces, prestataires, PME et structures de services",
+        "priceNote": "Calculée selon le chiffre d'affaires annuel",
+        "isPopular": true,
+        "features": [
+          "Dommages corporels causés à des clients dans vos locaux",
+          "Dommages matériels survenus pendant des interventions chez des tiers",
+          "Faits imputables à vos employés, stagiaires et préposés",
+          "Dommages causés par vos équipements, outillages et machines",
+          "Frais de défense pénale et recours civil"
         ]
       },
       {
-        id: 'decennale-pack',
-        name: 'Responsabilité Civile Décennale',
-        tagline: 'Garantie 10 ans après livraison',
-        priceNote: 'Calculé sur l\'ouvrage livré',
-        features: [
-          'Solidité de l\'ouvrage principal (fondations, gros œuvre)',
-          'Impropriété à la destination de l\'immeuble',
-          'Défauts majeurs compromettant la stabilité'
+        "id": "rc-professions-liberales",
+        "name": "RC Professionnelle Spécialisée",
+        "tagline": "Pour experts, consultants, professions de santé et prestataires IT",
+        "priceNote": "Plafonds adaptés aux risques immatériels",
+        "isPopular": false,
+        "features": [
+          "Erreurs de conception, fautes de conseil et omissions",
+          "Retard dans la livraison de prestations intellectuelles",
+          "Pertes financières pures subies par le client",
+          "Divulgation involontaire de données confidentielles",
+          "Prise en charge des frais d'expertise amiable ou judiciaire"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Dommages à l\'Ouvrage en Construction',
-        description: 'Prise en charge des réparations nécessaires pour remettre l\'ouvrage en état en cas d\'accident, effondrement partiel ou tempête.',
-        isIncluded: true,
-        coverageLimit: 'Valeur totale du marché'
+        "title": "Dommages Corporels Causés aux Tiers",
+        "description": "Prise en charge intégrale des indemnités dues à une victime blessée dans vos locaux ou par suite de vos opérations commerciales.",
+        "isIncluded": true,
+        "coverageLimit": "Jusqu'à 10 000 000 DH"
       },
       {
-        title: 'Responsabilité Civile Vis-à-vis des Voisins (RCO)',
-        description: 'Fissures, tassements ou dégradations causés aux immeubles mitoyens par les fouilles ou travaux.',
-        isIncluded: true,
-        coverageLimit: 'Plafonds adaptés aux zones urbaines denses'
-      }
-    ],
-    options: [
-      'Garantie Maintenance Visite (période de garantie post-livraison)',
-      'Assurance des baraquements et engins de levage'
-    ],
-    advantages: [
-      'Souscription rapide avec un ingénieur souscripteur dédié',
-      'Attestation TRC conforme pour déblocage des crédits bancaires promoteur',
-      'Expertise sur site en cas d\'aléa'
-    ],
-    documentsRequired: [
-      'Permis de construire et descriptif des travaux',
-      'Rapport d\'étude de sol géotechnique',
-      'Contrats d\'architecte et de bureau de contrôle',
-      'Montant prévisionnel du marché'
-    ],
-    faq: [
+        "title": "Dommages Matériels & Immatériels Consécutifs",
+        "description": "Remboursement des détériorations causées aux biens confiés ou aux installations de vos clients lors de vos travaux ou livraisons.",
+        "isIncluded": true,
+        "coverageLimit": "Selon barème choisi"
+      },
       {
-        question: 'Qui doit souscrire la TRC : le maître d\'ouvrage ou l\'entreprise générale ?',
-        answer: 'Le contrat peut être souscrit par l\'un ou l\'autre, mais il couvre obligatoirement l\'ensemble des intervenants (maître d\'ouvrage, entreprises, sous-traitants) pour éviter les litiges croisés.'
+        "title": "Défense Pénale & Recours",
+        "description": "Prise en charge complète des frais d'avocats, d'experts judiciaires et des dépens devant toutes les juridictions marocaines.",
+        "isIncluded": true,
+        "coverageLimit": "Frais réels"
+      },
+      {
+        "title": "Faute Inexcusable de l'Employeur",
+        "description": "Garantie spécifique protégeant les dirigeants en cas de recours d'un salarié victime d'un accident du travail pour faute de sécurité.",
+        "isIncluded": true,
+        "coverageLimit": "Contractuelle"
       }
     ],
-    simulationType: 'standard'
+    "options": [
+      "Garantie Responsabilité Civile Après Livraison / Produits Défectueux",
+      "Couverture pollution accidentelle et soudaine",
+      "Responsabilité civile des mandataires sociaux (RCMS)"
+    ],
+    "advantages": [
+      "Protection indispensable pour préserver la trésorerie de votre entreprise",
+      "Attestation de Responsabilité Civile délivrée pour répondre aux appels d'offres",
+      "Défense assurée par le réseau d'avocats experts AXA Assurance Maroc",
+      "Tarification personnalisée selon votre secteur d'activité"
+    ],
+    "documentsRequired": [
+      "Copie du Registre de Commerce et statuts",
+      "Chiffre d'affaires annuel réalisé (ou prévisionnel pour les créations)",
+      "Descriptif détaillé des prestations et activités exercées"
+    ],
+    "faq": [
+      {
+        "question": "Pourquoi souscrire une RC Exploitation si j'ai déjà une assurance de locaux ?",
+        "answer": "L'assurance des locaux couvre vos murs et vos biens matériels. La RC Exploitation couvre quant à elle les dettes de responsabilité : si un client glisse dans vos locaux ou si un collaborateur détruit un équipement chez un client, les dommages réclamés peuvent se chiffrer en millions de dirhams."
+      }
+    ],
+    "simulationType": "rcpro"
   },
   {
-    id: 'transport-marchandises',
-    slug: 'assurance-transport-marchandises',
-    category: 'entreprise',
-    subcategory: 'Logistique & Transit',
-    title: 'Transport de Marchandises & Cargo',
-    tagline: 'Protégez vos cargaisons maritimes, aériennes et terrestres au Maroc et à l\'international',
-    shortDescription: 'Garantie Tous Risques Facultés protégeant vos expéditions et importations contre les avaries, pertes, casses et vols en cours de transit.',
-    fullDescription: 'Que vous soyez importateur, exportateur, distributeur ou logisticien à Casablanca, vos marchandises sont exposées à de multiples périls durant leur transit. L\'assurance Transport de Marchandises AXA chez Assurances Hay Saada indemnise la valeur réelle des biens perdus ou endommagés lors des trajets portuaires, aéroportuaires et routiers.',
-    iconName: 'Truck',
-    badge: 'Import / Export & Transit',
-    startingPrice: 'Au voyage ou police d\'abonnement',
-    period: '',
-    heroHighlight: 'Couverture internationale Incoterms (CIF, CIP, FOB)',
-    formules: [
+    "id": "trc-decennale",
+    "slug": "tous-risques-chantier",
+    "category": "entreprise",
+    "subcategory": "Construction & BTP",
+    "title": "Tous Risques Chantier (TRC) & Décennale",
+    "tagline": "Couverture la plus complète des dommages pouvant affecter l'ouvrage en cours de construction",
+    "shortDescription": "Maître d'ouvrage, entrepreneur, maître d'œuvre, sous-traitant et professionnel du bâtiment : TRC est une « Tous Risques » offrant la protection totale de l'ouvrage, la RC tiers et la RC croisée.",
+    "fullDescription": "Maître d'ouvrage, entrepreneur, maître d'œuvre, sous-traitant et professionnel du bâtiment, l'assurance Tous Risques Chantier (TRC) répond précisément à vos impératifs sur les chantiers. TRC est une formule « Tous Risques » qui vous offre la couverture la plus complète des dommages pouvant affecter l'ouvrage : dommages causés par un incendie, une explosion, un vol de matériaux, un dégât des eaux, un accident, une erreur de montage ou des événements naturels (tempête, inondation, séisme). Elle inclut la Responsabilité Civile vis-à-vis des tiers, la Responsabilité Civile Croisée entre les différents intervenants du chantier, et la garantie de maintenance (visite, constructeur). Nous vous accompagnons également dans la souscription de votre Responsabilité Civile Décennale obligatoire.",
+    "iconName": "HardHat",
+    "badge": "Standard de Référence BTP",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Couverture ouvrage, Responsabilité Civile Tiers & RC Croisée inter-entreprises",
+    "formules": [
       {
-        id: 'cargo-abonnement',
-        name: 'Police d\'Abonnement Annuelle',
-        tagline: 'Pour entreprises ayant des flux réguliers',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Tous vos flux d\'importation et de distribution couverts d\'office',
-          'Gestion simplifiée par déclaration mensuelle du chiffre d\'affaires',
-          'Garantie Magasin à Magasin (Door to Door)',
-          'Tous Risques Facultés maritimes, terrestres et aériennes'
-        ]
-      },
-      {
-        id: 'cargo-voyage',
-        name: 'Police au Voyage Spécifique',
-        tagline: 'Pour expéditions ponctuelles ou matériels lourds',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Couverture sur mesure d\'un conteneur ou convoi précis',
-          'Attestation d\'assurance pour crédit documentaire (Credoc)',
-          'Protection contre les avaries communes maritimes'
+        "id": "trc-complete",
+        "name": "Pack TRC Intégral Chantier",
+        "tagline": "De l'ouverture des fouilles jusqu'à la réception des travaux",
+        "priceNote": "Calculé sur le coût total de la construction",
+        "isPopular": true,
+        "features": [
+          "Dommages matériels à l'ouvrage (gros œuvre, second œuvre, équipements)",
+          "Événements naturels (tempête, inondation, affaissement de terrain)",
+          "Vol avec effraction de matériaux et équipements intégrés",
+          "Responsabilité Civile Tiers pour désordres causés aux avoisinants",
+          "Responsabilité Civile Croisée entre les entreprises du chantier",
+          "Période de maintenance de 12 à 24 mois après réception"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Tous Risques Facultés (All Risks)',
-        description: 'Couvre la perte, le vol, la mouille, la casse et la détérioration de vos marchandises en cours de transport.',
-        isIncluded: true,
-        coverageLimit: 'Valeur déclarée facture commerciale'
+        "title": "Dommages Matériels à l'Ouvrage",
+        "description": "Couvre l'effondrement partiel ou total, les fissures majeures, l'incendie, les dégâts des eaux et les erreurs humaines survenant pendant les travaux.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur totale du marché"
       },
       {
-        title: 'Contribution aux Avaries Communes',
-        description: 'Prise en charge de la quote-part exigée par les armateurs en cas de sauvetage en mer.',
-        isIncluded: true,
-        coverageLimit: 'Inclus d\'office'
-      }
-    ],
-    options: [
-      'Garantie Risques de Guerre et Grèves (selon clauses internationales de l\'Institute of London Underwriters)',
-      'Assurance des marchandises sous chaîne du froid'
-    ],
-    advantages: [
-      'Certificats d\'assurance transport délivrés en quelques minutes pour vos formalités douanières au port de Casablanca',
-      'Réseau mondial de commissaires d\'avaries AXA présent dans tous les grands ports mondiaux',
-      'Règlement accéléré des dossiers d\'indemnisation'
-    ],
-    documentsRequired: [
-      'Facture commerciale et liste de colisage (Packing List)',
-      'Titre de transport : Connaissement maritime (Bill of Lading), LTA aérienne ou Lettre de voiture CMR',
-      'Incoterm retenu pour la transaction'
-    ],
-    faq: [
+        "title": "Responsabilité Civile Tiers & Dommages aux Avoisinants",
+        "description": "Indemnisation des fissures, tassements ou dégradations causés aux immeubles riverains et voiries du fait des travaux de terrassement ou fondations.",
+        "isIncluded": true,
+        "coverageLimit": "Jusqu'à 20 000 000 DH"
+      },
       {
-        question: 'Pourquoi la responsabilité du transporteur ne suffit-elle pas ?',
-        answer: 'Les transporteurs bénéficient de limitations légales de responsabilité très faibles (au kilo) et sont exonérés en cas de force majeure. Seule une assurance Tous Risques Facultés garantit la valeur réelle de vos marchandises.'
+        "title": "Responsabilité Civile Croisée",
+        "description": "Garantit les dommages corporels ou matériels que les différents corps de métier intervenant sur le chantier peuvent se causer mutuellement.",
+        "isIncluded": true,
+        "coverageLimit": "Inclus"
+      },
+      {
+        "title": "Garantie de Maintenance Post-Réception",
+        "description": "Couvre les réparations nécessaires pendant la période de garantie de parfait achèvement (maintenance visite et maintenance étendue constructeur).",
+        "isIncluded": true,
+        "coverageLimit": "12 à 24 mois"
       }
     ],
-    simulationType: 'standard'
+    "options": [
+      "Garantie des engins et matériels de chantier (grues, pelles, échafaudages)",
+      "Prise en charge des honoraires d'experts et architectes",
+      "Assurance RC Décennale obligatoire pour la solidité de l'ouvrage"
+    ],
+    "advantages": [
+      "Exigée par tous les maîtres d'ouvrages publics et privés pour valider les ordres de service",
+      "Évite les litiges entre corps d'état grâce à la RC croisée intégrée",
+      "Souscription rapide avec délivrance immédiate de l'attestation officielle",
+      "Expertise technique BTP par les équipes spécialisées AXA à Casablanca"
+    ],
+    "documentsRequired": [
+      "Cahier des Clauses Administratives et Techniques Particulières (CCAP/CCTP)",
+      "Devis estimatif chiffré des travaux et planning prévisionnel",
+      "Rapport d'étude de sol géotechnique et plans de masse"
+    ],
+    "faq": [
+      {
+        "question": "Qui doit souscrire la police TRC ?",
+        "answer": "La police peut être souscrite par le maître d'ouvrage pour le compte de tous les intervenants (solution recommandée pour éviter les doublons), ou par l'entreprise générale titulaire du marché principal."
+      }
+    ],
+    "simulationType": "standard"
   },
   {
-    id: 'cyber-risques',
-    slug: 'assurance-cyber-risques',
-    category: 'entreprise',
-    subcategory: 'Numérique & Données',
-    title: 'Cyber-Assurance & Protection des Données',
-    tagline: 'Faites face aux ransomwares, attaques informatiques et respectez les normes CNDP',
-    shortDescription: 'Gestion de crise informatique, prise en charge des rançons et reconstitution de vos données, ainsi que couverture de la perte d\'exploitation.',
-    fullDescription: 'Les cyberattaques touchent désormais toutes les entreprises marocaines. L\'assurance Cyber-Risques AXA chez Assurances Hay Saada met à votre disposition une équipe d\'experts en cybersécurité disponible 24/7 pour stopper l\'attaque, restaurer vos sauvegardes, indemniser votre perte de chiffre d\'affaires et prendre en charge les frais juridiques liés aux sanctions CNDP.',
-    iconName: 'Laptop',
-    badge: 'Nouvelle Menace Digitale',
-    startingPrice: 'Sur devis personnalisé',
-    period: '',
-    heroHighlight: 'Assistance gestion de crise cyber 24/7 en moins d\'1 heure',
-    formules: [
+    "id": "transport-marchandises",
+    "slug": "marchandises-transportees",
+    "category": "entreprise",
+    "subcategory": "Logistique & Transit",
+    "title": "Marchandises Transportées (Facultés & Cargo)",
+    "tagline": "Couverture adéquate lors du transport routier, maritime, aérien ou ferroviaire de vos biens",
+    "shortDescription": "L'assurance Marchandises Transportées offre la couverture adéquate lors du transit de vos marchandises : accidents caractérisés, événements majeurs, vol avec agression et avaries communes.",
+    "fullDescription": "L'assurance Marchandises Transportées est un contrat qui offre la couverture adéquate lors du transport de vos marchandises, que vous soyez importateur, exportateur, distributeur ou logisticien. Elle garantit vos expéditions contre les accidents caractérisés (accident de circulation, collision, incendie, explosion, écroulement d'ouvrages d'art), les événements majeurs (éboulements, foudre, inondations, débordement de fleuves ou rivières), le vol de marchandises consécutif à un accident ou commis par agression à main armée / effraction sur véhicules entièrement fermés, ainsi que la contribution aux avaries communes lors des trajets maritimes portuaires.",
+    "iconName": "Truck",
+    "badge": "Protection Cargo & Transit",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "selon vos besoins",
+    "heroHighlight": "Couverture accidents de la route, vol avec effraction & avaries maritimes",
+    "formules": [
       {
-        id: 'cyber-essentiel',
-        name: 'Pack Cyber Résilience PME',
-        tagline: 'Protection fondamentale pour TPE et PME connectées',
-        priceNote: 'Sur mesure • Devis gratuit',
-        isPopular: true,
-        features: [
-          'Assistance technique d\'urgence 24/7 par des experts en sécurité',
-          'Frais de reconstitution des données détruites ou chiffrées',
-          'Indemnisation de l\'extorsion cyber (gestion du rançongiciel)',
-          'Frais de notification aux clients et à la CNDP'
+        "id": "cargo-abonnement",
+        "name": "Police d'Abonnement Flottante",
+        "tagline": "Pour importateurs, distributeurs et flux réguliers",
+        "priceNote": "Alimentée par déclarations périodiques d'expéditions",
+        "isPopular": true,
+        "features": [
+          "Tous vos flux de marchandises couverts automatiquement toute l'année",
+          "Accidents caractérisés, collision, renversement et incendie",
+          "Vol avec agression à main armée ou effraction sur véhicule bâché/fermé",
+          "Couverture des transports portuaires (Casablanca, Tanger Med) et aéroportuaires",
+          "Régularisation simplifiée sur chiffre d'affaires ou déclarations"
         ]
       },
       {
-        id: 'cyber-integral',
-        name: 'Pack Cyber Entreprise & E-commerce',
-        tagline: 'Pour structures hébergeant des données sensibles ou plateformes web',
-        priceNote: 'Sur mesure • Devis gratuit',
-        features: [
-          'Toutes les garanties du pack PME',
-          'Indemnisation de la Perte d\'Exploitation liée à l\'indisponibilité du système',
-          'Responsabilité civile envers les tiers en cas de fuite de données',
-          'Frais de défense et accompagnement aux sanctions réglementaires'
+        "id": "cargo-voyage",
+        "name": "Police au Voyage Spécifique",
+        "tagline": "Pour expéditions ponctuelles ou cargaisons de haute valeur",
+        "priceNote": "Tarif calculé sur la valeur facture de l'envoi",
+        "isPopular": false,
+        "features": [
+          "Couverture spécifique sur un trajet porte-à-porte défini",
+          "Tous Risques Facultés (All Risks)",
+          "Opérations de chargement, déchargement et transbordement",
+          "Contribution aux avaries communes en fret maritime",
+          "Attestation d'assurance délivrée pour les banques (crédit documentaire L/C)"
         ]
       }
     ],
-    keyGuarantees: [
+    "keyGuarantees": [
       {
-        title: 'Assistance Gestion de Crise 24/7',
-        description: 'Mobilisation immédiate d\'experts en cyber-forensics pour endiguer la faille et sécuriser le réseau.',
-        isIncluded: true,
-        coverageLimit: 'Ligne directe d\'urgence'
+        "title": "Accidents Caractérisés de Circulation",
+        "description": "Indemnisation de la valeur réelle des marchandises endommagées ou détruites lors de collisions, tonneaux, incendies ou accidents routiers.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur facture HT"
       },
       {
-        title: 'Perte de Chiffre d\'Affaires Consécutive',
-        description: 'Compensation de la marge brute perdue pendant que vos serveurs ou terminaux sont bloqués.',
-        isIncluded: true,
-        coverageLimit: 'Jusqu\'à 3 mois d\'interruption'
+        "title": "Vol par Effraction ou Agression",
+        "description": "Couvre le vol de la marchandise transportée commis suite à accident caractérisé, ou par agression armée ou effraction sur véhicule fermé.",
+        "isIncluded": true,
+        "coverageLimit": "Selon valeur déclarée"
       },
       {
-        title: 'Reconstitution des Systèmes & Données',
-        description: 'Prise en charge des honoraires des spécialistes pour réinstaller les systèmes et restaurer les bases de données.',
-        isIncluded: true,
-        coverageLimit: 'Frais réels engagés'
-      }
-    ],
-    options: [
-      'Garantie Fraude par ingénierie sociale (arnaque au président ou faux ordre de virement FOVI)',
-      'Audit de vulnérabilité annuel préventif'
-    ],
-    advantages: [
-      'Accès immédiat aux meilleurs spécialistes forensic en cas de crise',
-      'Accompagnement de conformité avec la loi marocaine 09-08 relative à la protection des données',
-      'Sensibilisation de vos collaborateurs aux réflexes anti-phishing'
-    ],
-    documentsRequired: [
-      'Questionnaire technique cyber simplifié (politique de sauvegarde, antivirus, double authentification)',
-      'Chiffre d\'affaires annuel et nombre de postes informatiques',
-      'Statuts de l\'entreprise'
-    ],
-    faq: [
+        "title": "Catastrophes Naturelles & Événements Majeurs",
+        "description": "Prise en charge des avaries consécutives à des inondations, tempêtes, éboulements rocheux ou foudre pendant le transit.",
+        "isIncluded": true,
+        "coverageLimit": "Frais réels"
+      },
       {
-        question: 'Les PME marocaines sont-elles réellement ciblées par les hackers ?',
-        answer: 'Absolument. Plus de 70% des attaques de rançongiciels au Maroc ciblent les TPE/PME en raison de systèmes de sauvegarde moins protégés que les grandes banques.'
+        "title": "Contribution aux Avaries Communes (Maritime)",
+        "description": "Remboursement des frais réclamés à l'armateur en cas de sacrifice de cargaison pour sauver le navire.",
+        "isIncluded": true,
+        "coverageLimit": "100% contribution légale"
       }
     ],
-    simulationType: 'standard'
+    "options": [
+      "Garantie chaîne du froid pour denrées périssables en transit",
+      "Assurance des conteneurs maritimes et emballages consignés",
+      "Extension séjour temporaire en entrepôt d'attente"
+    ],
+    "advantages": [
+      "Certificat d'assurance conforme aux exigences des crédits documentaires (Credoc)",
+      "Expertise maritime et routière immédiate au Port de Casablanca et à Tanger Med",
+      "Remboursement accéléré pour préserver votre fonds de roulement",
+      "Tarifs négociés au plus juste selon la nature des marchandises"
+    ],
+    "documentsRequired": [
+      "Facture commerciale d'achat des marchandises (valeur déclarée)",
+      "Lettre de voiture (CMR), connaissement maritime (B/L) ou LTA aérienne",
+      "Itinéraire prévu et mode de transport retenu"
+    ],
+    "faq": [
+      {
+        "question": "La responsabilité du transporteur routier ne suffit-elle pas ?",
+        "answer": "Non, les transporteurs bénéficient légalement de limitations de responsabilité très basses (au kilo) et de nombreuses causes d'exonération (force majeure, accident non responsable). Seule une assurance Marchandises Transportées vous indemnise sur la valeur réelle."
+      }
+    ],
+    "simulationType": "standard"
+  },
+  {
+    "id": "domaines-activite",
+    "slug": "solutions-domaines-activite",
+    "category": "entreprise",
+    "subcategory": "Packs Métiers",
+    "title": "Solutions par Domaine d'Activité",
+    "tagline": "Packs sur-mesure pour Artisans, Commerçants, Professionnels de Santé, Hôtels & Cafés",
+    "shortDescription": "Des solutions d'assurance tout-en-un packagées spécifiquement pour chaque corps de métier : Artisans & Commerçants, Professionnels de Santé, Cafés, Hôtels & Restaurants, et Professions Libérales.",
+    "fullDescription": "Chaque métier a ses réalités et ses risques spécifiques. C'est pourquoi notre agence propose des contrats packagés dédiés : « Artisans et Commerçants » (couvrant magasins, ateliers, stocks, vitrines et responsabilité civile commerçant), « Professionnels de Santé » pour médecins, dentistes, cliniques et laboratoires (intégrant la RC médicale et le bris de matériel médical de pointe), « Cafés, Hôtels, Restaurants » (avec garanties intoxication alimentaire, terrasses, marchandises en frigo et bris de vaisselle), et « Professions Libérales » pour avocats, notaires, comptables et consultants.",
+    "iconName": "Briefcase",
+    "badge": "Packs Métiers Tout-en-Un",
+    "startingPrice": "Sur devis personnalisé",
+    "period": "contrat annuel",
+    "heroHighlight": "Garanties adaptées aux spécificités de chaque corporation professionnelle",
+    "formules": [
+      {
+        "id": "domaine-commerce",
+        "name": "Pack Artisans & Commerçants",
+        "tagline": "Pour boutiques, grossistes, ateliers et commerces de détail",
+        "priceNote": "Couverture complète clé en main",
+        "isPopular": true,
+        "features": [
+          "Vitrines, enseignes lumineuses et devantures de magasin",
+          "Stocks de marchandises et tiroir-caisse",
+          "RC Exploitation vis-à-vis des clients et fournisseurs",
+          "Dégâts des eaux et vol avec effraction",
+          "Perte d'exploitation pour maintenir vos revenus"
+        ]
+      },
+      {
+        "id": "domaine-sante",
+        "name": "Pack Professionnels de Santé",
+        "tagline": "Pour médecins, dentistes, opticiens, kinés et cliniques",
+        "priceNote": "Protection civile et matérielle sur-mesure",
+        "isPopular": false,
+        "features": [
+          "Responsabilité Civile Professionnelle Médicale et Paramédicale",
+          "Bris de machines et matériel de radiologie / fauteuils / automates",
+          "Perte de réactifs et vaccins sous température dirigée",
+          "Défense et protection juridique ordinale",
+          "Couverture des locaux de consultation"
+        ]
+      },
+      {
+        "id": "domaine-chr",
+        "name": "Pack Cafés, Hôtels & Restaurants",
+        "tagline": "Pour restaurants, cafés, salons de thé et snacks",
+        "priceNote": "Sécurité totale de l'accueil de votre clientèle",
+        "isPopular": false,
+        "features": [
+          "Garantie intoxication alimentaire des clients",
+          "Détérioration des denrées périssables en chambre froide",
+          "Bris de vaisselle, miroiterie et mobilier de terrasse",
+          "Incendie en cuisine (friteuses, fours, hottes)",
+          "RC Exploitation hôtelière et restauration"
+        ]
+      }
+    ],
+    "keyGuarantees": [
+      {
+        "title": "Protection des Locaux & Outils de Travail",
+        "description": "Sécurise votre lieu d'exercice professionnel et tous vos équipements spécifiques contre les risques majeurs.",
+        "isIncluded": true,
+        "coverageLimit": "Valeur à neuf déclarée"
+      },
+      {
+        "title": "Responsabilité Civile Spécifique Métier",
+        "description": "Couvre les préjudices liés directement aux prestations et actes délivrés à vos clients ou patients.",
+        "isIncluded": true,
+        "coverageLimit": "Adaptée à votre profession"
+      },
+      {
+        "title": "Assistance Rapide Sinistre",
+        "description": "Intervention d'urgence en moins de 2 heures pour vous permettre de rouvrir votre établissement sans délai.",
+        "isIncluded": true,
+        "coverageLimit": "24h/24"
+      }
+    ],
+    "options": [
+      "Assurance cyber-attaques pour la protection des fichiers clients et patients",
+      "Prévoyance du chef d'entreprise (garantie homme clé)",
+      "Couverture du matériel nomade (ordinateurs portables et tablettes)"
+    ],
+    "advantages": [
+      "Un seul contrat clair réunissant toutes vos obligations professionnelles",
+      "Tarif préférentiel packagé beaucoup plus économique que des contrats séparés",
+      "Conseiller de proximité dédié aux entreprises à Casablanca",
+      "Interlocuteur unique pour tous vos renouvellements et sinistres"
+    ],
+    "documentsRequired": [
+      "Registre de Commerce (ou autorisation d'exercer de l'Ordre pour les professions médicales)",
+      "Superficie et caractéristiques des locaux professionnels",
+      "Estimation globale des aménagements et des stocks"
+    ],
+    "faq": [
+      {
+        "question": "Comment choisir entre une MRP classique et un Pack Domaine d'Activité ?",
+        "answer": "Le Pack Domaine d'Activité intègre d'emblée des garanties spécifiques à votre corporation (ex: intoxication alimentaire pour un restaurateur, ou bris de matériel médical pour un médecin) sans avoir à payer des extensions superflues."
+      }
+    ],
+    "simulationType": "rcpro"
   }
 ];

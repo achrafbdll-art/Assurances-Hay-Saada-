@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, CheckCircle2, Shield, Send, Phone, MessageCircle } from 'lucide-react';
+import { X, CheckCircle2, Shield, Send, Phone, MessageCircle, Mail } from 'lucide-react';
 import { PRODUCTS_DATA } from '../data/products';
 
 interface QuoteModalProps {
@@ -27,6 +27,24 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     e.preventDefault();
     if (!name || !phone) return;
     setIsSuccess(true);
+
+    const subject = encodeURIComponent(`[Demande Devis AXA Hay Saada] ${selectedProduct} - ${name}`);
+    const body = encodeURIComponent(
+      `Bonjour l'équipe Assurances Hay Saada,\n\n` +
+      `Une nouvelle demande de devis a été envoyée depuis le site web :\n\n` +
+      `• Produit demandé : ${selectedProduct}\n` +
+      `• Nom complet : ${name}\n` +
+      `• Téléphone : ${phone}\n` +
+      `• Email : ${email || 'Non renseigné'}\n` +
+      `• Ville : ${city}\n` +
+      `• Message : ${message || 'Aucun message spécifique'}\n\n` +
+      `---\n` +
+      `Transmis directement à : axasaada9@gmail.com`
+    );
+
+    try {
+      window.location.href = `mailto:axasaada9@gmail.com?subject=${subject}&body=${body}`;
+    } catch {}
   };
 
   const handleResetAndClose = () => {
@@ -46,39 +64,50 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
       >
         <button
           onClick={handleResetAndClose}
-          className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 p-1 rounded-lg transition-colors"
+          className="absolute top-5 right-5 text-gray-400 hover:text-gray-600 p-1 rounded-lg transition-colors cursor-pointer"
           aria-label="Fermer"
         >
           <X size={20} />
         </button>
 
         {isSuccess ? (
-          <div className="text-center py-8">
+          <div className="text-center py-6">
             <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
               <CheckCircle2 size={36} />
             </div>
             <h3 className="text-2xl font-black text-[#001f5c] mb-2">
               Demande transmise avec succès !
             </h3>
-            <p className="text-sm text-gray-600 leading-relaxed mb-6 font-medium">
-              Merci <strong>{name}</strong>. Votre demande de devis pour <strong>{selectedProduct}</strong> a bien été enregistrée par l'agence Assurances Hay Saada (Hay Mohammadi, Casablanca).
+            <p className="text-sm text-gray-600 leading-relaxed mb-4 font-medium">
+              Merci <strong>{name}</strong>. Votre demande de devis pour <strong>{selectedProduct}</strong> a été directement envoyée à l'agence (<strong className="text-[#001f5c] underline">axasaada9@gmail.com</strong>).
             </p>
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-gray-700 mb-6">
               Un conseiller AXA vous contactera au <strong>{phone}</strong> sous 2 heures ouvrées pour vous faire part de la proposition la plus avantageuse.
             </div>
-            <button
-              onClick={handleResetAndClose}
-              className="bg-[#001f5c] hover:bg-[#002b80] text-white px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors"
-            >
-              Fermer la fenêtre
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href={`mailto:axasaada9@gmail.com?subject=${encodeURIComponent(`[Demande Devis AXA Hay Saada] ${selectedProduct} - ${name}`)}&body=${encodeURIComponent(
+                  `Bonjour l'équipe Assurances Hay Saada,\n\n• Produit : ${selectedProduct}\n• Nom : ${name}\n• Tél : ${phone}\n• Email : ${email || 'Non renseigné'}\n• Ville : ${city}\n• Message : ${message || 'Aucun'}\n\nTransmis à axasaada9@gmail.com`
+                )}`}
+                className="bg-[#001f5c] hover:bg-[#002b80] text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-1.5"
+              >
+                <Mail size={14} />
+                <span>Ouvrir dans ma messagerie</span>
+              </a>
+              <button
+                onClick={handleResetAndClose}
+                className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+              >
+                Fermer
+              </button>
+            </div>
           </div>
         ) : (
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-2.5 h-2.5 bg-[#ff0000] rotate-45" />
+            <div className="flex items-center gap-2 mb-3">
+              <span className="px-1.5 py-0.5 bg-[#ff0000] text-white font-black text-[10px] rounded tracking-wider shadow-xs">AXA</span>
               <span className="text-xs font-black uppercase tracking-wider text-[#001f5c]">
-                Assurances Hay Saada • Agent Général AXA Casablanca
+                Assurances Hay Saada • <span className="text-[#ff0000]">Agent Général AXA</span> Casablanca
               </span>
             </div>
 
@@ -199,7 +228,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                 </div>
 
                 <a
-                  href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour : ${selectedProduct}${name ? ` (Nom: ${name})` : ''}`)}`}
+                  href={`https://wa.me/212661180422?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour : ${selectedProduct}${name ? ` (Nom: ${name})` : ''}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-3 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-2"
@@ -211,7 +240,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
               <div className="text-center pt-2">
                 <p className="text-[10px] text-gray-400">
-                  Vos coordonnées sont confidentielles et traitées exclusivement par l'agence Assurances Hay Saada.
+                  Demandes transmises directement à l'agence (<strong>axasaada9@gmail.com</strong>) • Traitement confidentiel garanti.
                 </p>
               </div>
             </form>

@@ -9,44 +9,44 @@ export interface Service {
 export const SERVICES: Service[] = [
   {
     id: 'auto',
-    title: 'Assurance Auto',
-    description: 'Une protection complète pour vous et votre véhicule avec des garanties modulables.',
+    title: 'Solution Auto & Fidelity by AXA',
+    description: 'Programme Fidelity avec avantages fidélité dès la RC, packs Fonctionnaires et Cyclomoteurs.',
     icon: 'Car',
     category: 'particulier'
   },
   {
-    id: 'sante',
-    title: 'Assurance Santé',
-    description: 'Prenez soin de votre santé et celle de votre famille avec nos solutions de remboursement.',
-    icon: 'HeartPulse',
-    category: 'particulier'
-  },
-  {
     id: 'habitation',
-    title: 'Assurance Habitation',
-    description: 'Protégez votre foyer et vos biens contre les imprévus du quotidien.',
+    title: 'Habitassur (Habitation)',
+    description: 'Protection multirisque habitation complète contre l\'incendie, les dégâts des eaux, le vol et les bris de glaces.',
     icon: 'Home',
     category: 'particulier'
   },
   {
-    id: 'pro',
-    title: 'Assurance Professionnelle',
-    description: 'Des solutions adaptées pour sécuriser votre activité et vos collaborateurs.',
-    icon: 'Briefcase',
-    category: 'professionnel'
-  },
-  {
-    id: 'retraite',
-    title: 'Épargne & Retraite',
-    description: 'Préparez votre avenir sereinement avec nos solutions d\'épargne performantes.',
+    id: 'epargne-retraite',
+    title: 'Futuris II & Educatis II',
+    description: 'Épargne retraite avec déductibilité 100% de l\'IR et plan épargne études pour vos enfants.',
     icon: 'TrendingUp',
     category: 'particulier'
   },
   {
-    id: 'vie',
-    title: 'Assurance Vie',
-    description: 'Protégez vos proches et constituez-vous un capital sur le long terme.',
-    icon: 'Users',
+    id: 'sante',
+    title: 'Prévoyance Santé & Familis',
+    description: 'Contrat Familis protégeant toute la famille contre les accidents corporels avec prise en charge hospitalière.',
+    icon: 'HeartPulse',
+    category: 'particulier'
+  },
+  {
+    id: 'voyage',
+    title: 'Globale Assistance Voyage',
+    description: 'Conforme exigences visas espace Schengen (30 000 €), partout dans le monde et au Maroc avec assistance médicale et rapatriement.',
+    icon: 'Plane',
+    category: 'particulier'
+  },
+  {
+    id: 'loisirs-chasse',
+    title: 'Plaisance, Jet Ski & RC Chasse',
+    description: 'Assurance navires, jet-skis, scooters de mer et contrat RC Chasse obligatoire avec attestation immédiate.',
+    icon: 'ShieldCheck',
     category: 'particulier'
   }
 ];
@@ -60,28 +60,28 @@ export interface ProService {
 
 export const PRO_SERVICES: ProService[] = [
   {
-    title: 'Responsabilité Civile Professionnelle',
-    description: 'Protégez votre entreprise contre les dommages causés à des tiers dans le cadre de votre activité.',
-    icon: 'ShieldCheck',
-    features: ['Dommages corporels', 'Dommages matériels', 'Pertes financières', 'Défense juridique']
+    title: 'Accidents du Travail (Loi 18-12)',
+    description: 'Conformité obligatoire stricte, indemnités journalières, soins sans avance et rentes viagères d\'invalidité.',
+    icon: 'Users',
+    features: ['Indemnités journalières', 'Soins médicaux 100%', 'Rentes d\'incapacité', 'Reclassement pro']
   },
   {
-    title: 'Assurance Flotte Automobile',
-    description: 'Gérez et assurez l\'ensemble de vos véhicules professionnels avec un contrat unique et simplifié.',
-    icon: 'Car',
-    features: ['Assistance 24/7', 'Véhicule de remplacement', 'Garantie conducteur', 'Gestion simplifiée']
+    title: 'Flotte Automobile Entreprise',
+    description: 'Dédiée aux parcs dès 5 véhicules avec l\'exclusivité AXA de garantie des Aménagements Professionnels.',
+    icon: 'Truck',
+    features: ['Aménagements Pro exclusifs', 'Indemnisation valeur à neuf', 'Assistance prioritaire 24/7', 'Échéance unique']
   },
   {
-    title: 'Multirisque Professionnelle',
-    description: 'Une protection globale pour vos locaux, votre matériel et votre perte d\'exploitation.',
+    title: 'Multi PME/PMI, Pharma & Hébergement',
+    description: 'Protection globale de votre activité, de vos locaux et stocks avec des packs sectoriels dédiés.',
     icon: 'Building2',
-    features: ['Incendie & Explosion', 'Dégâts des eaux', 'Vol & Vandalisme', 'Bris de glace']
+    features: ['Incendie & Explosion', 'Dégâts des eaux & Vol', 'Bris de machines & IT', 'Perte d\'exploitation']
   },
   {
-    title: 'Santé & Prévoyance Collective',
-    description: 'Valorisez vos collaborateurs avec une couverture santé et prévoyance performante.',
+    title: 'Prévoyance Santé Entreprise',
+    description: 'Assurance maladie collective pour tous vos collaborateurs avec libre choix des taux TNR et tiers payant.',
     icon: 'HeartPulse',
-    features: ['Remboursements rapides', 'Tiers payant', 'Garanties décès', 'Incapacité de travail']
+    features: ['Tiers payant clinique', 'Formule à la carte', 'Garantie décès & ITT', 'Déductible 100% IS']
   }
 ];
 
@@ -122,3 +122,22 @@ export const TESTIMONIALS: Testimonial[] = [
     rating: 4
   }
 ];
+
+export const CONTACT_INFO = {
+  phoneFixe: "05 22 63 02 68",
+  phoneFixeRaw: "0522630268",
+  phoneFixeTel: "+212522630268",
+  phoneMobile: "06 61 18 04 22",
+  phoneMobileRaw: "0661180422",
+  phoneMobileTel: "+212661180422",
+  whatsappNumber: "212661180422",
+  whatsappLink: "https://wa.me/212661180422",
+  email: "axasaada9@gmail.com",
+  address: "271, Certificat Bloc 17, Hay Mohammadi, Casablanca",
+};
+
+export const getWhatsAppUrl = (text?: string) => {
+  if (!text) return "https://wa.me/212661180422";
+  return `https://wa.me/212661180422?text=${encodeURIComponent(text)}`;
+};
+

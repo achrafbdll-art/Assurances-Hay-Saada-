@@ -42,6 +42,7 @@ import { PRODUCTS_DATA, ProductData } from './data/products';
 import { ProductDetailPage } from './components/ProductDetailPage';
 import { CatalogPage } from './components/CatalogPage';
 import { QuoteModal } from './components/QuoteModal';
+import { AxaCornerAccent } from './components/AxaCornerAccent';
 
 const SaadaMonogram = ({ 
   isScrolled = false, 
@@ -354,14 +355,14 @@ const Navbar = ({
             <div className="p-4 bg-gray-50 space-y-2.5">
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="tel:+212522000000"
+                  href="tel:+212522630268"
                   className="flex items-center justify-center gap-2 bg-[#001f5c] text-white py-2.5 px-3 rounded-xl text-xs font-bold shadow-sm"
                 >
                   <Phone size={14} />
-                  <span>Appeler</span>
+                  <span>05 22 63 02 68</span>
                 </a>
                 <a
-                  href="https://wa.me/212600000000"
+                  href="https://wa.me/212661180422"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-[#25D366] text-white py-2.5 px-3 rounded-xl text-xs font-bold shadow-sm"
@@ -454,27 +455,27 @@ const HERO_SLIDES: SlideData[] = [
   },
   {
     id: 2,
-    badge: "ASSURANCE AUTO & MOBILITÉ",
+    badge: "SOLUTION AUTO & FIDELITY BY AXA",
     titleLine1: "ROULEZ EN TOUTE",
     titleLine2: "SÉRÉNITÉ.",
-    highlightText: "ASSISTANCE 24/7",
-    description: "Protection complète de votre véhicule, remise des clés sans stress, remorquage express 0 km partout au Maroc et véhicule de courtoisie.",
+    highlightText: "PROGRAMME FIDELITY",
+    description: "Bénéficiez du programme exclusif Fidelity by AXA avec bonus annuel sur vos garanties annexes, pack Auto Fonctionnaires mensualisé sans frais et assistance 24/7.",
     image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=2000",
     alt: "Remise des clés de voiture et protection automobile AXA",
     primaryCtaText: "DEVIS AUTO EXPRESS",
     primaryCtaHref: "#contact",
     secondaryCtaText: "DÉCOUVRIR LE PACK AUTO",
     secondaryCtaHref: "#services",
-    floatingBadgeTitle: "Assistance Immédiate",
-    floatingBadgeSubtitle: "Dépannage & Constat 24h/24"
+    floatingBadgeTitle: "Fidelity by AXA",
+    floatingBadgeSubtitle: "Avantages Fidélité AXA"
   },
   {
     id: 3,
-    badge: "SANTÉ & PRÉVOYANCE FAMILLE",
+    badge: "PRÉVOYANCE SANTÉ & FAMILIS",
     titleLine1: "LA SANTÉ DE VOS",
     titleLine2: "PROCHES D'ABORD.",
     highlightText: "TIERS PAYANT CLINIQUE",
-    description: "Prise en charge médicale directe dans les meilleures cliniques de Casablanca, remboursements en 48h et couverture hospitalière optimale.",
+    description: "Contrat Familis protégeant toute la famille contre les accidents de la vie privée, scolaire et pro avec prise en charge en clinique et remboursements rapides en 48h.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000",
     alt: "Consultation médicale, prise en charge et mutuelle santé AXA",
     primaryCtaText: "PROTÉGER MA FAMILLE",
@@ -486,27 +487,27 @@ const HERO_SLIDES: SlideData[] = [
   },
   {
     id: 4,
-    badge: "HABITATION & PATRIMOINE",
+    badge: "HABITASSUR • ASSURANCE HABITATION",
     titleLine1: "PROTÉGEZ VOTRE",
     titleLine2: "FOYER & VOS BIENS.",
     highlightText: "MULTIRISQUE HABITATION",
-    description: "Sécurisez votre logement contre les dégâts des eaux, incendies, vols et bris de glace avec notre assistance dépannage d'urgence à domicile.",
+    description: "Protégez votre logement, vos biens et votre mobilier contre l'incendie, les dégâts des eaux, le vol et les bris de glaces avec l'accompagnement AXA.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=2000",
     alt: "Clés de maison et protection multirisque habitation AXA",
     primaryCtaText: "ASSURER MON LOGEMENT",
     primaryCtaHref: "#contact",
-    secondaryCtaText: "DÉCOUVRIR PACK HABITATION",
+    secondaryCtaText: "DÉCOUVRIR HABITASSUR",
     secondaryCtaHref: "#services",
-    floatingBadgeTitle: "Assistance Domicile",
-    floatingBadgeSubtitle: "Dépannage serrurerie & plomberie"
+    floatingBadgeTitle: "Habitassur",
+    floatingBadgeSubtitle: "Protection Foyer & Biens"
   },
   {
     id: 5,
     badge: "SOLUTIONS ENTREPRISES & FLOTTES",
     titleLine1: "SÉCURISEZ VOTRE",
     titleLine2: "ACTIVITÉ & SALARIÉS.",
-    highlightText: "RC PRO & FLOTTE",
-    description: "Responsabilité Civile Professionnelle, couverture multirisque des locaux, gestion simplifiée de flotte et prévoyance collective pour vos équipes.",
+    highlightText: "AT/MP & FLOTTE PRO",
+    description: "Accidents du Travail (Loi 18-12), Flotte Automobile avec aménagements pro exclusifs, Multi PME/PMI et prévoyance collective pour vos collaborateurs.",
     image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=2000",
     alt: "Poignée de main et partenariat d'assurance entreprise AXA",
     primaryCtaText: "AUDIT DES RISQUES PRO",
@@ -845,7 +846,7 @@ const Services = ({
 
               <div className="pt-4 border-t border-gray-100 flex items-center justify-between gap-2">
                 <a
-                  href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour : ${service.title}`)}`}
+                  href={`https://wa.me/212661180422?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour : ${service.title}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
@@ -887,7 +888,7 @@ const ProfessionalSection = ({
   onExploreCategory?: (category: 'particulier' | 'entreprise') => void;
   onOpenQuoteModal?: (title?: string) => void;
 }) => {
-  const proProducts = PRODUCTS_DATA.filter(p => p.category === 'entreprise');
+  const proProducts = PRODUCTS_DATA.filter(p => p.category === 'entreprise' && p.id !== 'domaines-activite');
   const [proCompany, setProCompany] = useState('');
   const [proSector, setProSector] = useState('Services / Commerce');
   const [proPhone, setProPhone] = useState('');
@@ -897,6 +898,21 @@ const ProfessionalSection = ({
     e.preventDefault();
     if (!proCompany || !proPhone) return;
     setIsSent(true);
+
+    const subject = encodeURIComponent(`[Audit Entreprise AXA Hay Saada] ${proCompany} (${proSector})`);
+    const body = encodeURIComponent(
+      `Bonjour l'équipe Assurances Hay Saada,\n\n` +
+      `Une nouvelle demande d'audit professionnel a été soumise depuis le site web :\n\n` +
+      `• Entreprise : ${proCompany}\n` +
+      `• Secteur d'activité : ${proSector}\n` +
+      `• Téléphone : ${proPhone}\n\n` +
+      `---\n` +
+      `Transmis directement à : axasaada9@gmail.com`
+    );
+
+    try {
+      window.location.href = `mailto:axasaada9@gmail.com?subject=${subject}&body=${body}`;
+    } catch {}
   };
 
   return (
@@ -955,7 +971,7 @@ const ProfessionalSection = ({
 
                   <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs gap-2">
                     <a
-                      href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour l'offre Entreprise : ${pro.title}`)}`}
+                      href={`https://wa.me/212661180422?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour l'offre Entreprise : ${pro.title}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
@@ -992,12 +1008,28 @@ const ProfessionalSection = ({
               <p className="text-[#ff0000] text-xs mb-6 font-black uppercase tracking-widest">Audit gratuit de vos risques d'entreprise</p>
               
               {isSent ? (
-                <div className="py-8 text-center bg-emerald-50 rounded-2xl border border-emerald-200 p-6">
-                  <CheckCircle2 size={36} className="text-emerald-600 mx-auto mb-3" />
-                  <h5 className="font-bold text-emerald-900 text-sm">Demande d'audit reçue !</h5>
-                  <p className="text-xs text-emerald-700 mt-1">
-                    Notre chargé de clientèle Entreprises va contacter <strong>{proCompany}</strong> au {proPhone}.
+                <div className="py-8 text-center bg-emerald-50 rounded-2xl border border-emerald-200 p-6 space-y-3">
+                  <CheckCircle2 size={36} className="text-emerald-600 mx-auto" />
+                  <h5 className="font-bold text-emerald-900 text-sm">Demande d'audit transmise !</h5>
+                  <p className="text-xs text-emerald-700">
+                    Votre demande pour <strong>{proCompany}</strong> a été directement transmise à l'agence (<strong className="underline">axasaada9@gmail.com</strong>).
                   </p>
+                  <p className="text-[11px] text-emerald-800/80">
+                    Notre chargé de clientèle Entreprises va contacter le <strong>{proPhone}</strong> sous 24h ouvrées.
+                  </p>
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsSent(false);
+                        setProCompany('');
+                        setProPhone('');
+                      }}
+                      className="text-[11px] font-bold text-[#001f5c] hover:underline cursor-pointer"
+                    >
+                      ← Nouvelle demande
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleProSubmit} className="space-y-4">
@@ -1045,6 +1077,10 @@ const ProfessionalSection = ({
                     <span>ÊTRE RAPPELLÉ PAR UN EXPERT</span>
                     <ArrowRight size={16} />
                   </button>
+                  <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1 pt-1">
+                    <Mail size={11} className="text-gray-400" />
+                    <span>Demandes transmises directement à axasaada9@gmail.com</span>
+                  </p>
                 </form>
               )}
             </div>
@@ -1083,7 +1119,7 @@ const ProfessionalSection = ({
 
                 <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs gap-2">
                   <a
-                    href={`https://wa.me/212600000000?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour l'offre Entreprise : ${pro.title}`)}`}
+                    href={`https://wa.me/212661180422?text=${encodeURIComponent(`Bonjour Assurances Hay Saada, je souhaite un devis personnalisé pour l'offre Entreprise : ${pro.title}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
@@ -1199,7 +1235,7 @@ const Testimonials = ({
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 shrink-0 w-full md:w-auto">
             <a
-              href="https://wa.me/212600000000?text=Bonjour%20Assurances%20Hay%20Saada,%20je%20souhaite%20un%20devis%20personnalis%C3%A9%20d%27assurance."
+              href="https://wa.me/212661180422?text=Bonjour%20Assurances%20Hay%20Saada,%20je%20souhaite%20un%20devis%20personnalis%C3%A9%20d%27assurance."
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3.5 rounded-xl font-black text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 text-center"
@@ -1290,13 +1326,13 @@ const About = () => {
 
                   <div className="flex items-center gap-2">
                     <a
-                      href="tel:+212522000000"
+                      href="tel:+212522630268"
                       className="flex-1 bg-[#001f5c] hover:bg-[#001540] text-white text-center py-2 px-3 rounded-lg text-xs font-bold transition-all shadow-sm"
                     >
-                      Appeler
+                      Appeler (Fixe)
                     </a>
                     <a
-                      href="https://wa.me/212600000000"
+                      href="https://wa.me/212661180422"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 bg-[#25D366] hover:bg-[#1ebe5b] text-white text-center py-2 px-3 rounded-lg text-xs font-bold transition-all shadow-sm"
@@ -1378,31 +1414,48 @@ const About = () => {
 
 const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [submittedData, setSubmittedData] = useState<{
+    name: string;
+    phone: string;
+    email: string;
+    type: string;
+    message: string;
+  } | null>(null);
   const [contactForm, setContactForm] = useState({
     name: '',
     phone: '',
     email: '',
-    type: 'Auto',
+    type: 'Auto & Moto',
     message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!contactForm.name || !contactForm.phone) return;
+    const data = { ...contactForm };
+    setSubmittedData(data);
     setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setContactForm({
-        name: '',
-        phone: '',
-        email: '',
-        type: 'Auto',
-        message: ''
-      });
-    }, 5000);
+
+    const subject = encodeURIComponent(`[Demande Devis AXA Hay Saada] ${data.type} - ${data.name}`);
+    const body = encodeURIComponent(
+      `Bonjour l'équipe Assurances Hay Saada,\n\n` +
+      `Une nouvelle demande a été envoyée depuis le formulaire de contact du site web :\n\n` +
+      `• Nom complet : ${data.name}\n` +
+      `• Téléphone : ${data.phone}\n` +
+      `• Email : ${data.email || 'Non renseigné'}\n` +
+      `• Type d'Assurance : ${data.type}\n` +
+      `• Message : ${data.message || 'Aucun message particulier'}\n\n` +
+      `---\n` +
+      `Destinataire officiel : axasaada9@gmail.com`
+    );
+
+    try {
+      window.location.href = `mailto:axasaada9@gmail.com?subject=${subject}&body=${body}`;
+    } catch {}
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-white text-gray-900 border-t border-gray-100">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/60 text-gray-900 border-t border-gray-100">
       {/* Texture de fond subtile et halos très doux */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-40"
@@ -1415,168 +1468,250 @@ const Contact = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-50/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-[#001f5c] mb-3 sm:mb-4 tracking-tight leading-tight">
-              Prêt à être mieux protégé ?
-            </h2>
-
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-1 bg-[#ff0000]" />
-              <div className="w-4 h-1 bg-[#002b80]/40" />
-            </div>
-
-            <p className="text-gray-600 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg leading-relaxed">
-              Nos conseillers sont à votre disposition pour réaliser une étude gratuite de vos besoins et vous proposer la meilleure solution d'assurance.
-            </p>
-
-            <div className="space-y-4 sm:space-y-6">
-              <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
-                  <Phone className="text-[#002b80]" size={20} />
-                </div>
-                <div>
-                  <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Téléphone</p>
-                  <a href="tel:+212522000000" className="text-lg sm:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors">
-                    05 22 00 00 00
-                  </a>
-                  <p className="text-xs text-gray-500 mt-0.5">Du lundi au vendredi 8h30-18h30, samedi matin</p>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          {/* Colonne gauche : Informations & Conseillers */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-[#002b80] text-xs font-bold uppercase tracking-wider mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#e00000]" />
+                <span>Agence Agréée AXA Hay Mohammadi</span>
               </div>
 
-              <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
-                  <Mail className="text-[#002b80]" size={20} />
-                </div>
-                <div>
-                  <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Email</p>
-                  <a href="mailto:contact@assuranceshaysaada.ma" className="text-base sm:text-lg md:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors break-all">
-                    contact@assuranceshaysaada.ma
-                  </a>
-                  <p className="text-xs text-gray-500 mt-0.5">Réponse garantie sous 24h ouvrées</p>
-                </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-black text-[#001f5c] mb-3 sm:mb-4 tracking-tight leading-tight">
+                Prêt à être mieux protégé ?
+              </h2>
+
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-1 bg-[#ff0000]" />
+                <div className="w-4 h-1 bg-[#002b80]/40" />
               </div>
 
-              <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-slate-50/90 border border-gray-200/90 hover:border-[#002b80] hover:shadow-md transition-all">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
-                  <MapPin className="text-[#002b80]" size={20} />
+              <p className="text-gray-600 mb-8 sm:mb-10 text-sm sm:text-base md:text-lg leading-relaxed">
+                Nos conseillers sont à votre disposition pour réaliser une étude gratuite de vos besoins et vous proposer la meilleure solution d'assurance.
+              </p>
+
+              <div className="space-y-4 sm:space-y-5">
+                <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-white border border-gray-200/80 hover:border-[#002b80] hover:shadow-md transition-all">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                    <Phone className="text-[#002b80]" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Téléphone Fixe</p>
+                    <a href="tel:+212522630268" className="text-lg sm:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors">
+                      05 22 63 02 68
+                    </a>
+                    <p className="text-xs text-gray-500 mt-0.5">Du lundi au vendredi 8h30-18h30, samedi matin</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Adresse</p>
-                  <p className="text-sm sm:text-base md:text-lg font-semibold text-[#001f5c] leading-snug">
-                    271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)
-                  </p>
-                  <p className="text-xs text-gray-500 mt-0.5">Casablanca, Maroc • Parking à proximité</p>
+
+                <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-white border border-gray-200/80 hover:border-emerald-500 hover:shadow-md transition-all">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-center shrink-0">
+                    <MessageCircle className="text-[#25D366]" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-emerald-700 text-xs font-bold uppercase tracking-wider mb-1">Mobile & WhatsApp</p>
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <a href="tel:+212661180422" className="text-lg sm:text-xl font-bold text-[#001f5c] hover:text-emerald-600 transition-colors">
+                        06 61 18 04 22
+                      </a>
+                      <a 
+                        href="https://wa.me/212661180422?text=Bonjour%20Assurances%20Hay%20Saada,%20je%20souhaite%20un%20renseignement." 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold px-3 py-1 rounded-full transition-colors shadow-xs"
+                      >
+                        <MessageCircle size={13} />
+                        <span>WhatsApp Direct</span>
+                      </a>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-0.5">Contact direct & devis instantané par WhatsApp</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-white border border-gray-200/80 hover:border-[#002b80] hover:shadow-md transition-all">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                    <Mail className="text-[#002b80]" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Email</p>
+                    <a href="mailto:axasaada9@gmail.com" className="text-base sm:text-lg md:text-xl font-bold text-[#001f5c] hover:text-[#ff0000] transition-colors break-all">
+                      axasaada9@gmail.com
+                    </a>
+                    <p className="text-xs text-gray-500 mt-0.5">Réponse garantie sous 24h ouvrées</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-white border border-gray-200/80 hover:border-[#002b80] hover:shadow-md transition-all">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
+                    <MapPin className="text-[#002b80]" size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Adresse</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold text-[#001f5c] leading-snug">
+                      271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">Casablanca, Maroc • Parking à proximité</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-gray-200 text-gray-900">
-            {formSubmitted ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle2 size={36} />
-                </div>
-                <h3 className="text-2xl font-black text-[#001f5c]">Demande envoyée avec succès !</h3>
-                <p className="text-gray-600 max-w-md mx-auto text-sm">
-                  Merci pour votre confiance. Un conseiller de l'agence Assurances Hay Saada étudie votre demande et vous contactera dans les plus brefs délais.
-                </p>
-                <div className="pt-4">
-                  <button
-                    type="button"
-                    onClick={() => setFormSubmitted(false)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-sm transition-colors cursor-pointer"
-                  >
-                    Envoyer un autre message
-                  </button>
-                </div>
+          {/* Colonne droite : Formulaire dans le cadre signature AXA avec accent rouge & filigrane AXA */}
+          <div className="lg:col-span-7">
+            <div className="relative pb-12 pr-6 sm:pr-8">
+              {/* Élément décoratif d'angle AXA officiel */}
+              <AxaCornerAccent size="md" className="absolute -bottom-2 -right-2 sm:bottom-0 sm:right-0" />
+
+              <div className="relative z-10 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-gray-200/80 text-gray-900">
+                {formSubmitted && submittedData ? (
+                  <div className="py-8 text-center space-y-4">
+                    <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <CheckCircle2 size={36} />
+                    </div>
+                    <h3 className="text-2xl font-black text-[#001f5c]">Demande transmise avec succès !</h3>
+                    <p className="text-gray-600 max-w-md mx-auto text-sm leading-relaxed">
+                      Votre demande a bien été envoyée directement à notre agence à l'adresse : <strong className="text-[#001f5c] underline">axasaada9@gmail.com</strong>.
+                    </p>
+                    <p className="text-xs text-gray-500 max-w-sm mx-auto">
+                      Un conseiller dédié de l'agence Assurances Hay Saada étudie vos éléments et vous contactera au <strong>{submittedData.phone}</strong> sous 24h ouvrées.
+                    </p>
+
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={`mailto:axasaada9@gmail.com?subject=${encodeURIComponent(`[Demande Devis AXA Hay Saada] ${submittedData.type} - ${submittedData.name}`)}&body=${encodeURIComponent(
+                          `Bonjour l'équipe Assurances Hay Saada,\n\nUne nouvelle demande a été envoyée depuis le formulaire de contact du site web :\n\n• Nom complet : ${submittedData.name}\n• Téléphone : ${submittedData.phone}\n• Email : ${submittedData.email || 'Non renseigné'}\n• Type d'Assurance : ${submittedData.type}\n• Message : ${submittedData.message || 'Aucun message particulier'}\n\nDestinataire officiel : axasaada9@gmail.com`
+                        )}`}
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#001f5c] hover:bg-[#002b80] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
+                      >
+                        <Mail size={15} />
+                        <span>Ouvrir dans ma messagerie</span>
+                      </a>
+
+                      <a
+                        href={`https://wa.me/212661180422?text=${encodeURIComponent(
+                          `Bonjour Assurances Hay Saada, je viens d'envoyer une demande de devis pour ${submittedData.type} (Nom: ${submittedData.name}, Tél: ${submittedData.phone}).`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
+                      >
+                        <MessageCircle size={15} />
+                        <span>WhatsApp (06 61 18 04 22)</span>
+                      </a>
+                    </div>
+
+                    <div className="pt-4 border-t border-gray-100">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setFormSubmitted(false);
+                          setSubmittedData(null);
+                          setContactForm({
+                            name: '',
+                            phone: '',
+                            email: '',
+                            type: 'Auto & Moto',
+                            message: ''
+                          });
+                        }}
+                        className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                      >
+                        Envoyer un autre message
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                      <div>
+                        <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
+                          Nom Complet *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={contactForm.name}
+                          onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                          className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                          placeholder="Votre nom"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
+                          Téléphone *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={contactForm.phone}
+                          onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                          className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                          placeholder="06 XX XX XX XX"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        value={contactForm.email}
+                        onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                        placeholder="votre@email.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
+                        Type d'Assurance
+                      </label>
+                      <select 
+                        value={contactForm.type}
+                        onChange={(e) => setContactForm({ ...contactForm, type: e.target.value })}
+                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm font-medium"
+                      >
+                        <option value="Auto & Moto">Auto & Moto</option>
+                        <option value="Santé & Mutuelle">Santé & Mutuelle</option>
+                        <option value="Habitassur (Habitation)">Habitassur (Habitation)</option>
+                        <option value="Professionnelle & Entreprise">Professionnelle & Entreprise</option>
+                        <option value="Épargne & Retraite">Épargne & Retraite</option>
+                        <option value="Autre solution">Autre solution</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
+                        Message (Optionnel)
+                      </label>
+                      <textarea
+                        rows={4}
+                        value={contactForm.message}
+                        onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
+                        placeholder="Comment pouvons-nous vous aider ?"
+                      ></textarea>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full bg-[#002b80] hover:bg-[#001f5c] text-white font-bold py-3.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer text-sm"
+                    >
+                      <span>Envoyer ma demande</span>
+                      <ArrowRight size={18} />
+                    </button>
+
+                    <p className="text-[11px] text-gray-500 text-center flex items-center justify-center gap-1.5 pt-1">
+                      <Mail size={13} className="text-[#002b80] shrink-0" />
+                      <span>Toutes les demandes sont directement envoyées à <strong className="text-gray-800">axasaada9@gmail.com</strong></span>
+                    </p>
+                  </form>
+                )}
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                  <div>
-                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
-                      Nom Complet
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={contactForm.name}
-                      onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
-                      placeholder="Votre nom"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
-                      Téléphone
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={contactForm.phone}
-                      onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
-                      placeholder="06 XX XX XX XX"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={contactForm.email}
-                    onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
-                    placeholder="votre@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
-                    Type d'Assurance
-                  </label>
-                  <select 
-                    value={contactForm.type}
-                    onChange={(e) => setContactForm({ ...contactForm, type: e.target.value })}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm font-medium"
-                  >
-                    <option value="Auto">Auto & Moto</option>
-                    <option value="Santé">Santé & Mutuelle</option>
-                    <option value="Habitation">Multirisque Habitation</option>
-                    <option value="Professionnelle">Professionnelle & Entreprise</option>
-                    <option value="Épargne & Retraite">Épargne & Retraite</option>
-                    <option value="Autre">Autre solution</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-gray-700 text-xs font-bold uppercase tracking-wider mb-1.5 sm:mb-2">
-                    Message (Optionnel)
-                  </label>
-                  <textarea
-                    rows={4}
-                    value={contactForm.message}
-                    onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#002b80] focus:bg-white transition-all text-sm"
-                    placeholder="Comment pouvons-nous vous aider ?"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-[#002b80] hover:bg-[#001f5c] text-white font-bold py-3.5 sm:py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer text-sm"
-                >
-                  <span>Envoyer ma demande</span>
-                  <ArrowRight size={18} />
-                </button>
-              </form>
-            )}
+            </div>
           </div>
         </div>
       </div>
@@ -1746,12 +1881,16 @@ const Footer = ({
                 <span className="text-sm">📍</span>
                 <span>271, Certificat Bloc 17, Hay Mohammadi, Casablanca</span>
               </p>
-              <p className="flex items-center gap-2">
+              <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="text-sm">📞</span>
                 <span>
-                  <a href="tel:+212522000000" className="hover:text-white transition-colors font-medium">05 22 00 00 00</a>
+                  <a href="tel:+212522630268" className="hover:text-white transition-colors font-medium">05 22 63 02 68 (Fixe)</a>
                   {' '}•{' '}
-                  <a href="mailto:contact@assuranceshaysaada.ma" className="hover:text-white transition-colors font-medium">contact@assuranceshaysaada.ma</a>
+                  <a href="https://wa.me/212661180422" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors font-medium inline-flex items-center gap-1">
+                    <span>06 61 18 04 22 (WhatsApp)</span>
+                  </a>
+                  {' '}•{' '}
+                  <a href="mailto:axasaada9@gmail.com" className="hover:text-white transition-colors font-medium">axasaada9@gmail.com</a>
                 </span>
               </p>
             </div>
@@ -1865,44 +2004,15 @@ const Footer = ({
           </div>
         </div>
         
-        {/* Ligne inférieure de Copyright, Mentions Légales et Réseaux Sociaux */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/10 text-xs">
-          <p className="text-blue-200/70 font-medium text-center md:text-left">
+        {/* Ligne inférieure de Copyright et Mentions Légales */}
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-10 border-t border-white/10 text-xs">
+          <p className="text-blue-200/70 font-medium text-center sm:text-left">
             © 2026 Assurances Hay Saada - Intermédiaire Agréé AXA Assurance Maroc. Conforme ACAPS.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 text-blue-200/70 font-medium">
             <span className="hover:text-white transition-colors cursor-pointer">Mentions Légales</span>
             <span className="hover:text-white transition-colors cursor-pointer">Protection Données CNDP</span>
             <span className="hover:text-white transition-colors cursor-pointer">Code des Assurances Maroc</span>
-          </div>
-          <div className="flex items-center gap-5 text-blue-200/80">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="hover:text-white hover:scale-110 transition-all p-1"
-            >
-              <Facebook size={17} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-white hover:scale-110 transition-all p-1"
-            >
-              <Linkedin size={17} />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="hover:text-white hover:scale-110 transition-all p-1"
-            >
-              <Instagram size={17} />
-            </a>
           </div>
         </div>
       </div>
