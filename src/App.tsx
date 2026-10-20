@@ -1540,19 +1540,6 @@ const Contact = () => {
                     <p className="text-xs text-gray-500 mt-0.5">Réponse garantie sous 24h ouvrées</p>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl bg-white border border-gray-200/80 hover:border-[#002b80] hover:shadow-md transition-all">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-center shrink-0">
-                    <MapPin className="text-[#002b80]" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[#002b80] text-xs font-bold uppercase tracking-wider mb-1">Adresse</p>
-                    <p className="text-sm sm:text-base md:text-lg font-semibold text-[#001f5c] leading-snug">
-                      271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)
-                    </p>
-                    <p className="text-xs text-gray-500 mt-0.5">Casablanca, Maroc • Parking à proximité</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
