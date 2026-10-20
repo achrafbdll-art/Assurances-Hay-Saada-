@@ -470,7 +470,7 @@ export const PRODUCTS_DATA: ProductData[] = [
     "title": "Globale Assistance Voyage",
     "tagline": "Attestation Visa Schengen immédiate conforme (30 000 €) et assistance médicale dans le monde entier",
     "shortDescription": "Pour répondre aux exigences des consulats de l'espace Schengen (30 000 € de couverture médicale), Globale Assistance Voyage vous protège ainsi que votre famille partout dans le monde et au Maroc.",
-    "fullDescription": "Pour répondre aux exigences des consulats de l'espace Schengen (couverture médicale minimale de 30 000 €), la Globale Assistance Voyage est une couverture complète qui permet à l'assuré ainsi qu'à sa famille d'être protégés partout dans le monde, y compris au Maroc. Les frais d'hospitalisation d'urgence et le rapatriement sanitaire médicalisé sont couverts sans avance de frais.",
+    "fullDescription": "Pour répondre aux exigences des consulats de l'espace Schengen (couverture médicale minimale de 30 000 €), la Globale Assistance Voyage est une couverture complète qui permet à l'assuré ainsi qu'à sa famille d'être protégés partout dans le monde, y compris au Maroc, avec prise en charge des frais médicaux d'urgence et rapatriement sanitaire.",
     "iconName": "Plane",
     "badge": "Conforme Consulat Schengen 30 000 €",
     "startingPrice": "Sur devis personnalisé",
@@ -486,8 +486,7 @@ export const PRODUCTS_DATA: ProductData[] = [
         "features": [
           "Attestation officielle avec QR Code pour le consulat",
           "Couverture médicale minimale de 30 000 € (conforme exigences UE)",
-          "Rapatriement sanitaire médicalisé d'urgence",
-          "Prise en charge directe sans avance de frais d'hospitalisation"
+          "Rapatriement sanitaire médicalisé d'urgence"
         ]
       },
       {
@@ -499,15 +498,14 @@ export const PRODUCTS_DATA: ProductData[] = [
         "features": [
           "Tous les voyages de l'année couverts dans le monde entier et au Maroc",
           "Plafond médical relevé jusqu'à 30 000 € (USA, Canada, Asie)",
-          "Rapatriement sanitaire médicalisé d'urgence partout dans le monde",
-          "Retour anticipé d'urgence en cas de sinistre médical"
+          "Rapatriement sanitaire médicalisé d'urgence partout dans le monde"
         ]
       }
     ],
     "keyGuarantees": [
       {
         "title": "Frais Médicaux & Hospitalisation Schengen (30 000 €)",
-        "description": "Prise en charge directe sans avance de frais des consultations, examens et chirurgies d'urgence dans tous les hôpitaux et cliniques de l'espace Schengen.",
+        "description": "Prise en charge des consultations, examens et soins d'urgence dans tous les hôpitaux et cliniques de l'espace Schengen.",
         "isIncluded": true,
         "coverageLimit": "30 000 € minimum légal"
       },
@@ -526,7 +524,6 @@ export const PRODUCTS_DATA: ProductData[] = [
     "advantages": [
       "Attestation acceptée à 100% par tous les consulats de l'espace Schengen",
       "Délivrance immédiate en main propre à l'agence Assurances Hay Saada",
-      "Prise en charge directe sans avance de frais d'hospitalisation",
       "Plateforme d'assistance multilingue accessible 24/7 dans le monde entier"
     ],
     "documentsRequired": [
@@ -751,26 +748,12 @@ export const PRODUCTS_DATA: ProductData[] = [
         "name": "Formule Complémentaire AMO",
         "tagline": "Comble le ticket modérateur de l'AMO au meilleur coût",
         "priceNote": "Idéale pour PME et effectifs nombreux",
-        "isPopular": false,
+        "isPopular": true,
         "features": [
           "Remboursement du ticket modérateur restant à la charge du salarié",
           "Tiers payant hospitalier en clinique conventionnée",
           "Prise en charge des médicaments ambulatoires",
           "Capital décès accidentel garanti pour la famille"
-        ]
-      },
-      {
-        "id": "sante-pro-confort",
-        "name": "Formule Santé Premium & Cadres",
-        "tagline": "Couverture santé d'excellence avec optique et dentaire",
-        "priceNote": "Outil de fidélisation des talents",
-        "isPopular": true,
-        "features": [
-          "Remboursement jusqu'à 80% ou 90% des frais réels engagés",
-          "Plafonds confortables en optique (verres et montures) et dentaire (prothèses)",
-          "Maternité, accouchement en clinique et soins néonataux",
-          "Scanner, IRM et analyses biologiques sans avance de frais",
-          "Indemnités d'incapacité temporaire et rente d'invalidité permanente"
         ]
       }
     ],
