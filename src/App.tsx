@@ -444,7 +444,7 @@ const HERO_SLIDES: SlideData[] = [
     titleLine2: "NOTRE EXPERTISE.",
     highlightText: "CONTRAT SUR-MESURE",
     description: "Audit personnalisé de vos risques, garanties transparentes et souscription rapide avec votre Agent Général AXA au cœur de Casablanca.",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=2000",
+    image: "https://media.licdn.com/dms/image/v2/D4E22AQFFM_UmqKoARg/feedshare-shrink_800/B4EZT00Y_cHcAg-/0/1739274164494?e=1793836800&v=beta&t=jEA_x4V6xlRWbCrNm48HjcluN5w09XJ4XHCSiHp2JrM",
     alt: "Conseiller en assurance AXA en entretien personnalisé avec un client en agence",
     primaryCtaText: "NOS SOLUTIONS",
     primaryCtaHref: "#services",
