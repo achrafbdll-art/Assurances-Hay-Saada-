@@ -460,7 +460,7 @@ const HERO_SLIDES: SlideData[] = [
     titleLine2: "SÉRÉNITÉ.",
     highlightText: "PROGRAMME FIDELITY",
     description: "Bénéficiez du programme exclusif Fidelity by AXA avec bonus annuel sur vos garanties annexes, pack Auto Fonctionnaires mensualisé sans frais et assistance 24/7.",
-    image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=2000",
+    image: "https://scontent.fcmn7-1.fna.fbcdn.net/v/t39.30808-6/476444587_926456679648598_8287693533078305464_n.jpg?stp=dst-jpg_tt6&cstp=mx1600x1197&ctp=s1600x1197&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHDkadILNa2M_OTF5b26a_mLvtCW-me9WAu-0Jb6Z71YHMg3DVjrLZm127TchDpDpU&_nc_ohc=ItqDw-uoHKQQ7kNvwEBguTc&_nc_oc=Adp0xmlkLL1Ruv40-dRUYJGR6HXS5xQbyirAjoM9GsXPjzfoMMXXAzFxySZjHpoQ0a0&_nc_zt=23&_nc_ht=scontent.fcmn7-1.fna&_nc_gid=jB7tYtMlw3knrhIIMtxkdw&_nc_ss=7b2a8&oh=00_AQNHI6P7TGRqcxAWzJ0lZGwm9LoF-LSi8_Rz2LQ8ApVbyA&oe=6ADDB762",
     alt: "Remise des clés de voiture et protection automobile AXA",
     primaryCtaText: "DEVIS AUTO EXPRESS",
     primaryCtaHref: "#contact",
