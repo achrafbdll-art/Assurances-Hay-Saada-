@@ -279,7 +279,7 @@ export const PRODUCTS_DATA: ProductData[] = [
     "title": "Futuris Individuel II & Educatis II",
     "tagline": "Constitution progressive d'un capital retraite ou d'études pour vos enfants avec avantage fiscal",
     "shortDescription": "Solution d'épargne retraite souple avec déductibilité totale de l'Impôt sur le Revenu (IR) et formule Éducation Educatis II pour financer les études supérieures de vos enfants.",
-    "fullDescription": "Futuris Individuel II est une solution d'épargne retraite qui allie simplicité et souplesse : constituez progressivement votre capital retraite en choisissant librement la périodicité de vos cotisations selon votre budget actuel et vos besoins futurs. Vos fonds sont revalorisés à des taux de rentabilité performants et sécurisés, et bénéficient d'une déductibilité fiscale totale de l'Impôt sur le Revenu (IR). Pour les études de vos enfants, Educatis II assure la constitution d'un capital garanti pour financer leur cursus supérieur en toute sérénité avec exonération fiscale complète sur les rendements.",
+    "fullDescription": "Futuris Individuel II est une solution d'épargne retraite qui allie simplicité et souplesse : constituez progressivement votre capital retraite en choisissant librement la périodicité de vos cotisations selon votre budget actuel et vos besoins futurs.",
     "iconName": "TrendingUp",
     "badge": "Produits Phares Futuris & Educatis",
     "startingPrice": "Sur devis personnalisé",
@@ -313,21 +313,6 @@ export const PRODUCTS_DATA: ProductData[] = [
           "Assurance décès-invalidité du parent souscripteur",
           "Bonus fidélité contractuel",
           "Sortie en rente éducation annuelle ou capital unique"
-        ]
-      },
-      {
-        "id": "mixte-capital",
-        "name": "Assurance Mixte AXA",
-        "tagline": "Épargne et prévoyance combinées sans fonds perdus",
-        "priceNote": "Étude patrimoniale sur mesure",
-        "isPopular": false,
-        "features": [
-          "Combinaison d'un contrat d'épargne et d'une prévoyance sans fonds perdus",
-          "Versement du capital garanti en cas de vie à l'échéance",
-          "Capital doublé en cas de décès accidentel",
-          "Capital triplé en cas d'accident de voiture",
-          "Double effet familial : capital pour conjoint et enfants mineurs",
-          "Avances et rachats possibles dès 3 ans de cotisations"
         ]
       }
     ],
@@ -390,78 +375,77 @@ export const PRODUCTS_DATA: ProductData[] = [
     "slug": "assurance-sante",
     "category": "particulier",
     "subcategory": "Santé & Bien-être",
-    "title": "Prévoyance Santé & Familis",
-    "tagline": "Couverture santé et prévoyance familiale pour vos soins, hospitalisations et accidents de la vie",
-    "shortDescription": "Le contrat de prévoyance et santé Familis vous couvre ainsi que votre famille contre les accidents corporels de la vie privée, scolaire ou professionnelle avec prise en charge hospitalière.",
-    "fullDescription": "Familis est le contrat de prévoyance et santé familiale d'AXA qui vous couvre ainsi que les membres de votre famille contre les accidents corporels survenus au cours de la vie privée, d'une activité scolaire ou professionnelle. Il garantit le versement d'un capital en cas de décès ou d'invalidité consécutive à un accident, une indemnité en cas d'invalidité permanente consécutive à une maladie ou un accident, le remboursement des frais médicaux, pharmaceutiques et chirurgicaux engagés, le remboursement des frais de recherche, de secours et de rapatriement de corps, ainsi qu'une indemnité journalière versée à l'assuré ou à son conjoint en cas d'arrêt de travail consécutif à un accident.",
+    "title": "Prévoyance Santé : Sehassur & Sehassur Plus International",
+    "tagline": "Solutions santé complètes au Maroc avec Sehassur et à l'international avec Sehassur Plus International",
+    "shortDescription": "Une couverture santé sur-mesure au Maroc avec Sehassur et une protection médicale mondiale haut de gamme avec Sehassur Plus International : soins ambulatoires, examens et hospitalisation.",
+    "fullDescription": "La gamme Prévoyance Santé d'AXA vous apporte une protection médicale complète et haut de gamme. Avec Sehassur, bénéficiez d'une prise en charge de vos consultations médicales, examens, actes chirurgicaux, pharmacies, soins optiques et dentaires au Maroc, avec un accès direct aux meilleures cliniques conventionnées. Avec Sehassur Plus International, vous disposez d'une couverture médicale d'exception au Maroc et à l'étranger pour vos hospitalisations dans les plus grands centres hospitaliers mondiaux et la prise en charge des pathologies lourdes.",
     "iconName": "HeartPulse",
-    "badge": "Contrat Familis AXA",
+    "badge": "Offres Officielles Sehassur AXA",
     "startingPrice": "Sur devis personnalisé",
     "period": "contrat annuel",
-    "heroHighlight": "Remboursements médicaux, capital décès/invalidité & indemnités journalières",
+    "heroHighlight": "Tiers payant direct en clinique, soins au Maroc et couverture médicale internationale",
     "formules": [
       {
-        "id": "familis-essentiel",
-        "name": "Formule Familis Essentielle",
-        "tagline": "Protection individuelle face aux aléas corporels",
-        "priceNote": "Protection de base accessible",
-        "isPopular": false,
+        "id": "sehassur-national",
+        "name": "Sehassur (Santé Maroc)",
+        "tagline": "Assurance santé complète individuelle et familiale au Maroc",
+        "priceNote": "Formule sur mesure au Maroc",
+        "isPopular": true,
         "features": [
-          "Capital garanti en cas de décès accidentel",
-          "Capital invalidité permanente partielle ou totale",
-          "Remboursement des frais médicaux et pharmaceutiques de base",
-          "Assistance rapatriement et recherche de secours"
+          "Remboursement des consultations de généralistes et spécialistes",
+          "Prise en charge des soins ambulatoires, examens et analyses médicales",
+          "Hospitalisation médicale et chirurgicale en cliniques conventionnées",
+          "Pharmacie, médicaments prescrits et soins d'urgence",
+          "Forfaits optique (verres, montures) et soins/prothèses dentaires"
         ]
       },
       {
-        "id": "familis-integrale",
-        "name": "Formule Familis Famille Complète",
-        "tagline": "La protection globale du foyer et des enfants",
-        "priceNote": "Recommandée pour couples avec enfants",
-        "isPopular": true,
+        "id": "sehassur-plus-international",
+        "name": "Sehassur Plus International",
+        "tagline": "Protection santé haut de gamme au Maroc et dans le monde entier",
+        "priceNote": "Couverture internationale d'excellence",
+        "isPopular": false,
         "features": [
-          "Couverture du conjoint et des enfants (accidents scolaires et sportifs)",
-          "Plafonds majorés pour soins chirurgicaux et hospitalisations",
-          "Indemnités journalières en cas d'arrêt d'activité",
-          "Rapatriement sanitaire et prise en charge des frais de secours",
-          "Double capital en cas de décès accidentel de la route"
+          "Couverture santé complète au Maroc, en Europe et à l'International",
+          "Accès aux meilleurs centres hospitaliers et cliniques de pointe dans le monde",
+          "Plafonds de remboursement élevés pour interventions et pathologies lourdes"
         ]
       }
     ],
     "keyGuarantees": [
       {
-        "title": "Frais Médicaux, Pharmaceutiques & Chirurgicaux",
-        "description": "Prise en charge intégrale des frais de santé consécutifs à un accident garanti : consultations, examens, pharmacie, chirurgie et soins d'urgence.",
+        "title": "Hospitalisation Médicale & Chirurgicale",
+        "description": "Prise en charge directe en clinique conventionnée au Maroc et en milieu hospitalier international sans avance de frais.",
         "isIncluded": true,
-        "coverageLimit": "Selon barème choisi"
+        "coverageLimit": "Tiers Payant direct"
       },
       {
-        "title": "Capital Décès & Invalidité Permanente",
-        "description": "Versement d'un capital substantiel aux bénéficiaires en cas de décès ou à l'assuré en cas d'invalidité permanente après un accident ou une maladie.",
+        "title": "Soins Ambulatoires & Consultations",
+        "description": "Remboursement rapide des consultations spécialistes, bilans, radiologie, biologie médicale et pharmacie.",
         "isIncluded": true,
-        "coverageLimit": "Capital garanti contractuel"
+        "coverageLimit": "Selon barème souscrit"
       },
       {
-        "title": "Indemnités Journalières d'Arrêt de Travail",
-        "description": "Versement d'un revenu de substitution journalier à l'assuré ou à son conjoint pour compenser la perte de gains lors d'un arrêt médical.",
+        "title": "Couverture Mondiale Sehassur Plus",
+        "description": "Accès direct aux hôpitaux et centres hospitaliers de référence à l'étranger pour les pathologies lourdes.",
         "isIncluded": true,
-        "coverageLimit": "Par jour d'arrêt"
+        "coverageLimit": "Plafonds internationaux majeurs"
       },
       {
-        "title": "Frais de Recherche, Secours & Rapatriement",
-        "description": "Prise en charge des opérations de sauvetage en mer ou montagne et des frais de rapatriement de corps en cas de décès.",
+        "title": "Dentaire, Optique & Maternité",
+        "description": "Forfaits renforcés pour les soins dentaires, prothèses, montures et verres correcteurs, ainsi que les frais d'accouchement.",
         "isIncluded": true,
-        "coverageLimit": "Frais réels"
+        "coverageLimit": "Forfaits dédiés"
       }
     ],
     "options": [
-      "Extension sports à risque et loisirs nautiques",
-      "Renfort optique et dentaire",
+      "Extension Monde Entier sans franchise pour Sehassur Plus International",
+      "Renfort Médecine Douce et Cures Thermales",
       "Assistance aide à domicile pendant la convalescence"
     ],
     "advantages": [
-      "Protection globale de toute la famille sous un contrat unique",
-      "Couvre les activités de la vie privée, scolaires et professionnelles",
+      "Choix entre couverture nationale ciblée (Sehassur) ou prestige international (Sehassur Plus)",
+      "Accès aux meilleures cliniques au Maroc et aux hôpitaux d'excellence à l'étranger",
       "Gestion humaine et réactive à l'agence Assurances Hay Saada",
       "Complémentarité parfaite avec l'AMO"
     ],
@@ -472,8 +456,8 @@ export const PRODUCTS_DATA: ProductData[] = [
     ],
     "faq": [
       {
-        "question": "Quelle est la différence entre Familis et l'AMO ?",
-        "answer": "L'AMO obligatoire ne couvre qu'une partie des frais selon le tarif conventionné. Familis intervient en complément pour rembourser le reste à charge, et verse surtout un capital d'urgence et des indemnités journalières pour protéger financièrement votre foyer."
+        "question": "Quelle est la différence entre Sehassur et Sehassur Plus International ?",
+        "answer": "Sehassur assure une couverture santé complète au Maroc (consultations, pharmacie, hospitalisations en cliniques privées). Sehassur Plus International étend cette protection à l'échelle mondiale avec prise en charge directe dans les plus grands hôpitaux internationaux, plafonds très élevés et rapatriement médical."
       }
     ],
     "simulationType": "sante"

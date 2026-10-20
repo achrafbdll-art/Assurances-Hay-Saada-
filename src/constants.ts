@@ -30,8 +30,8 @@ export const SERVICES: Service[] = [
   },
   {
     id: 'sante',
-    title: 'Prévoyance Santé & Familis',
-    description: 'Contrat Familis protégeant toute la famille contre les accidents corporels avec prise en charge hospitalière.',
+    title: 'Prévoyance Santé : Sehassur & Sehassur Plus International',
+    description: 'Couverture santé Sehassur au Maroc et Sehassur Plus International avec tiers payant hospitalier mondial.',
     icon: 'HeartPulse',
     category: 'particulier'
   },

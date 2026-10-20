@@ -471,11 +471,11 @@ const HERO_SLIDES: SlideData[] = [
   },
   {
     id: 3,
-    badge: "PRÉVOYANCE SANTÉ & FAMILIS",
+    badge: "PRÉVOYANCE SANTÉ • SEHASSUR",
     titleLine1: "LA SANTÉ DE VOS",
     titleLine2: "PROCHES D'ABORD.",
     highlightText: "TIERS PAYANT CLINIQUE",
-    description: "Contrat Familis protégeant toute la famille contre les accidents de la vie privée, scolaire et pro avec prise en charge en clinique et remboursements rapides en 48h.",
+    description: "Solutions santé AXA : Sehassur pour vos soins au Maroc et Sehassur Plus International pour une couverture médicale mondiale sans avance de frais.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000",
     alt: "Consultation médicale, prise en charge et mutuelle santé AXA",
     primaryCtaText: "PROTÉGER MA FAMILLE",
