@@ -1,36 +1,14 @@
-<svg width="195" height="105" viewBox="0 0 195 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Cercle avec la lettre A blanche à l'intérieur -->
-  <circle cx="42" cy="42" r="38" fill="#2d2d2d" />
-  <text
-    x="42"
-    y="58"
-    text-anchor="middle"
-    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-    font-weight="900"
-    font-size="50"
-    fill="#ffffff"
-  >
-    A
-  </text>
-
-  <!-- Lettre H majuscule bold -->
-  <text
-    x="90"
-    y="65"
-    font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-    font-weight="900"
-    font-size="68"
-    fill="#2d2d2d"
-  >
-    H
-  </text>
-
-  <!-- Point circulaire '.' après le H -->
-  <circle cx="152" cy="61" r="7" fill="#2d2d2d" />
-
-  <!-- Texte HAY SAADA et ASSURANCES sous le H. -->
-  <g fill="#2d2d2d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="13" letter-spacing="0.4">
-    <text x="91" y="82">HAY SAADA</text>
-    <text x="91" y="98">ASSURANCES</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <g transform="translate(4, 9)">
+    <!-- Cercle noir avec le A blanc découpé -->
+    <circle cx="16" cy="18" r="16" fill="#1c1f23" />
+    <path fill="#ffffff" fill-rule="evenodd" d="M14.5 5.5h3l10.5 22h-5.5l-2-4.5H11.5l-2 4.5H4L14.5 5.5zm1.5 6.5l-2.5 6.5h5L16 12z"/>
+    <!-- Lettre H noire majuscule bold -->
+    <path fill="#1c1f23" d="M29 5.5h5.5v9h8.5v-9h5.5v22h-5.5v-8h-8.5v8H29v-22z"/>
+    <!-- Point noir '.' -->
+    <circle cx="51.5" cy="24.5" r="3" fill="#1c1f23" />
+    <!-- Texte officiel Hay Saada Assurances -->
+    <text x="29" y="33" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="4.2" fill="#1c1f23" letter-spacing="0.4">HAY SAADA</text>
+    <text x="29" y="38" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="4.2" fill="#1c1f23" letter-spacing="0.3">ASSURANCES</text>
   </g>
 </svg>

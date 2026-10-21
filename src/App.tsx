@@ -1400,7 +1400,7 @@ const About = () => {
                 <MapPin size={18} className="text-[#001f5c]" />
               </div>
               <p className="text-xs sm:text-sm font-bold text-[#001f5c] leading-snug">
-                271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR)
+                271, Boulevard Chouhada, Bloc 17, Casablanca 20320
               </p>
             </div>
 
@@ -1713,7 +1713,7 @@ const MapSection = () => {
     { day: 'Dimanche', hours: 'Fermé' },
   ];
 
-  const address = "271, Certificat Bloc 17, Hay Mohammadi, 20250 - Hay Mohammadi (AR), Casablanca";
+  const address = "271, Boulevard Chouhada, Bloc 17, Casablanca 20320";
   const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26590.23114979144!2d-7.581896799999999!3d33.5936858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd6010530739%3A0x633512a2cb58ad57!2sHay%20Mohammadi%2C%20Casablanca!5e0!3m2!1sfr!2sma!4v1680000000000!5m2!1sfr!2sma`;
 
   return (
@@ -1866,7 +1866,7 @@ const Footer = ({
             <div className="text-xs text-blue-100/80 space-y-2 mb-5">
               <p className="flex items-center gap-2">
                 <span className="text-sm">📍</span>
-                <span>271, Certificat Bloc 17, Hay Mohammadi, Casablanca</span>
+                <span>271, Boulevard Chouhada, Bloc 17, Casablanca 20320</span>
               </p>
               <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
                 <span className="text-sm">📞</span>

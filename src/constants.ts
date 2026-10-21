@@ -133,7 +133,7 @@ export const CONTACT_INFO = {
   whatsappNumber: "212661180422",
   whatsappLink: "https://wa.me/212661180422",
   email: "axasaada9@gmail.com",
-  address: "271, Certificat Bloc 17, Hay Mohammadi, Casablanca",
+  address: "271, Boulevard Chouhada, Bloc 17, Casablanca 20320",
 };
 
 export const getWhatsAppUrl = (text?: string) => {
