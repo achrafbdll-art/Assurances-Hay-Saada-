@@ -1284,11 +1284,12 @@ const About = () => {
               <div className="border-[6px] border-[#001f5c] p-1.5 bg-white shadow-2xl relative">
                 <div className="relative overflow-hidden aspect-[4/5] sm:aspect-[3/4]">
                   <img
-                    src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&q=80&w=1000"
-                    alt="Deux collaborateurs célébrant avec un high five chez Assurances Hay Saada AXA"
-                    className="w-full h-full object-cover object-center"
-                    referrerPolicy="no-referrer"
-                  />
+                       src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663369607479/BeCxgLytEkVRhrcO.png"
+  alt="Équipe et clients réunis chez Assurances Hay Saada AXA"
+  className="w-full h-full object-cover object-center"
+  referrerPolicy="no-referrer"
+/>
+
                 </div>
 
                 {/* Bottom Red Banner */}
