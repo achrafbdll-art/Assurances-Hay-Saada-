@@ -444,7 +444,7 @@ const HERO_SLIDES: SlideData[] = [
     titleLine2: "NOTRE EXPERTISE.",
     highlightText: "CONTRAT SUR-MESURE",
     description: "Audit personnalisé de vos risques, garanties transparentes et souscription rapide avec votre Agent Général AXA au cœur de Casablanca.",
-    image: "https://media.licdn.com/dms/image/v2/D4E22AQFFM_UmqKoARg/feedshare-shrink_800/B4EZT00Y_cHcAg-/0/1739274164494?e=1793836800&v=beta&t=jEA_x4V6xlRWbCrNm48HjcluN5w09XJ4XHCSiHp2JrM",
+    image: "/assets/slide-1-expertise.jpg",
     alt: "Conseiller en assurance AXA en entretien personnalisé avec un client en agence",
     primaryCtaText: "NOS SOLUTIONS",
     primaryCtaHref: "#services",
@@ -553,6 +553,19 @@ const Hero = () => {
             alt={activeSlide.alt}
             className="w-full h-full object-cover object-center filter brightness-[1.08] contrast-[1.02]"
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              const fallbackMap: Record<number, string> = {
+                1: "/assets/slide-1-expertise.jpg",
+                2: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=2000",
+                3: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000",
+                4: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=2000",
+                5: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=2000"
+              };
+              const fb = fallbackMap[activeSlide.id] || "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=2000";
+              if (e.currentTarget.src !== fb) {
+                e.currentTarget.src = fb;
+              }
+            }}
           />
           {/* Voiles AXA allégés pour une photo de fond beaucoup plus claire et lumineuse */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#00153d]/75 via-[#001c52]/35 to-transparent" />
@@ -1710,8 +1723,8 @@ const Contact = () => {
 
 const MapSection = () => {
   const operatingHours = [
-    { day: 'Lundi - Vendredi', hours: '08:30 - 12:30, 14:30 - 18:30' },
-    { day: 'Samedi', hours: '09:00 - 12:00' },
+    { day: 'Lundi - Vendredi', hours: '09:00 - 17:00' },
+    { day: 'Samedi', hours: '09:00 - 13:00' },
     { day: 'Dimanche', hours: 'Fermé' },
   ];
 
